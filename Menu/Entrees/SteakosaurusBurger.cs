@@ -5,7 +5,6 @@ namespace DinoDiner.Menu.Entrees
     public class SteakosaurusBurger
     {
         private bool bun = true;
-        private bool pattie = true;
         private bool pickle = true;
         private bool ketchup = true;
         private bool mustard = true;

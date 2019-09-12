@@ -45,32 +45,32 @@ namespace DinoDiner.Menu.Entrees
             this.bun = false;
         }
 
-        public void Holdlettuce()
+        public void HoldLettuce()
         {
             this.lettuce = false;
         }
-        public void Holdtomato()
+        public void HoldTomato()
         {
             this.tomato = false;
         }
 
-        public void Holdonion()
+        public void HoldOnion()
         {
             this.onion = false;
         }
-        public void Holdpickle()
+        public void HoldPickle()
         {
             this.pickle = false;
         }
-        public void Holdketchup()
+        public void HoldKetchup()
         {
             this.ketchup = false;
         }
-        public void Holdmustard()
+        public void HoldMustard()
         {
             this.mustard = false;
         }
-        public void Holdmayo()
+        public void HoldMayo()
         {
             this.mayo = false;
         }

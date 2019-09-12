@@ -4,7 +4,7 @@ namespace DinoDiner.Menu.Entrees
 {
     public class Brontowurst
     {
-        private bool brautwurst = true;
+        
         private bool bun = true;
         private bool peppers = true;
         private bool onions = true;
@@ -19,6 +19,7 @@ namespace DinoDiner.Menu.Entrees
                 List<string> ingredients = new List<string>() { "brautwurst" };
                 if (bun) ingredients.Add("whole-wheat bun");
                 if (onions) ingredients.Add("onions");
+                if (peppers) ingredients.Add("peppers");
                 return ingredients;
             }
         }

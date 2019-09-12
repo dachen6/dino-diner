@@ -4,8 +4,8 @@ namespace DinoDiner.Menu.Entrees
 {
     public class DinoNuggets
     {
-        private bool Nugget = true;
-        uint x = 6;
+        
+        
         uint nuggetCount;
         public double Price { get; set; }
         public uint Calories { get; set; }
