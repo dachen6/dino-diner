@@ -21,23 +21,23 @@ namespace DinoDiner.Menu.Entrees
         {
             get
             {
-                List<string> ingredients = new List<string>() { "three steakburger pattie " };
+                List<string> ingredients = new List<string>() { "Steakburger Pattie", "Steakburger Pattie", "Steakburger Pattie" };
                 if (bun) ingredients.Add("Whole Wheat Bun");
-                if (lettuce) ingredients.Add("lettuce");
-                if (tomato) ingredients.Add("tomato");
-                if (onion) ingredients.Add("onion");
-                if (pickle) ingredients.Add("pickle");
-                if (ketchup) ingredients.Add("ketchup");
-                if (mustard) ingredients.Add("mustard");
-                if (mayo) ingredients.Add("mayo");
+                if (lettuce) ingredients.Add("Lettuce");
+                if (tomato) ingredients.Add("Tomato");
+                if (onion) ingredients.Add("Onion");
+                if (pickle) ingredients.Add("Pickle");
+                if (ketchup) ingredients.Add("Ketchup");
+                if (mustard) ingredients.Add("Mustard");
+                if (mayo) ingredients.Add("Mayo");
                 return ingredients;
             }
         }
 
         public TRexKingBurger()
         {
-            this.Price = 5.15;
-            this.Calories = 621;
+            this.Price = 8.45;
+            this.Calories = 728;
         }
 
         public void HoldBun()

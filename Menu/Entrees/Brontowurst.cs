@@ -16,10 +16,10 @@ namespace DinoDiner.Menu.Entrees
         {
             get
             {
-                List<string> ingredients = new List<string>() { "brautwurst" };
-                if (bun) ingredients.Add("whole-wheat bun");
-                if (onions) ingredients.Add("onions");
-                if (peppers) ingredients.Add("peppers");
+                List<string> ingredients = new List<string>() { "Brautwurst" };
+                if (bun) ingredients.Add("Whole Wheat Bun");
+                if (onions) ingredients.Add("Onion");
+                if (peppers) ingredients.Add("Peppers");
                 return ingredients;
             }
         }
@@ -30,16 +30,16 @@ namespace DinoDiner.Menu.Entrees
             this.Calories = 498;
         }
 
-        public void Holdbun()
+        public void HoldBun()
         {
             this.bun = false;
         }
 
-        public void Holdpeppers()
+        public void HoldPeppers()
         {
             this.peppers = false;
         }
-        public void Holdonions()
+        public void HoldOnion()
         {
             this.onions = false;
         }

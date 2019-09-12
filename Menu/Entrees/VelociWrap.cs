@@ -15,10 +15,10 @@ namespace DinoDiner.Menu.Entrees
         {
             get
             {
-                List<string> ingredients = new List<string>() { "flour tortilla" ,"chicken breast" };
-                if (dressing) ingredients.Add(" Ceasar dressing");
-                if (lettuce) ingredients.Add("romaine lettuce");
-                if (cheese) ingredients.Add("parmesan cheese");
+                List<string> ingredients = new List<string>() { "Flour Tortilla" ,"Chicken Breast" };
+                if (dressing) ingredients.Add("Ceasar Dressing");
+                if (lettuce) ingredients.Add("Romaine Lettuce");
+                if (cheese) ingredients.Add("Parmesan Cheese");
                 return ingredients;
             }
         }
@@ -26,7 +26,7 @@ namespace DinoDiner.Menu.Entrees
         public VelociWrap()
         {
             this.Price = 6.86;
-            this.Calories = 728;
+            this.Calories = 356;
         }
 
         public void HoldDressing()
