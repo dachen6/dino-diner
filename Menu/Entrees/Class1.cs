@@ -2,21 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu.Entrees
 {
-
-    public enum Size
+    class Class1
     {
-        Small,
-        Medium, 
-        Large
-    }
-
-    public abstract class Side
-    {
-        /// <summary>
-        /// Gets and sets the price
-        /// </summary>
         public double Price { get; set; }
 
         /// <summary>
@@ -29,10 +18,6 @@ namespace DinoDiner.Menu.Sides
         /// </summary>
         public List<string> Ingredients { get; }
 
-        /// <summary>
-        /// Gets or sets the size
-        /// </summary>
-        public abstract Size Size { get; set; }
 
     }
 }

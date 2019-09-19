@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace DinoDiner.Menu.Sides
+{
+    class Fryceritops { 
+        public class Fryceritop : Side
+    {
+
+        private Size size;
+        public override Size Size
+        {
+            set
+            {
+                size = value;
+                switch (size)
+                {
+                    case Size.Small:
+                        Price = 0.99;
+                        Calories = 420;
+                        break;
+                    case Size.Medium:
+                        Price = 1.45;
+                        Calories = 490;
+                        break;
+                    case Size.Large:
+                        Price = 1.95;
+                        Calories = 520;
+                        break;
+
+                }
+            }
+            get { return Size; }
+        }
+        public Fryceritop()
+        {
+            Price = this.Price;
+            Calories = this.Calories;
+            Ingredients.Add("Potatoes");
+
+            Ingredients.Add("Salt");
+            Ingredients.Add("Vegtable Oil");
+
+        }
+    }
+    
+    }
+}

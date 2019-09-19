@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
-    class Triceritots
+    class MezzorellaSicks
     {
-        public class Triceritot : Side
+        public class MezzorellaSick : Side
         {
 
             private Size size;
@@ -19,28 +19,28 @@ namespace DinoDiner.Menu.Sides
                     {
                         case Size.Small:
                             Price = 0.99;
-                            Calories = 352;
+                            Calories = 540;
                             break;
                         case Size.Medium:
                             Price = 1.45;
-                            Calories = 410;
+                            Calories = 610;
                             break;
                         case Size.Large:
                             Price = 1.95;
-                            Calories = 590;
+                            Calories = 720;
                             break;
 
                     }
                 }
                 get { return Size; }
             }
-            public Triceritot()
+            public MezzorellaSick()
             {
                 Price = this.Price;
                 Calories = this.Calories;
-                Ingredients.Add("Potatoes");
+                Ingredients.Add("Cheese Product");
 
-                Ingredients.Add("Salt");
+                Ingredients.Add("Breading");
                 Ingredients.Add("Vegtable Oil");
 
             }
