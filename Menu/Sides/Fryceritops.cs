@@ -4,46 +4,61 @@ using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
-    class Fryceritops { 
-        public class Fryceritop : Side
-    {
+    public class Fryceritops :Side{
 
         private Size size;
+
+        public Fryceritops()
+        {
+            this.Price = 0.99;
+            this.Calories = 222;
+
+
+        }
+
+        public override List<string> Ingredients
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Potato");
+                ingredients.Add("Salt");
+                ingredients.Add("Vegetable Oil");
+                return ingredients;
+            }
+            
+        }
+
         public override Size Size
         {
             set
             {
-                size = value;
+                this.size = value;
                 switch (size)
                 {
+                    
                     case Size.Small:
-                        Price = 0.99;
-                        Calories = 420;
+                        this.Price = 0.99;
+                        this.Calories = 220;
+                        this.size = Size.Small;
                         break;
                     case Size.Medium:
-                        Price = 1.45;
-                        Calories = 490;
+                        this.Price = 1.45;
+                        this.Calories = 365;
+                        this.size = Size.Medium;
                         break;
                     case Size.Large:
-                        Price = 1.95;
-                        Calories = 520;
+                        this.Price = 1.95;
+                        this.Calories = 480;
+                        this.size = Size.Large;
                         break;
 
                 }
             }
-            get { return Size; }
+            get { return size;}
         }
-        public Fryceritop()
-        {
-            Price = this.Price;
-            Calories = this.Calories;
-            Ingredients.Add("Potatoes");
 
-            Ingredients.Add("Salt");
-            Ingredients.Add("Vegtable Oil");
-
-        }
     }
     
-    }
 }
+

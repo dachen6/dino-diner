@@ -4,12 +4,22 @@ using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
-    class Triceritots
+    public class Triceritots: Side
     {
-        public class Triceritot : Side
+        public override List<string> Ingredients
         {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Potato");
+                ingredients.Add("Salt");
+                ingredients.Add("Vegtable Oil");
+                return ingredients;
+            }
 
-            private Size size;
+        }
+
+        private Size size;
             public override Size Size
             {
                 set
@@ -34,7 +44,7 @@ namespace DinoDiner.Menu.Sides
                 }
                 get { return Size; }
             }
-            public Triceritot()
+            public Triceritots()
             {
                 Price = this.Price;
                 Calories = this.Calories;
@@ -46,4 +56,4 @@ namespace DinoDiner.Menu.Sides
             }
         }
     }
-}
+
