@@ -2,9 +2,9 @@
 
 namespace DinoDiner.Menu.Entrees
 {    /// <summary>
-     /// items for PterodactylWings
+     /// items for PterodactylWings using base class entree
      /// </summary>
-    public class PterodactylWings
+    public class PterodactylWings:Entree
     {
         /// <summary>
         /// for people who like chicken and wingSause
@@ -12,15 +12,11 @@ namespace DinoDiner.Menu.Entrees
         private bool Chicken = true;
         private bool WingSauce = true;
 
-        /// <summary>
-        /// we can set and get the price and Calories
-        /// </summary>
-        public double Price { get; set; }
-        public uint Calories { get; set; }
+
         /// <summary>
         /// get what people want for PterodactylWings
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

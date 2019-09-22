@@ -2,9 +2,9 @@
 
 namespace DinoDiner.Menu.Entrees
 {    /// <summary>
-     /// items for VelociWrap
+     /// items for VelociWrap using base class entree
      /// </summary>
-    public class VelociWrap
+    public class VelociWrap : Entree
     {
         /// <summary>
         /// for people want Ceasar Dressing,Romaine Lettuce and Parmesan Cheese
@@ -12,15 +12,10 @@ namespace DinoDiner.Menu.Entrees
         private bool dressing = true;
         private bool lettuce = true;
         private bool cheese = true;
-        /// <summary>
-        /// we can set and get the price and Calories
-        /// </summary>
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-        /// <summary>
+        ///<summary>
         /// get what people want for VelociWrap
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

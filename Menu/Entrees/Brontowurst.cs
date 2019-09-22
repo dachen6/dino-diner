@@ -3,9 +3,9 @@
 namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
-    /// items for Brontowurst
+    /// items for Brontowurst using base class entree
     /// </summary>
-    public class Brontowurst
+    public class Brontowurst:Entree
     {
         /// <summary>
         /// for people who like bun, peppersand onions
@@ -13,15 +13,11 @@ namespace DinoDiner.Menu.Entrees
         private bool bun = true;
         private bool peppers = true;
         private bool onions = true;
-        /// <summary>
-        /// we can set and get the price and Calories
-        /// </summary>
-        public double Price { get; set; }
-        public uint Calories { get; set; }
+
         /// <summary>
         /// get what people want for Brontowurst
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

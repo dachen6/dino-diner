@@ -4,7 +4,9 @@ using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
-    
+    /// <summary>
+    /// using the base class size for MezzorellaSticks
+    /// </summary>
     public class MezzorellaSticks: Side
     {
         public override List<string> Ingredients
@@ -12,14 +14,16 @@ namespace DinoDiner.Menu.Sides
             get
             {
                 List<string> ingredients = new List<string>();
-                ingredients.Add("Potato");
-                ingredients.Add("Salt");
-                ingredients.Add("Vegtable Oil");
+                ingredients.Add("Breading");
+                ingredients.Add("Cheese Product");
+                ingredients.Add("Vegetable Oil");
                 return ingredients;
             }
 
         }
-
+        /// <summary>
+        /// determind different price and Calories with size for MezzorellaSticks
+        /// </summary>
         private Size size;
             public override Size Size
             {
@@ -29,30 +33,30 @@ namespace DinoDiner.Menu.Sides
                     switch (size)
                     {
                         case Size.Small:
-                            Price = 0.99;
-                            Calories = 540;
+                            this.Price = 0.99;
+                            this.Calories = 540;
                             break;
                         case Size.Medium:
-                            Price = 1.45;
-                            Calories = 610;
+                            this.Price = 1.45;
+                            this.Calories = 610;
                             break;
                         case Size.Large:
-                            Price = 1.95;
-                            Calories = 720;
+                            this.Price = 1.95;
+                            this.Calories = 720;
                             break;
 
                     }
                 }
-                get { return Size; }
+                get { return size; }
             }
-            public MezzorellaSticks()
+        /// <summary>
+        /// determind the base price and calories
+        /// </summary>
+        public MezzorellaSticks()
             {
-                Price = this.Price;
-                Calories = this.Calories;
-                Ingredients.Add("Cheese Product");
+                Price = 0.99;
+                Calories = 540;
 
-                Ingredients.Add("Breading");
-                Ingredients.Add("Vegtable Oil");
 
             }
         }

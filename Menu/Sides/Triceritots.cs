@@ -4,8 +4,14 @@ using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
+    /// <summary>
+    /// using the base class size for Triceritots
+    /// </summary>
     public class Triceritots: Side
     {
+        /// <summary>
+        /// add ingredient to MeteorMacAndCheese
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -13,12 +19,14 @@ namespace DinoDiner.Menu.Sides
                 List<string> ingredients = new List<string>();
                 ingredients.Add("Potato");
                 ingredients.Add("Salt");
-                ingredients.Add("Vegtable Oil");
+                ingredients.Add("Vegetable Oil");
                 return ingredients;
             }
 
         }
-
+        /// <summary>
+        /// determind different price and Calories with size for Triceritots
+        /// </summary>
         private Size size;
             public override Size Size
             {
@@ -42,16 +50,17 @@ namespace DinoDiner.Menu.Sides
 
                     }
                 }
-                get { return Size; }
-            }
-            public Triceritots()
-            {
-                Price = this.Price;
-                Calories = this.Calories;
-                Ingredients.Add("Potatoes");
+                get { return size; }
 
-                Ingredients.Add("Salt");
-                Ingredients.Add("Vegtable Oil");
+            }
+        /// <summary>
+        /// determind the base price and calories
+        /// </summary>
+        public Triceritots()
+            {
+                Price = 0.99;
+                Calories = 352;
+
 
             }
         }

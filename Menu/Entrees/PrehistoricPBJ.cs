@@ -3,24 +3,20 @@
 namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
-    /// items for PrehistoricPBJ
+    /// items for PrehistoricPBJ using base class entree
     /// </summary>
-    public class PrehistoricPBJ
+    public class PrehistoricPBJ:Entree
     {
         /// <summary>
         /// for people want peanutButte and jelly
         /// </summary>
         private bool peanutButter = true;
         private bool jelly = true;
-        /// <summary>
-        /// we can set and get the price and Calories
-        /// </summary>
-        public double Price { get; set; }
-        public uint Calories { get; set; }
+
         /// <summary>
         /// get what people want for PrehistoricPBJ
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

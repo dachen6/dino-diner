@@ -3,9 +3,9 @@
 namespace DinoDiner.Menu.Entrees
 {
     /// <summary>
-    /// items for TRexKingBurger
+    /// items for TRexKingBurger using base class entree
     /// </summary>
-    public class TRexKingBurger
+    public class TRexKingBurger :Entree
     {
         /// <summary>
         /// for people who like bun, Lettuce,Tomato,Onion,Pickle,Ketchup,Mustard and Mayo
@@ -20,14 +20,9 @@ namespace DinoDiner.Menu.Entrees
         private bool mayo = true;
 
         /// <summary>
-        /// we can set and get the price and Calories
-        /// </summary>
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-        /// <summary>
         /// get what people want for TRexKingBurger
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

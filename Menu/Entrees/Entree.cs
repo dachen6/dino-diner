@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class Entree
+    public abstract class Entree
     {
         public double Price { get; set; }
 
@@ -16,7 +16,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// Gets the ingredients list
         /// </summary>
-        public List<string> Ingredients { get; }
+        public abstract List<string> Ingredients { get; }
 
 
     }

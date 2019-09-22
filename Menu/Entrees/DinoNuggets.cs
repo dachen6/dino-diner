@@ -4,20 +4,16 @@ namespace DinoDiner.Menu.Entrees
 
 {
     /// <summary>
-    /// items for DinoNuggets
+    /// items for DinoNuggets using base class entree
     /// </summary>
-    public class DinoNuggets
+    public class DinoNuggets:Entree
     {
         private int count = 6;
-        /// <summary>
-        /// we can set and get the price and Calories
-        /// </summary>
-        public double Price { get; set; }
-        public uint Calories { get; set; }
+
         /// <summary>
         /// get what people want for DinoNuggets
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
            
             get
