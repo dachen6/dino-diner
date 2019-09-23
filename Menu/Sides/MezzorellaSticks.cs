@@ -54,8 +54,8 @@ namespace DinoDiner.Menu.Sides
         /// </summary>
         public MezzorellaSticks()
             {
-                Price = 0.99;
-                Calories = 540;
+                this.Price = 0.99;
+                this.Calories = 540;
 
 
             }

@@ -36,16 +36,16 @@ namespace DinoDiner.Menu.Sides
                     switch (size)
                     {
                         case Size.Small:
-                            Price = 0.99;
-                            Calories = 352;
+                            this.Price = 0.99;
+                            this.Calories = 352;
                             break;
                         case Size.Medium:
-                            Price = 1.45;
-                            Calories = 410;
+                            this.Price = 1.45;
+                            this.Calories = 410;
                             break;
                         case Size.Large:
-                            Price = 1.95;
-                            Calories = 590;
+                            this.Price = 1.95;
+                            this.Calories = 590;
                             break;
 
                     }
@@ -58,8 +58,8 @@ namespace DinoDiner.Menu.Sides
         /// </summary>
         public Triceritots()
             {
-                Price = 0.99;
-                Calories = 352;
+                this.Price = 0.99;
+                this.Calories = 352;
 
 
             }
