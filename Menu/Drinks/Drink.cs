@@ -31,7 +31,7 @@ namespace DinoDiner.Menu.Drinks
             /// </summary>
             public abstract List<string> Ingredients { get; }
 
-        protected Size size ;
+        public Size size ;
 
         /// <summary>
         /// Gets or sets the size

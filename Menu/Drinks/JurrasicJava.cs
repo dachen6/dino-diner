@@ -6,6 +6,13 @@ namespace DinoDiner.Menu.Drinks
 {
     public class JurrasicJava : Drink
     {
+        public bool ice = false;
+
+        public bool RoomForCream = false;
+
+        public bool Decaf = false;
+
+
         public override Size Size
         {
             set
@@ -14,16 +21,16 @@ namespace DinoDiner.Menu.Drinks
                 switch (size)
                 {
                     case Size.Small:
-                        Price = 1.50;
-                        Calories = 112;
+                        this.Price = 0.59;
+                        this.Calories = 2;
                         break;
                     case Size.Medium:
-                        Price = 2.00;
-                        Calories = 156;
+                        this.Price = 0.99;
+                        this.Calories = 4;
                         break;
                     case Size.Large:
-                        Price = 1.95;
-                        Calories = 280;
+                        this.Price = 1.45;
+                        this.Calories = 8;
                         break;
 
                 }
@@ -36,12 +43,25 @@ namespace DinoDiner.Menu.Drinks
             get
             {
                 List<string> ingredients = new List<string>();
-                ingredients.Add("Natural Flavors");
                 ingredients.Add("Water");
-                ingredients.Add("Cane Sugar");
+                ingredients.Add("Coffee");
                 return ingredients;
             }
 
+        }
+        public JurrasicJava()
+        {
+            this.Price = 1.50;
+            this.Calories = 112;
+        }
+        public void LeaveRoomForCream()
+        {
+            RoomForCream = true;
+        }
+
+        public  void AddIce()
+        {
+            ice = true;
         }
     }
 }
