@@ -40,11 +40,11 @@ namespace DinoDiner.Menu.Drinks
         public virtual Size Size { get { return size; } set { size = value; } }
             
             
-            public bool ice = true;
+            public bool Ice = true;
 
             public void HoldIce()
             {
-                ice = false;
+                Ice = false;
             }
         public enum SodasaurusFlavor
         {
