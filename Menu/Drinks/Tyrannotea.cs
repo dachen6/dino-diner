@@ -14,21 +14,43 @@ namespace DinoDiner.Menu.Drinks
             set
             {
                 size = value;
-                switch (size)
+                if (Sweet)
                 {
-                    case Size.Small:
-                        Price = 0.99;
-                        Calories = 8;
-                        break;
-                    case Size.Medium:
-                        Price = 1.49;
-                        Calories = 16;
-                        break;
-                    case Size.Large:
-                        Price = 1.99;
-                        Calories = 32;
-                        break;
+                    switch (size)
+                    {
+                        case Size.Small:
+                            Price = 0.99;
+                            Calories = 16;
+                            break;
+                        case Size.Medium:
+                            Price = 1.49;
+                            Calories = 32;
+                            break;
+                        case Size.Large:
+                            Price = 1.99;
+                            Calories = 64;
+                            break;
 
+                    }
+                }
+                else
+                {
+                    switch (size)
+                    {
+                        case Size.Small:
+                            Price = 0.99;
+                            Calories = 8;
+                            break;
+                        case Size.Medium:
+                            Price = 1.49;
+                            Calories = 16;
+                            break;
+                        case Size.Large:
+                            Price = 1.99;
+                            Calories = 32;
+                            break;
+
+                    }
                 }
             }
             get { return size; }
@@ -47,9 +69,11 @@ namespace DinoDiner.Menu.Drinks
             }
 
         }
-        public  void AddLemon()
+        public void AddLemon()
         {
             Lemon = true;
+
         }
+
     }
 }

@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DinoDiner.Menu.Sides;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public enum Size
-        {
-            Small,
-            Medium,
-            Large
-        }
 
 
 
-        public abstract class Drink
+
+    public abstract class Drink
         {
 
             /// <summary>
@@ -31,7 +27,7 @@ namespace DinoDiner.Menu.Drinks
             /// </summary>
             public abstract List<string> Ingredients { get; }
 
-        public Size size ;
+        protected Size size ;
 
         /// <summary>
         /// Gets or sets the size

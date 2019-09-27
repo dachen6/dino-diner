@@ -15,7 +15,7 @@ namespace DinoDiner.Menu.Drinks
         {
             set
             {
-                size = value;
+               size = value;
                 switch (size)
                 {
                     case Size.Small:

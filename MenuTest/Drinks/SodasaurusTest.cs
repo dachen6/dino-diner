@@ -1,23 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Drinks;
 using DinoDiner.Menu;
+using DinoDiner.Menu.Drinks;
 using Xunit;
 namespace MenuTest.Drinks
 {
     public class SodasaurusTest
     {
-        //The ability to set each possible flavor
+        /// <summary>
+        /// 
+        /// </summary>
         [Fact]
         public void shouldBeAbleToetFlavorToCherry()
         {
             Sodasaurus soda = new Sodasaurus();
             soda.Flavor = Drink.SodasaurusFlavor.Cherry;
             Assert.Equal<Drink.SodasaurusFlavor>(Drink.SodasaurusFlavor.Cherry, soda.Flavor);
-
         }
-        //The correct default price, calories, ice, and size
+
+        [Fact]
+        public void shouldBeAbleToetFlavorToOrange()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = Drink.SodasaurusFlavor.Orange;
+            Assert.Equal<Drink.SodasaurusFlavor>(Drink.SodasaurusFlavor.Orange, soda.Flavor);
+        }
+        [Fact]
+        public void shouldBeAbleToetFlavorToVanilla()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = Drink.SodasaurusFlavor.Vanilla;
+            Assert.Equal<Drink.SodasaurusFlavor>(Drink.SodasaurusFlavor.Vanilla, soda.Flavor);
+        }
+        [Fact]
+        public void shouldBeAbleToetFlavorToChocolate()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = Drink.SodasaurusFlavor.Chocolate;
+            Assert.Equal<Drink.SodasaurusFlavor>(Drink.SodasaurusFlavor.Chocolate, soda.Flavor);
+        }
+        [Fact]
+        public void shouldBeAbleToetFlavorToRootBeer()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = Drink.SodasaurusFlavor.RootBeer;
+            Assert.Equal<Drink.SodasaurusFlavor>(Drink.SodasaurusFlavor.RootBeer, soda.Flavor);
+        }
+        [Fact]
+        public void shouldBeAbleToetFlavorToCola()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = Drink.SodasaurusFlavor.Cola;
+            Assert.Equal<Drink.SodasaurusFlavor>(Drink.SodasaurusFlavor.Cola, soda.Flavor);
+        }
+        [Fact]
+        public void shouldBeAbleToetFlavorToLime()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Flavor = Drink.SodasaurusFlavor.Lime;
+            Assert.Equal<Drink.SodasaurusFlavor>(Drink.SodasaurusFlavor.Lime, soda.Flavor);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [Fact]
         public void shouldHaveCorrectDefaultPrice()
         {
@@ -73,6 +120,22 @@ namespace MenuTest.Drinks
         {
             Sodasaurus soda = new Sodasaurus();
             Assert.True(soda.Ice);
+        }
+        [Fact]
+        public void ShouldHaveCorrectIngedients()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Contains<string>("Water", soda.Ingredients);
+            Assert.Contains<string>("Natural Flavors", soda.Ingredients);
+            Assert.Contains<string>("Cane Sugar", soda.Ingredients);
+            Assert.Equal<int>(3, soda.Ingredients.Count);
+        }
+        [Fact]
+        public void HoldIceShouldRemoveice()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.HoldIce();
+            Assert.False(soda.Ice);
         }
     }
 }
