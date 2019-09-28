@@ -6,7 +6,7 @@ namespace DinoDiner.Menu.Drinks
 {
     public class JurrasicJava : Drink
     {
-        public bool ice = false;
+        public bool Ice = false;
 
         public bool RoomForCream = false;
 
@@ -29,7 +29,7 @@ namespace DinoDiner.Menu.Drinks
                         this.Calories = 4;
                         break;
                     case Size.Large:
-                        this.Price = 1.45;
+                        this.Price = 1.49;
                         this.Calories = 8;
                         break;
 
@@ -51,8 +51,10 @@ namespace DinoDiner.Menu.Drinks
         }
         public JurrasicJava()
         {
-            this.Price = 1.50;
-            this.Calories = 112;
+            this.Price = 0.59;
+            this.Calories = 2;
+            this.Ice = false;
+
         }
         public void LeaveRoomForCream()
         {
@@ -61,7 +63,7 @@ namespace DinoDiner.Menu.Drinks
 
         public  void AddIce()
         {
-            ice = true;
+            Ice = true;
         }
     }
 }

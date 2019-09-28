@@ -71,12 +71,17 @@ namespace MenuTest.Drinks
             Sodasaurus soda = new Sodasaurus();
             Assert.Equal<double>(1.50, soda.Price);
         }
+        [Fact]
+        public void shouldHaveCorrectDefaultCalories()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Equal<uint>(112, soda.Calories);
+        }
         //The correct price and calories after changing to small, medium, and large sizes.
         [Fact]
         public void ShouldHaveCurrectPriceAfterSettingSamll()
         {
             Sodasaurus soda = new Sodasaurus();
-            soda.Size = Size.Medium;
             soda.Size = Size.Small;
             Assert.Equal<double>(1.50, soda.Price);
         }
@@ -94,6 +99,7 @@ namespace MenuTest.Drinks
             soda.Size = Size.Large;
             Assert.Equal<double>(2.50, soda.Price);
         }
+        [Fact]
         public void ShouldHaveCurrectcaloriesAfterSettingSamll()
         {
             Sodasaurus soda = new Sodasaurus();

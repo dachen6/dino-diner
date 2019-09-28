@@ -63,6 +63,7 @@ namespace DinoDiner.Menu.Drinks
                 List<string> ingredients = new List<string>();
                 if (Lemon) ingredients.Add("Lemon");
                 ingredients.Add("Water");
+                ingredients.Add("Tea");
                 if (Sweet) ingredients.Add("Cane Sugar");
 
                 return ingredients;
@@ -74,6 +75,10 @@ namespace DinoDiner.Menu.Drinks
             Lemon = true;
 
         }
-
+        public Tyrannotea()
+        {
+            this.Price = 0.99;
+            this.Calories = 8;
+        }
     }
 }
