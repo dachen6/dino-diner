@@ -6,13 +6,18 @@ namespace DinoDiner.Menu.Drinks
 {
     public class JurrasicJava : Drink
     {
+        /// <summary>
+        /// we dont add ice RoomForCream decaf in JurrasicJava
+        /// </summary>
         public bool Ice = false;
 
         public bool RoomForCream = false;
 
         public bool Decaf = false;
 
-
+        /// <summary>
+        /// change price and calories of JurrasicJava with size
+        /// </summary>
         public override Size Size
         {
             set
@@ -38,6 +43,9 @@ namespace DinoDiner.Menu.Drinks
             get { return size; }
 
         }
+        /// <summary>
+        /// show what in JurrasicJava
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -49,6 +57,9 @@ namespace DinoDiner.Menu.Drinks
             }
 
         }
+        /// <summary>
+        /// set the base price and calories for JurrasicJava
+        /// </summary>
         public JurrasicJava()
         {
             this.Price = 0.59;
@@ -56,11 +67,16 @@ namespace DinoDiner.Menu.Drinks
             this.Ice = false;
 
         }
+        /// <summary>
+        /// add lemon
+        /// </summary>
         public void LeaveRoomForCream()
         {
             RoomForCream = true;
         }
-
+        /// <summary>
+        /// add ice
+        /// </summary>
         public  void AddIce()
         {
             Ice = true;

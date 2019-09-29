@@ -6,12 +6,18 @@ namespace DinoDiner.Menu.Drinks
 {
     public class Sodasaurus : Drink
     {
+        /// <summary>
+        /// given all kind of falvor
+        /// </summary>
         private SodasaurusFlavor flavor;
         public SodasaurusFlavor Flavor{
             get { return flavor; }
             set { flavor = value; }
     }
-    public override Size Size
+        /// <summary>
+        /// change price and calories of Sodasauruwith size
+        /// </summary>
+        public override Size Size
         {
             set
             {
@@ -36,6 +42,9 @@ namespace DinoDiner.Menu.Drinks
             get { return size; }
 
         }
+        /// <summary>
+        /// show waht in Sodasaurus
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -48,6 +57,9 @@ namespace DinoDiner.Menu.Drinks
             }
 
         }
+        /// <summary>
+        /// set the base price and calories in Sodasaurus
+        /// </summary>
         public Sodasaurus(){
             this.Price = 1.50;
             this.Calories = 112;

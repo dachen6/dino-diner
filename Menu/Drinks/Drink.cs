@@ -26,7 +26,9 @@ namespace DinoDiner.Menu.Drinks
             /// Gets the ingredients list
             /// </summary>
             public abstract List<string> Ingredients { get; }
-
+        /// <summary>
+        /// creat a size for class to use
+        /// </summary>
         protected Size size ;
 
         /// <summary>
@@ -37,11 +39,16 @@ namespace DinoDiner.Menu.Drinks
             
             
             public bool Ice = true;
-
+        /// <summary>
+        /// add ice in the drink
+        /// </summary>
             public void HoldIce()
             {
                 Ice = false;
             }
+        /// <summary>
+        /// list all kind of flavor
+        /// </summary>
         public enum SodasaurusFlavor
         {
             Cola, Orange, Vanilla, Chocolate, RootBeer, Cherry, Lime

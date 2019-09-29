@@ -93,7 +93,7 @@ namespace MenuTest.Drinks
         }
 
         [Fact]
-        public void HoldIceShouldAddLemons()
+        public void AddLemonShouldAddLemons()
         {
             Tyrannotea tn = new Tyrannotea();
             tn.AddLemon();

@@ -6,9 +6,14 @@ namespace DinoDiner.Menu.Drinks
 {
     public class Tyrannotea : Drink
     {
+        /// <summary>
+        /// in the beigneer, we don't add suger and lemon
+        /// </summary>
         public bool Sweet = false;
         public bool Lemon = false;
-
+        /// <summary>
+        /// we change the price and calories with size and sweet
+        /// </summary>
         public override Size Size
         {
             set
@@ -56,6 +61,9 @@ namespace DinoDiner.Menu.Drinks
             get { return size; }
 
         }
+        /// <summary>
+        /// show what in the Tyrannotea
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -70,11 +78,17 @@ namespace DinoDiner.Menu.Drinks
             }
 
         }
+        /// <summary>
+        ///add lemon 
+        /// </summary>
         public void AddLemon()
         {
             Lemon = true;
 
         }
+        /// <summary>
+        /// the base price and calories of Tyrannotea 
+        /// </summary>
         public Tyrannotea()
         {
             this.Price = 0.99;

@@ -62,9 +62,7 @@ namespace MenuTest.Drinks
             Assert.Equal<Drink.SodasaurusFlavor>(Drink.SodasaurusFlavor.Lime, soda.Flavor);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
+
         [Fact]
         public void shouldHaveCorrectDefaultPrice()
         {

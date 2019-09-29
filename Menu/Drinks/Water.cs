@@ -4,10 +4,19 @@ using System.Text;
 
 namespace DinoDiner.Menu.Drinks
 {
+    /// <summary>
+    /// Drink water 
+    /// </summary>
     public class Water : Drink
     {
-        public bool Lemon = true;
-        
+
+        /// <summary>
+        /// set we don't add lemon in the begineer
+        /// </summary>
+        public bool Lemon = false;
+        /// <summary>
+        /// write the type of drink for costome
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -19,14 +28,21 @@ namespace DinoDiner.Menu.Drinks
             }
 
         }
+        /// <summary>
+        /// Add lemon
+        /// </summary>
         public void AddLemon()
         {
-            this.Lemon = false;
+            this.Lemon = true;
         }
+        /// <summary>
+        /// set water price and calories
+        /// </summary>
         public Water()
         {
             this.Price = 0.10;
             this.Calories = 0;
         }
+
     }
 }
