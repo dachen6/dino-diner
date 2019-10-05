@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// using the base class size for MeteorMacAndCheese
@@ -61,6 +61,10 @@ namespace DinoDiner.Menu.Sides
                 this.Calories = 420;
 
             }
+        public override string ToString()
+        {
+            return $"{size.ToString()} Meteor Mac and Cheese";
         }
+    }
     }
 

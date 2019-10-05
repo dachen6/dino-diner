@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// items for TRexKingBurger using base class entree
@@ -103,6 +103,9 @@ namespace DinoDiner.Menu.Entrees
             this.mayo = false;
         }
 
-
+        public override string ToString()
+        {
+            return "T-Rex King Burger";
+        }
     }
 }

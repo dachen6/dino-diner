@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-    public class JurrasicJava : Drink
+    public class JurassicJava : Drink
     {
         /// <summary>
         /// we dont add ice RoomForCream decaf in JurrasicJava
@@ -60,7 +60,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// set the base price and calories for JurrasicJava
         /// </summary>
-        public JurrasicJava()
+        public JurassicJava()
         {
             this.Price = 0.59;
             this.Calories = 2;
@@ -80,6 +80,11 @@ namespace DinoDiner.Menu.Drinks
         public  void AddIce()
         {
             Ice = true;
+        }
+        public override string ToString()
+        {
+            if (Decaf) { return $"{size.ToString()} Decaf Jurassic Java"; }
+            else { return $"{size.ToString()} Jurassic Java"; }
         }
     }
 }

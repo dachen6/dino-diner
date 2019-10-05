@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// using the base class size for MezzorellaSticks
@@ -59,5 +59,9 @@ namespace DinoDiner.Menu.Sides
 
 
             }
+        public override string ToString()
+        {
+            return $"{size.ToString()} Mezzorella Sticks";
         }
+    }
     }

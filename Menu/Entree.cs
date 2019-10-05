@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
-
-    public abstract class Side
+    public abstract class Entree:IMenuItem
     {
-        /// <summary>
-        /// Gets and sets the price
-        /// </summary>
         public double Price { get; set; }
 
         /// <summary>
@@ -23,12 +18,6 @@ namespace DinoDiner.Menu.Sides
         /// </summary>
         public abstract List<string> Ingredients { get; }
 
-        /// <summary>
-        /// Gets or sets the size
-        /// </summary>
-        /// public Size size ;
-        public Size size;
-        public virtual Size Size { get { return size; } set { size = value; } }
 
     }
 }

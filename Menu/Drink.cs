@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Sides;
+using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-
-
-
-
-    public abstract class Drink
+    public abstract class Drink: IMenuItem
         {
 
             /// <summary>
@@ -38,7 +34,7 @@ namespace DinoDiner.Menu.Drinks
         public virtual Size Size { get { return size; } set { size = value; } }
             
             
-            public bool Ice = true;
+           public bool Ice = true;
         /// <summary>
         /// add ice in the drink
         /// </summary>
@@ -46,13 +42,7 @@ namespace DinoDiner.Menu.Drinks
             {
                 Ice = false;
             }
-        /// <summary>
-        /// list all kind of flavor
-        /// </summary>
-        public enum SodasaurusFlavor
-        {
-            Cola, Orange, Vanilla, Chocolate, RootBeer, Cherry, Lime
-        }
+          
         }
     }
 

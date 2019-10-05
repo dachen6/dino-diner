@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// items for PrehistoricPBJ using base class entree
@@ -47,6 +47,10 @@ namespace DinoDiner.Menu.Entrees
         public void HoldJelly()
         {
             this.jelly = false;
+        }
+        public override string ToString()
+        {
+            return "Prehistoric PB&J";
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// we use the base class 'size' for Fryceritops
@@ -64,6 +64,10 @@ namespace DinoDiner.Menu.Sides
                 }
             }
             get { return size;}
+        }
+        public override string ToString()
+        {
+            return $"{size.ToString()} Friceritops";
         }
 
     }

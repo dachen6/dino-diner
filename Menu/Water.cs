@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Drink water 
@@ -43,6 +43,9 @@ namespace DinoDiner.Menu.Drinks
             this.Price = 0.10;
             this.Calories = 0;
         }
-
+        public override string ToString()
+        {
+            return $"{size.ToString()} Water";
+        }
     }
 }

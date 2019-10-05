@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+
+namespace DinoDiner.Menu
 {
     public class Tyrannotea : Drink
     {
@@ -93,6 +94,11 @@ namespace DinoDiner.Menu.Drinks
         {
             this.Price = 0.99;
             this.Calories = 8;
+        }
+        public override string ToString()
+        {
+            if (Sweet) { return $"{size.ToString()} Sweet Tyrannotea"; }
+            else { return $"{size.ToString()} Tyrannotea"; }
         }
     }
 }
