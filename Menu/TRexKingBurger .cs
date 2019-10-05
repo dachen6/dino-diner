@@ -102,7 +102,10 @@ namespace DinoDiner.Menu
         {
             this.mayo = false;
         }
-
+        /// <summary>
+        /// able to print T-Rex King Burger 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "T-Rex King Burger";

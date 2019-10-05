@@ -65,6 +65,10 @@ namespace DinoDiner.Menu
             }
             get { return size;}
         }
+        /// <summary>
+        /// able yo print Friceritops with size
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{size.ToString()} Friceritops";

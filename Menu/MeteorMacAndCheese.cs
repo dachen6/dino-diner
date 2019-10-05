@@ -61,6 +61,10 @@ namespace DinoDiner.Menu
                 this.Calories = 420;
 
             }
+        /// <summary>
+        ///able to print Meteor Mac and Cheese and its size
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{size.ToString()} Meteor Mac and Cheese";

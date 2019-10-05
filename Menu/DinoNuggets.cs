@@ -49,6 +49,10 @@ namespace DinoDiner.Menu
             Price += 0.25;
             Calories += 59; 
         }
+        /// <summary>
+        /// able to print Dino-Nuggets
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Dino-Nuggets";

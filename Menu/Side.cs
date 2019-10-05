@@ -5,7 +5,9 @@ using DinoDiner.Menu;
 
 namespace DinoDiner.Menu
 {
-
+    /// <summary>
+    /// the base side of all side item
+    /// </summary>
     public abstract class Side:IMenuItem
     {
         /// <summary>
@@ -28,6 +30,9 @@ namespace DinoDiner.Menu
         /// </summary>
         /// public Size size ;
         public Size size;
+        /// <summary>
+        /// crate a value of size
+        /// </summary>
         public virtual Size Size { get { return size; } set { size = value; } }
 
     }

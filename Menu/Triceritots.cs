@@ -63,6 +63,10 @@ namespace DinoDiner.Menu
 
 
             }
+        /// <summary>
+        /// able to print Triceritots and it's size
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{size.ToString()} Triceritots";

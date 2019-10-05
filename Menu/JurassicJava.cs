@@ -4,6 +4,9 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// items for JurassicJava using base class drink
+    /// </summary>
     public class JurassicJava : Drink
     {
         /// <summary>
@@ -81,6 +84,10 @@ namespace DinoDiner.Menu
         {
             Ice = true;
         }
+        /// <summary>
+        /// able to print Jurassic Java and decaf or not and the size
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             if (Decaf) { return $"{size.ToString()} Decaf Jurassic Java"; }

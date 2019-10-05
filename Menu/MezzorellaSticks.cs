@@ -59,6 +59,10 @@ namespace DinoDiner.Menu
 
 
             }
+        /// <summary>
+        /// print Mezzorella Sticks followed by its size
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{size.ToString()} Mezzorella Sticks";

@@ -43,6 +43,10 @@ namespace DinoDiner.Menu
             this.Price = 0.10;
             this.Calories = 0;
         }
+        /// <summary>
+        /// able to print water and its size
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{size.ToString()} Water";

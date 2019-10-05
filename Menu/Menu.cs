@@ -4,8 +4,14 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// the menu to show all the people order
+    /// </summary>
     public class Menu
     {
+        /// <summary>
+        /// list all the entree
+        /// </summary>
         public List<IMenuItem> AvailableEntrees { get; } = new List<IMenuItem>()
         {
             new Brontowurst(),
@@ -16,6 +22,9 @@ namespace DinoDiner.Menu
             new TRexKingBurger(),
             new VelociWrap()
         };
+        /// <summary>
+        /// list all the side
+        /// </summary>
         public List<IMenuItem> AvailableSides { get; } = new List<IMenuItem>()
         {
             new Fryceritops(),
@@ -23,6 +32,9 @@ namespace DinoDiner.Menu
             new MezzorellaSticks(),
             new Triceritots(),
         };
+        /// <summary>
+        /// list all the drink
+        /// </summary>
         public List<IMenuItem> AvailableDrinks { get; } = new List<IMenuItem>()
         {
             new Sodasaurus(),
@@ -30,6 +42,9 @@ namespace DinoDiner.Menu
             new JurassicJava(),
             new Water(),
         };
+        /// <summary>
+        /// list all the combo
+        /// </summary>
         public List<IMenuItem> AvailableCombos { get; } = new List<IMenuItem>()
         {
            new CretaceousCombo ( new Brontowurst()),
@@ -40,15 +55,34 @@ namespace DinoDiner.Menu
            new CretaceousCombo ( new TRexKingBurger()),
            new CretaceousCombo ( new VelociWrap())
         };
-        public List<IMenuItem> AvailableMenuItems {
-            get
+        /// <summary>
+        /// list all the menu item
+        /// </summary>
+        public List<IMenuItem> AvailableMenuItems
         {
-            List<IMenuItem> item = new List<IMenuItem>();
-            item.AddRange(AvailableCombos);
+            get
+            {
+                List<IMenuItem> item = new List<IMenuItem>();
+                item.AddRange(AvailableCombos);
                 item.AddRange(AvailableDrinks);
                 item.AddRange(AvailableSides);
                 item.AddRange(AvailableEntrees);
                 return item;
+            }
+        }
+        /// <summary>
+        /// print the menu item
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+           foreach(object i in AvailableMenuItems)
+            {
+                sb.Append(i.ToString()+"\n");
+
+            }
+            return sb.ToString();
         }
     }
 }

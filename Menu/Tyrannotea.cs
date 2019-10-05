@@ -5,6 +5,9 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// items for tyrannotea using base class drink
+    /// </summary>
     public class Tyrannotea : Drink
     {
         /// <summary>
@@ -95,6 +98,10 @@ namespace DinoDiner.Menu
             this.Price = 0.99;
             this.Calories = 8;
         }
+        /// <summary>
+        /// able to print Sweet Tyrannotea if it's sweet and Tyrannotea if it's not sweet and its size
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             if (Sweet) { return $"{size.ToString()} Sweet Tyrannotea"; }

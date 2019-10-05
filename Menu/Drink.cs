@@ -4,7 +4,9 @@ using System.Text;
 using DinoDiner.Menu;
 
 namespace DinoDiner.Menu
-{
+{/// <summary>
+/// the bse classs of all drink item
+/// </summary>
     public abstract class Drink: IMenuItem
         {
 

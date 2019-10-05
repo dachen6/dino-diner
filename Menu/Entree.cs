@@ -4,8 +4,14 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// the base calss for all the entree
+    /// </summary>
     public abstract class Entree:IMenuItem
     {
+        /// <summary>
+        /// get and set price
+        /// </summary>
         public double Price { get; set; }
 
         /// <summary>

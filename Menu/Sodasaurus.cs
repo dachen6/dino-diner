@@ -4,12 +4,18 @@ using System.Text;
 using DinoDiner.Menu;
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// items for sodasaurus using base class drink
+    /// </summary>
     public class Sodasaurus : Drink
     {
         /// <summary>
         /// given all kind of falvor
         /// </summary>
         private SodasaurusFlavor flavor;
+        /// <summary>
+        /// set a value of falvor
+        /// </summary>
         public SodasaurusFlavor Flavor{
             get { return flavor; }
             set { flavor = value; }
@@ -65,6 +71,10 @@ namespace DinoDiner.Menu
             this.Calories = 112;
             
         }
+        /// <summary>
+        /// able to print Sodasaurus and its size and flavor
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{size.ToString()} {flavor.ToString()} Sodasaurus";
