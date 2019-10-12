@@ -54,8 +54,14 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="CustomizeCombo.xaml.cs">
+      <DependentUpon>CustomizeCombo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DrinkSelection.xaml.cs">
       <DependentUpon>DrinkSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Flavor.xaml.cs">
+      <DependentUpon>Flavor.xaml</DependentUpon>
     </Compile>
     <Compile Include="SideSelection.xaml.cs">
       <DependentUpon>SideSelection.xaml</DependentUpon>
@@ -64,11 +70,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CustomizeCombo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DrinkSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EntreeSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Flavor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -127,6 +141,47 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\combo.jpg" />
+    <Resource Include="Assets\Dino.jpg" />
+    <Resource Include="Assets\side.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\drink.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Brontowurst.jpg" />
+    <Resource Include="Assets\Prehistoric PB&amp;J.jpg" />
+    <Resource Include="Assets\Steakosaurus Burger.jpg" />
+    <Resource Include="Assets\T-Rex King Burger.jpg" />
+    <Resource Include="Assets\Veloci-Wrap.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Pterdactyl-Wings.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\JurrasicJava.jpg" />
+    <Resource Include="Assets\Sodasaurus.jpg" />
+    <Resource Include="Assets\Tyrannotea.jpg" />
+    <Resource Include="Assets\Water.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Entree.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\flavor.jpg" />
+    <Resource Include="Assets\ice.jpg" />
+    <Resource Include="Assets\lemon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Fryceritops.jpg" />
+    <Resource Include="Assets\Meteor Mac - Cheese.jpg" />
+    <Resource Include="Assets\Mozzerella Sticks.jpg" />
+    <Resource Include="Assets\Triceritots.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

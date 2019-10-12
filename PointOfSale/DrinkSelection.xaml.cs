@@ -23,6 +23,37 @@ namespace PointOfSale
         public DrinkSelection()
         {
             InitializeComponent();
+            flavor.IsEnabled = false;
+            Ice.IsEnabled = false;
+            lemon.IsEnabled = false;
+        }
+        void SelectFlavor(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new Flavor());
+        }
+        void Soda(object sender, RoutedEventArgs args)
+        {
+            flavor.IsEnabled = true;
+            Ice.IsEnabled = false;
+            lemon.IsEnabled = false;
+        }
+        void Tyra(object sender, RoutedEventArgs args)
+        {
+            flavor.IsEnabled = true;
+            Ice.IsEnabled = false;
+            lemon.IsEnabled = true;
+        }
+        void java(object sender, RoutedEventArgs args)
+        {
+            flavor.IsEnabled = true;
+            Ice.IsEnabled = true;
+            lemon.IsEnabled = false;
+        }
+        void water(object sender, RoutedEventArgs args)
+        {
+            flavor.IsEnabled = false;
+            Ice.IsEnabled = false;
+            lemon.IsEnabled = true;
         }
     }
 }

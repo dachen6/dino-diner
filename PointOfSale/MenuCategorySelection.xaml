@@ -7,19 +7,53 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MenuCategorySelection">
-
-    <Grid RenderTransformOrigin="0.473,0.505">
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Button Click="SelectCombo" Grid.Column="0" Grid.Row="0">Combo</Button>
-        <Button Click="SelectEntree" Grid.Column="0" Grid.Row="1">Entrees</Button>
-        <Button Click="SelectSide" Grid.Column="1" Grid.Row="0">Sides</Button>
-        <Button Click="SelectDrink" Grid.Column="1" Grid.Row="1">Drink</Button>
-    </Grid>
+    <DockPanel>
+        <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" Height="30" TextWrapping="Wrap" Text="What to order" VerticalAlignment="Top" Width="113"/>
+    
+        <Grid RenderTransformOrigin="0.473,0.505">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Assets/background.jpg"/>
+                </Grid.Background>
+                <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+                <Button  Width="300" Height="140" Click="SelectCombo" Grid.Column="0" Grid.Row="0" VerticalContentAlignment="Top">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Assets/combo.jpg">
+                        </ImageBrush>
+                    </Button.Background>
+                    Combo
+            </Button>
+        
+                <Button  Width="300" Height="140" Click="SelectCombo" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Top">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Assets/Entree.jpg">
+                        </ImageBrush>
+                    </Button.Background>
+                    Entrees
+                </Button>
+        
+                <Button Width="250" Height="140" Click="SelectSide" Grid.Column="1" Grid.Row="0" VerticalContentAlignment="Top">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Assets/side.jpg">
+                        </ImageBrush>
+                    </Button.Background>
+                    Sides
+            </Button>
+        
+                <Button Width="250" Height="140" Click="SelectDrink" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Top">
+                    <Button.Background>
+                        <ImageBrush ImageSource="Assets/drink.jpg">
+                        </ImageBrush>
+                    </Button.Background>
+                    Drink
+            </Button>
+        
+        </Grid>
+    </DockPanel>
 </Page>

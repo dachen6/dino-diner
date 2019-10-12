@@ -9,6 +9,23 @@
       Title="DrinkSelection">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/background.jpg"/>
+        </Grid.Background>
         <WrapPanel RenderTransformOrigin="0.51,0.501">
             <WrapPanel.Resources>
                 <Style TargetType="Button">
@@ -16,10 +33,65 @@
                     <Setter Property="Height" Value="140"/>
                 </Style>
             </WrapPanel.Resources>
-            <Button>Sodasaurus</Button>
-            <Button >Tyrannotea</Button>
-            <Button>Jurrasic Java</Button>
-            <Button>Water</Button>
         </WrapPanel>
+        <Button Click="Soda" Width="200" Height="80"  Grid.Column="0" Grid.Row="2" VerticalContentAlignment="Top" >
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/Sodasaurus.jpg">
+                </ImageBrush>
+            </Button.Background>
+            Sodasaurus
+        </Button>
+        <Button Click="Tyra" Width="200" Height="80"  Grid.Column="0" Grid.Row="4" VerticalContentAlignment="Top" >
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/Tyrannotea.jpg">
+                </ImageBrush>
+            </Button.Background>
+            Tyrannotea
+        </Button>
+        <Button Click="java" Width="200" Height="80"  Grid.Column="0" Grid.Row="3" VerticalContentAlignment="Top" >
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/JurrasicJava.jpg">
+                </ImageBrush>
+            </Button.Background>
+            JurrasicJava
+        </Button>
+        <Button Click="water"  Width="200" Height="80"  Grid.Column="0" Grid.Row="5" VerticalContentAlignment="Top" >
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/Water.jpg">
+                </ImageBrush>
+            </Button.Background>
+            Water
+        </Button>
+        <Button Click="SelectFlavor" Name="flavor"  Width="200" Height="80"  Grid.Column="2" Grid.Row="2" VerticalContentAlignment="Top" >
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/flavor.jpg">
+                </ImageBrush>
+            </Button.Background>
+            Sweet/Decaf/Flavor
+        </Button>
+        <Button Name="lemon"  Width="200" Height="80"  Grid.Column="2" Grid.Row="3" VerticalContentAlignment="Top" Margin="33,0,34,9" VerticalAlignment="Bottom" >
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/lemon.jpg">
+                </ImageBrush>
+            </Button.Background>
+            Add Lemon
+        </Button>
+        <Button Name="Ice" Width="200" Height="80"  Grid.Column="2" Grid.Row="4" VerticalContentAlignment="Top" >
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/ice.jpg">
+                </ImageBrush>
+            </Button.Background>
+            Hold Ice
+        </Button>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="110,4,0,0" TextWrapping="Wrap" Text="Add To Order" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="107,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Drink" VerticalAlignment="Top" RenderTransformOrigin="-4.04,-2.684"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="122,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Size" VerticalAlignment="Top" RenderTransformOrigin="-0.017,0.329"/>
+        <TextBlock Grid.Column="2" HorizontalAlignment="Left" Margin="117,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Speical" VerticalAlignment="Top"/>
+        <RadioButton VerticalAlignment="Center" FontSize="20" Grid.Column="1" Grid.Row="2"  Margin="5"  HorizontalAlignment="Center"
+    Content="Small" />
+        <RadioButton VerticalAlignment="Center" FontSize="20" Grid.Column="1" Grid.Row="3"   Margin="5"  HorizontalAlignment="Center"
+    Content="Medium" />
+        <RadioButton VerticalAlignment="Center" FontSize="20" Grid.Column="1" Grid.Row="4"  Margin="5" HorizontalAlignment="Center"
+    Content="Large" />
     </Grid>
 </Page>

@@ -9,7 +9,20 @@
       Title="EntreeSelection">
 
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/background.jpg"/>
+        </Grid.Background>
         <WrapPanel RenderTransformOrigin="0.51,0.501">
             <WrapPanel.Resources>
                 <Style TargetType="Button">
@@ -17,13 +30,62 @@
                     <Setter Property="Height" Value="140"/>
                 </Style>
             </WrapPanel.Resources>
-            <Button>Brontowurst Combo</Button>
-            <Button >Dino-Nuggets Combo</Button>
-            <Button>Steakosaurus Combo</Button>
-            <Button>T-Rex King Burger Combo</Button>
-            <Button>Prehistoric PB&amp;J Combo</Button>
-            <Button>Pterdactyl Wings Combo</Button>
         </WrapPanel>
 
+        <Button Width="200" Height="80"   Grid.Column="0" Grid.Row="2" VerticalContentAlignment="Top" >
+
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/Brontowurst.jpg">
+                </ImageBrush>
+            </Button.Background>
+            Brontowurst
+
+        </Button>
+
+        <Button Width="200" Height="80" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Top" >
+
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/Dino.jpg">
+                </ImageBrush>
+            </Button.Background>
+            Dino-Nuggets
+        </Button>
+
+        <Button Width="200" Height="80"  Grid.Column="2" Grid.Row="2" VerticalContentAlignment="Top" >
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/Steakosaurus Burger.jpg">
+                </ImageBrush>
+            </Button.Background>
+            Steakosaurus Burger 
+        </Button>
+        <Button Width="200" Height="80"  Grid.Column="2" Grid.Row="1" VerticalContentAlignment="Top" >
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/T-Rex King Burger.jpg">
+                </ImageBrush>
+            </Button.Background>
+            T-Rex King Burger
+        </Button>
+        <Button Width="200" Height="80" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Top" >
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/Prehistoric PB&amp;J.jpg">
+                </ImageBrush>
+            </Button.Background>
+            Prehistoric PB&amp;J
+        </Button>
+        <Button Width="200" Height="80" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Top" >
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/Pterdactyl-Wings.jpg">
+                </ImageBrush>
+            </Button.Background>
+            Pterdactyl Wings 
+        </Button>
+        <Button Width="200" Height="80"  Grid.Column="0" Grid.Row="3" VerticalContentAlignment="Top" >
+            <Button.Background>
+                <ImageBrush ImageSource="Assets/Veloci-Wrap.jpg">
+                </ImageBrush>
+            </Button.Background>
+            Veloci-Wrap
+        </Button>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="90,46,0,0" TextWrapping="Wrap" Text="Add To Order" VerticalAlignment="Top"/>
     </Grid>
 </Page>
