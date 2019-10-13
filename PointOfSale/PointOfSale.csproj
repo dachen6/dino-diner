@@ -161,9 +161,6 @@
     <Resource Include="Assets\Veloci-Wrap.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Pterdactyl-Wings.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Assets\JurrasicJava.jpg" />
     <Resource Include="Assets\Sodasaurus.jpg" />
     <Resource Include="Assets\Tyrannotea.jpg" />
@@ -182,6 +179,20 @@
     <Resource Include="Assets\Meteor Mac - Cheese.jpg" />
     <Resource Include="Assets\Mozzerella Sticks.jpg" />
     <Resource Include="Assets\Triceritots.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\cherry.jpg" />
+    <Resource Include="Assets\Cola.jpg" />
+    <Resource Include="Assets\lime.jpg" />
+    <Resource Include="Assets\orange.jpg" />
+    <Resource Include="Assets\RootBeer.jpg" />
+    <Resource Include="Assets\vanillla.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\chocolate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Pterdactyl-Wings.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

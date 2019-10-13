@@ -20,6 +20,9 @@ namespace PointOfSale
     /// </summary>
     public partial class Flavor : Page
     {
+        /// <summary>
+        /// begin flavor page
+        /// </summary>
         public Flavor()
         {
             InitializeComponent();
