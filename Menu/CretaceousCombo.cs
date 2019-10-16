@@ -2,22 +2,42 @@
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// the combo when people want to order combo
     /// </summary>
-    public class CretaceousCombo : IMenuItem
+    public class CretaceousCombo : IMenuItem, INotifyPropertyChanged
     {
+        private Entree entree;
+
+
         /// <summary>
         /// the entree of the combo
         /// </summary>
-        public Entree Entree { get; set; }
+        public Entree Entree { get { return entree; }
+            protected set
+            {
+                entree = value;
+                entree.PropertyChanged += (object sender, PropertyChangedEventArgs args)=>{
+                    NotifyOfPropertyChanged(args.PropertyName);
+                };
+            }
+        }
         /// <summary>
         /// the side of the combo
         /// </summary>
         private Side side;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         /// <summary>
         /// should get and set the side
         /// </summary>
@@ -26,10 +46,24 @@ namespace DinoDiner.Menu
             set {
                 side = value;
                 this.side.Size = this.size; } }
+
+        private Drink drink = new Sodasaurus();
+
+
+
         /// <summary>
         /// drink of the combo
         /// </summary>
-        public Drink Drink { get; set; }
+        public Drink Drink { get { return drink; }
+            set
+            {
+                drink = value;
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+            }
+        }
         /// <summary>
         /// the price is total of entree side and drink
         /// </summary>
@@ -65,6 +99,10 @@ namespace DinoDiner.Menu
                 size = value;
                 Drink.Size = value;
                 Side.Size = value;
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
             }
         }
         /// <summary>
@@ -79,6 +117,28 @@ namespace DinoDiner.Menu
                 ingredients.AddRange(Drink.Ingredients);
                 ingredients.AddRange(Side.Ingredients);
                 return ingredients;
+            }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                special.AddRange(Entree.Special);
+                special.Add(Side.Description);
+                special.AddRange(Side.Special);
+                special.Add(Drink.Description);
+                special.AddRange(Drink.Special);
+                return special.ToArray();
+            }
+        }
+
+        public string Description
+        {
+            get
+            {
+                return this.ToString();
             }
         }
 
