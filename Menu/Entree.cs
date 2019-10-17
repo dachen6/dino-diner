@@ -8,11 +8,12 @@ namespace DinoDiner.Menu
     /// the base calss for all the entree
     /// </summary>
     public abstract class Entree:IMenuItem
-    {
-        /// <summary>
-        /// get and set price
-        /// </summary>
-        public double Price { get; set; }
+	{
+		
+		/// <summary>
+		/// get and set price
+		/// </summary>
+		public double Price { get; set; }
 
         /// <summary>
         /// Gets and sets the calories
@@ -24,6 +25,5 @@ namespace DinoDiner.Menu
         /// </summary>
         public abstract List<string> Ingredients { get; }
 
-
-    }
+	}
 }

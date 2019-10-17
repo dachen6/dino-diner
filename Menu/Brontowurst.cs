@@ -5,7 +5,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// items for Brontowurst using base class entree
     /// </summary>
-    public class Brontowurst:Entree, INotifyPropertyChanged, IOrderItem
+    public class Brontowurst:Entree
     {
         /// <summary>
         /// for people who like bun, peppersand onions
@@ -80,12 +80,12 @@ namespace DinoDiner.Menu
             return "Brontowurst";
         }
 
-        public string Description
+        public override string Description
         {
             get { return this.ToString(); }
         }
 
-        public string[] Special
+        public override string[] Special
         {
             get
             {

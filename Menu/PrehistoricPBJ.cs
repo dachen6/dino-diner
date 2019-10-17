@@ -7,28 +7,29 @@ namespace DinoDiner.Menu
     /// <summary>
     /// items for PrehistoricPBJ using base class entree
     /// </summary>
-    public class PrehistoricPBJ:Entree , INotifyPropertyChanged , IOrderItem
+    public class PrehistoricPBJ:Entree 
     {
-        /// <summary>
-        /// for people want peanutButte and jelly
-        /// </summary>
-        private bool peanutButter = true;
+		public event PropertyChangedEventHandler PropertyChanged;
+		/// <summary>
+		/// for people want peanutButte and jelly
+		/// </summary>
+		private bool peanutButter = true;
         private bool jelly = true;
-        /// <summary>
-        /// An event hander for PeoperyuChanged event
-        /// </summary>
+		/// <summary>
+		/// An event hander for PeoperyuChanged event
+		/// </summary>
 
-        public event PropertyChangedEventHandler PropertyChanged;
+	
 
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+		protected void NotifyOfPropertyChanged(string propertyName)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
 
-        /// <summary>
-        /// get what people want for PrehistoricPBJ
-        /// </summary>
-        public override List<string> Ingredients
+		/// <summary>
+		/// get what people want for PrehistoricPBJ
+		/// </summary>
+		public override List<string> Ingredients
         {
             get
             {
@@ -73,12 +74,12 @@ namespace DinoDiner.Menu
             return "Prehistoric PB&J";
         }
 
-        public string Description
+        public  string Description
         {
             get{return this.ToString();}           
         }
 
-        public string[] Special
+        public  string[] Special
         {
             get
             {
@@ -88,5 +89,7 @@ namespace DinoDiner.Menu
                 return special.ToArray();
             }
         }
-    }
+
+
+	}
 }

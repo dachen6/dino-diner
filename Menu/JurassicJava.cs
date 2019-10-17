@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.ComponentModel;
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// items for JurassicJava using base class drink
     /// </summary>
-    public class JurassicJava : Drink
-    {
+    public class JurassicJava : Drink, INotifyPropertyChanged, IOrderItem
+	{
         /// <summary>
         /// we dont add ice RoomForCream decaf in JurrasicJava
         /// </summary>
@@ -18,10 +18,17 @@ namespace DinoDiner.Menu
 
         public bool Decaf = false;
 
-        /// <summary>
-        /// change price and calories of JurrasicJava with size
-        /// </summary>
-        public override Size Size
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		protected void NotifyOfPropertyChanged(string propertyName)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+
+		/// <summary>
+		/// change price and calories of JurrasicJava with size
+		/// </summary>
+		public override Size Size
         {
             set
             {
@@ -76,14 +83,17 @@ namespace DinoDiner.Menu
         public void LeaveRoomForCream()
         {
             RoomForCream = true;
-        }
+			
+			NotifyOfPropertyChanged("Special");
+		}
         /// <summary>
         /// add ice
         /// </summary>
         public  void AddIce()
         {
             Ice = true;
-        }
+			NotifyOfPropertyChanged("Special");
+		}
         /// <summary>
         /// able to print Jurassic Java and decaf or not and the size
         /// </summary>
@@ -93,5 +103,19 @@ namespace DinoDiner.Menu
             if (Decaf) { return $"{size.ToString()} Decaf Jurassic Java"; }
             else { return $"{size.ToString()} Jurassic Java"; }
         }
-    }
+		public  string Description
+		{
+			get { return this.ToString(); }
+		}
+		public string[] Special
+		{
+			get
+			{
+				List<string> special = new List<string>();
+				if (!Ice) special.Add("Hold Ice");
+				if (!Decaf) special.Add("Hold Decaf");
+				return special.ToArray();
+			}
+		}
+	}
 }

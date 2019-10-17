@@ -8,8 +8,8 @@ namespace DinoDiner.Menu
     /// <summary>
     /// the base side of all side item
     /// </summary>
-    public abstract class Side:IMenuItem
-    {
+    public abstract class Side
+	{
         /// <summary>
         /// Gets and sets the price
         /// </summary>
@@ -35,5 +35,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public virtual Size Size { get { return size; } set { size = value; } }
 
-    }
+
+	}
 }

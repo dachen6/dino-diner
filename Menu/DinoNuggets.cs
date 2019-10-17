@@ -3,10 +3,10 @@ using System.ComponentModel;
 namespace DinoDiner.Menu
 
 {
-    /// <summary>
-    /// items for DinoNuggets using base class entree
-    /// </summary>
-    public class DinoNuggets: Entree, INotifyPropertyChanged, IOrderItem
+	/// <summary>
+	/// items for DinoNuggets using base class entree
+	/// </summary>
+	public class DinoNuggets : Entree, INotifyPropertyChanged
     {
         private int count = 6;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -34,10 +34,13 @@ namespace DinoDiner.Menu
             }
 
         }
-        /// <summary>
-        /// we set price and Calories
-        /// </summary
-        public DinoNuggets()
+
+
+
+		/// <summary>
+		/// we set price and Calories
+		/// </summary
+		public DinoNuggets()
         {
             this.Price = 4.25;
             this.Calories = 59 * 6;
@@ -62,5 +65,13 @@ namespace DinoDiner.Menu
         {
             return "Dino-Nuggets";
         }
-    }
+		public override string Description
+		{
+			get { return this.ToString(); }
+		}
+		public override string[] Special
+		{
+			get { return new string[0] ; }
+		}
+	}
 }

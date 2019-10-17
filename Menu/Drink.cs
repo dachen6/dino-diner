@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
-
+using System.ComponentModel;
 namespace DinoDiner.Menu
 {/// <summary>
 /// the bse classs of all drink item
 /// </summary>
     public abstract class Drink: IMenuItem
-        {
+	{
 
-            /// <summary>
-            /// Gets and sets the price
-            /// </summary>
-            public double Price { get; set; }
+		
+
+
+		/// <summary>
+		/// Gets and sets the price
+		/// </summary>
+		public double Price { get; set; }
 
             /// <summary>
             /// Gets and sets the calories
@@ -34,9 +37,10 @@ namespace DinoDiner.Menu
         /// </summary>
 
         public virtual Size Size { get { return size; } set { size = value; } }
-            
-            
-           public bool Ice = true;
+
+ }
+
+		public bool Ice = true;
         /// <summary>
         /// add ice in the drink
         /// </summary>

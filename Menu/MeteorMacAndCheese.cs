@@ -1,18 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.ComponentModel;
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// using the base class size for MeteorMacAndCheese
     /// </summary>
-    public class MeteorMacAndCheese: Side
-    {
-        /// <summary>
-        /// add ingredient to MeteorMacAndCheese
-        /// </summary>
-        public override List<string> Ingredients
+    public class MeteorMacAndCheese: Side ,INotifyPropertyChanged, IOrderItem
+	{
+
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		protected void NotifyOfPropertyChanged(string propertyName)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
+		/// <summary>
+		/// add ingredient to MeteorMacAndCheese
+		/// </summary>
+		public override List<string> Ingredients
         {
             get
             {
@@ -69,6 +76,17 @@ namespace DinoDiner.Menu
         {
             return $"{size.ToString()} Meteor Mac and Cheese";
         }
-    }
+		public string Description
+		{
+			get { return this.ToString(); }
+		}
+		public string[] Special
+		{
+			get
+			{
+				return new string[0];
+			}
+		}
+	}
     }
 
