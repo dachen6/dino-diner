@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-
+using System.ComponentModel;
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// items for Brontowurst using base class entree
     /// </summary>
-    public class Brontowurst:Entree
+    public class Brontowurst:Entree, INotifyPropertyChanged, IOrderItem
     {
         /// <summary>
         /// for people who like bun, peppersand onions
@@ -13,6 +13,14 @@ namespace DinoDiner.Menu
         private bool bun = true;
         private bool peppers = true;
         private bool onions = true;
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// get what people want for Brontowurst
@@ -42,6 +50,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.bun = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// for people don't want peppers
@@ -49,6 +59,8 @@ namespace DinoDiner.Menu
         public void HoldPeppers()
         {
             this.peppers = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// for people don't want Onion
@@ -56,6 +68,8 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             this.onions = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// able to print Brontowurst
@@ -64,6 +78,23 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Brontowurst";
+        }
+
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (bun) special.Add("Whole Wheat Bun");
+                if (onions) special.Add("Onion");
+                if (peppers) special.Add("Peppers");
+                return special.ToArray();
+            }
         }
     }
 }

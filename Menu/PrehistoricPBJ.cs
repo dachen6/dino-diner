@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// items for PrehistoricPBJ using base class entree
     /// </summary>
-    public class PrehistoricPBJ:Entree , INotifyPropertyChanged
+    public class PrehistoricPBJ:Entree , INotifyPropertyChanged , IOrderItem
     {
         /// <summary>
         /// for people want peanutButte and jelly
@@ -78,7 +78,7 @@ namespace DinoDiner.Menu
             get{return this.ToString();}           
         }
 
-        public string[] Speicial
+        public string[] Special
         {
             get
             {

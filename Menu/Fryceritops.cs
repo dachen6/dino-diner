@@ -1,17 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.ComponentModel;
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// we use the base class 'size' for Fryceritops
     /// </summary>
-    public class Fryceritops :Side{
+    public class Fryceritops : Side, INotifyPropertyChanged, IOrderItem
+    {
         /// <summary>
         /// call the size
         /// </summary>
         private Size size;
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// determind the base price and calories
         /// </summary>

@@ -1,15 +1,20 @@
 ﻿using System.Collections.Generic;
-
+using System.ComponentModel;
 namespace DinoDiner.Menu
 
 {
     /// <summary>
     /// items for DinoNuggets using base class entree
     /// </summary>
-    public class DinoNuggets:Entree
+    public class DinoNuggets: Entree, INotifyPropertyChanged, IOrderItem
     {
         private int count = 6;
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// get what people want for DinoNuggets
         /// </summary>
