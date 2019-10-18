@@ -13,7 +13,12 @@ namespace DinoDiner.Menu
     {
         private Entree entree;
 
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// the entree of the combo
         /// </summary>
@@ -21,9 +26,7 @@ namespace DinoDiner.Menu
             protected set
             {
                 entree = value;
-                entree.PropertyChanged += (object sender, PropertyChangedEventArgs args)=>{
-                    NotifyOfPropertyChanged(args.PropertyName);
-                };
+
             }
         }
         /// <summary>
@@ -31,12 +34,6 @@ namespace DinoDiner.Menu
         /// </summary>
         private Side side;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         /// <summary>
         /// should get and set the side

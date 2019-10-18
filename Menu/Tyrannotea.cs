@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 
 namespace DinoDiner.Menu
@@ -74,9 +75,10 @@ namespace DinoDiner.Menu
             {
                 List<string> ingredients = new List<string>();
                 if (Lemon) ingredients.Add("Lemon");
+                if (Sweet) ingredients.Add("Cane Sugar");
                 ingredients.Add("Water");
                 ingredients.Add("Tea");
-                if (Sweet) ingredients.Add("Cane Sugar");
+                
 
                 return ingredients;
             }
@@ -88,7 +90,8 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
-
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// the base price and calories of Tyrannotea 
@@ -106,6 +109,19 @@ namespace DinoDiner.Menu
         {
             if (Sweet) { return $"{size.ToString()} Sweet Tyrannotea"; }
             else { return $"{size.ToString()} Tyrannotea"; }
+        }
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Lemon) special.Add("Lemon");
+                return special.ToArray();
+            }
         }
     }
 }

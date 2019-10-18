@@ -15,13 +15,6 @@ namespace DinoDiner.Menu
         private bool onions = true;
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         /// <summary>
         /// get what people want for Brontowurst
         /// </summary>
@@ -90,9 +83,9 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                if (bun) special.Add("Whole Wheat Bun");
-                if (onions) special.Add("Onion");
-                if (peppers) special.Add("Peppers");
+                if (bun) special.Add("Hold Whole Wheat Bun");
+                if (onions) special.Add("Hold Onion");
+                if (peppers) special.Add("Hold Peppers");
                 return special.ToArray();
             }
         }

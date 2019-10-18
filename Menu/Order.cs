@@ -6,7 +6,7 @@ namespace DinoDiner.Menu
 {
 	public class Order
 	{
-		ObservableCollection<IOrderItem> Item { get; set; }
+		ObservableCollection<IOrderItem> Items { get; set; }
 		double SubtotalCost { get; }
 		double SalesTaxRate { get; protected set; }
 		double SalesTaxCost { get; }

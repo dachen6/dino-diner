@@ -10,12 +10,7 @@ namespace DinoDiner.Menu
     public class MeteorMacAndCheese: Side ,INotifyPropertyChanged, IOrderItem
 	{
 
-		public event PropertyChangedEventHandler PropertyChanged;
 
-		protected void NotifyOfPropertyChanged(string propertyName)
-		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-		}
 		/// <summary>
 		/// add ingredient to MeteorMacAndCheese
 		/// </summary>
@@ -57,7 +52,11 @@ namespace DinoDiner.Menu
 
                     }
                 }
-                get { return this.size; }
+                get {              
+                NotifyOfPropertyChanged("price");
+                NotifyOfPropertyChanged("Description");
+                return this.size;
+            }
             }
         /// <summary>
         /// determind the base price and calories
@@ -76,17 +75,18 @@ namespace DinoDiner.Menu
         {
             return $"{size.ToString()} Meteor Mac and Cheese";
         }
-		public string Description
+		public override string Description
 		{
 			get { return this.ToString(); }
 		}
-		public string[] Special
+		public override string[] Special
 		{
 			get
 			{
 				return new string[0];
 			}
 		}
+
 	}
     }
 

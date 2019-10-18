@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {    /// <summary>
@@ -6,6 +9,7 @@ namespace DinoDiner.Menu
      /// </summary>
     public class VelociWrap : Entree
     {
+
         /// <summary>
         /// for people want Ceasar Dressing,Romaine Lettuce and Parmesan Cheese
         /// </summary>
@@ -40,6 +44,8 @@ namespace DinoDiner.Menu
         public void HoldDressing()
         {
             this.dressing = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// for people don't want Romaine Lettuce
@@ -47,6 +53,8 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this.lettuce = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// for people don't want Parmesan Cheese
@@ -54,6 +62,8 @@ namespace DinoDiner.Menu
         public void HoldCheese()
         {
             this.cheese = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// able to print Veloci-Wrap
@@ -62,6 +72,21 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Veloci-Wrap";
+        }
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!dressing) special.Add("Hold Ceasar Dressing");
+                if (!lettuce) special.Add("Hold Romaine Lettuce");
+                if (!cheese) special.Add("Hold Parmesan Cheese");
+                return special.ToArray();
+            }
         }
     }
 }

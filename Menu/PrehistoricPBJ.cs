@@ -9,22 +9,19 @@ namespace DinoDiner.Menu
     /// </summary>
     public class PrehistoricPBJ:Entree 
     {
-		public event PropertyChangedEventHandler PropertyChanged;
-		/// <summary>
-		/// for people want peanutButte and jelly
-		/// </summary>
-		private bool peanutButter = true;
+		
+
+
+        /// <summary>
+        /// for people want peanutButte and jelly
+        /// </summary>
+        private bool peanutButter = true;
         private bool jelly = true;
 		/// <summary>
 		/// An event hander for PeoperyuChanged event
 		/// </summary>
 
 	
-
-		protected void NotifyOfPropertyChanged(string propertyName)
-		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-		}
 
 		/// <summary>
 		/// get what people want for PrehistoricPBJ
@@ -74,12 +71,12 @@ namespace DinoDiner.Menu
             return "Prehistoric PB&J";
         }
 
-        public  string Description
+        public override string Description
         {
             get{return this.ToString();}           
         }
 
-        public  string[] Special
+        public override string[] Special
         {
             get
             {

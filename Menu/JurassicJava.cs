@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// items for JurassicJava using base class drink
     /// </summary>
-    public class JurassicJava : Drink, INotifyPropertyChanged, IOrderItem
+    public class JurassicJava : Drink
 	{
         /// <summary>
         /// we dont add ice RoomForCream decaf in JurrasicJava
@@ -18,12 +18,7 @@ namespace DinoDiner.Menu
 
         public bool Decaf = false;
 
-		public event PropertyChangedEventHandler PropertyChanged;
 
-		protected void NotifyOfPropertyChanged(string propertyName)
-		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-		}
 
 		/// <summary>
 		/// change price and calories of JurrasicJava with size
@@ -103,17 +98,16 @@ namespace DinoDiner.Menu
             if (Decaf) { return $"{size.ToString()} Decaf Jurassic Java"; }
             else { return $"{size.ToString()} Jurassic Java"; }
         }
-		public  string Description
+		public override string Description
 		{
 			get { return this.ToString(); }
 		}
-		public string[] Special
+		public override string[] Special
 		{
 			get
 			{
 				List<string> special = new List<string>();
-				if (!Ice) special.Add("Hold Ice");
-				if (!Decaf) special.Add("Hold Decaf");
+				if (Ice) special.Add("Add Ice");
 				return special.ToArray();
 			}
 		}

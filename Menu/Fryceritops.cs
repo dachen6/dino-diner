@@ -7,7 +7,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// we use the base class 'size' for Fryceritops
     /// </summary>
-    public class Fryceritops : Side, INotifyPropertyChanged, IOrderItem
+    public class Fryceritops : Side
     {
         /// <summary>
         /// call the size
@@ -15,12 +15,7 @@ namespace DinoDiner.Menu
         private Size size;
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         /// <summary>
         /// determind the base price and calories
         /// </summary>
@@ -72,7 +67,11 @@ namespace DinoDiner.Menu
 
                 }
             }
-            get { return size;}
+            get
+            {
+                NotifyOfPropertyChanged("price");
+                NotifyOfPropertyChanged("Description");
+                return size;}
         }
         /// <summary>
         /// able yo print Friceritops with size

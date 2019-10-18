@@ -7,16 +7,22 @@ namespace DinoDiner.Menu
 {/// <summary>
 /// the bse classs of all drink item
 /// </summary>
-    public abstract class Drink: IMenuItem
-	{
-
-		
+    public abstract class Drink: IMenuItem,INotifyPropertyChanged, IOrderItem
+    {
 
 
-		/// <summary>
-		/// Gets and sets the price
-		/// </summary>
-		public double Price { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets and sets the price
+        /// </summary>
+        public double Price { get; set; }
 
             /// <summary>
             /// Gets and sets the calories
@@ -38,9 +44,10 @@ namespace DinoDiner.Menu
 
         public virtual Size Size { get { return size; } set { size = value; } }
 
- }
+        public abstract string Description { get; }
+        public abstract string[] Special { get; }
 
-		public bool Ice = true;
+        public bool Ice = true;
         /// <summary>
         /// add ice in the drink
         /// </summary>

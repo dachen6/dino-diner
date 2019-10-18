@@ -47,7 +47,11 @@ namespace DinoDiner.Menu
 
                     }
                 }
-                get { return size; }
+                get {
+                NotifyOfPropertyChanged("price");
+                NotifyOfPropertyChanged("Description");
+                return size;
+            }
             }
         /// <summary>
         /// determind the base price and calories
@@ -66,6 +70,17 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"{size.ToString()} Mezzorella Sticks";
+        }
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+        public override string[] Special
+        {
+            get
+            {
+                return new string[0];
+            }
         }
     }
     }

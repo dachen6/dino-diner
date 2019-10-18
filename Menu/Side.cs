@@ -2,14 +2,20 @@
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
-
+using System.ComponentModel;
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// the base side of all side item
     /// </summary>
-    public abstract class Side
-	{
+    public abstract class Side : IMenuItem, INotifyPropertyChanged, IOrderItem
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         /// <summary>
         /// Gets and sets the price
         /// </summary>
@@ -35,6 +41,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public virtual Size Size { get { return size; } set { size = value; } }
 
-
-	}
+        public abstract string Description { get; }
+        public abstract string[] Special { get; }
+    }
 }

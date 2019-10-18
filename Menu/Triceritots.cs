@@ -50,7 +50,11 @@ namespace DinoDiner.Menu
 
                     }
                 }
-                get { return size; }
+                get { 
+                NotifyOfPropertyChanged("price");
+                NotifyOfPropertyChanged("Description");
+                return size;
+            }
 
             }
         /// <summary>
@@ -70,6 +74,18 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"{size.ToString()} Triceritots";
+        }
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                return new string[0];
+            }
         }
     }
     }

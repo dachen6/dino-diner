@@ -9,12 +9,7 @@ namespace DinoDiner.Menu
 	public class DinoNuggets : Entree, INotifyPropertyChanged
     {
         private int count = 6;
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         /// <summary>
         /// get what people want for DinoNuggets
         /// </summary>
@@ -55,7 +50,9 @@ namespace DinoDiner.Menu
             count += 1; 
             Ingredients.Add("Chicken Nugget");
             Price += 0.25;
-            Calories += 59; 
+            Calories += 59;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
         /// <summary>
         /// able to print Dino-Nuggets
@@ -71,7 +68,13 @@ namespace DinoDiner.Menu
 		}
 		public override string[] Special
 		{
-			get { return new string[0] ; }
+            get {
+                if(count == 6)
+                {
+                    return new string[0];
+                }
+                return new string[] { $"{count - 6} Extra Nuggets" };
+            }
 		}
 	}
 }
