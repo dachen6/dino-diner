@@ -130,8 +130,8 @@ namespace MenuTest.Sides
         public void ShouldhaveCurrectDescriptionInSmallSize()
         {
             Fryceritops ft = new Fryceritops();
-            ft.Size = Size.Small;
-            Assert.Equal("Small Friceritops", ft.Description);
+            ft.Size = Size.Medium;
+            Assert.Equal("Medium Friceritops", ft.Description);
         }
         [Fact]
         public void ShouldhaveCurrectDescriptionInLargeSize()
