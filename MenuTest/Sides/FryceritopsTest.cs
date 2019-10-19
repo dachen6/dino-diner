@@ -83,5 +83,68 @@ namespace MenuTest.Sides
             ft.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, ft.Size);
         }
+        [Fact]
+        public void sizeChangeShouldNotify()
+        {
+            Fryceritops ft = new Fryceritops();        
+            Assert.PropertyChanged(ft, "Size", () =>
+              {
+                  ft.Size = Size.Large;
+              });
+
+        }
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void sizeChangeShouldNotifyP(Size size)
+        {
+            Fryceritops ft = new Fryceritops();
+
+            Assert.PropertyChanged(ft, "Price", () =>
+            {
+                ft.Size = size;
+            });
+        }
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void sizeChangeShouldNotifyPO(Size size)
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.PropertyChanged(ft, "Calories", () =>
+            {
+                ft.Size = size;
+            });
+        }
+  
+        [Fact]
+        public void ShouldhaveCurrectDescriptionInMediumSize()
+        {
+            Fryceritops ft = new Fryceritops();
+            ft.Size = Size.Small;
+            Assert.Equal("Small Friceritops", ft.Description);
+        }
+        [Fact]
+        public void ShouldhaveCurrectDescriptionInSmallSize()
+        {
+            Fryceritops ft = new Fryceritops();
+            ft.Size = Size.Small;
+            Assert.Equal("Small Friceritops", ft.Description);
+        }
+        [Fact]
+        public void ShouldhaveCurrectDescriptionInLargeSize()
+        {
+            Fryceritops ft = new Fryceritops();
+            ft.Size = Size.Large;
+            Assert.Equal("Large Friceritops", ft.Description);
+        }
+        [Fact]
+        public void SpecialShouldBeCorrect()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.Empty(ft.Special);
+        }
     }
 }

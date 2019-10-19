@@ -23,7 +23,7 @@ namespace DinoDiner.Menu
         {
             this.Price = 0.99;
             this.Calories = 222;
-
+            
 
         }
         /// <summary>
@@ -51,7 +51,7 @@ namespace DinoDiner.Menu
                 this.size = value;
                 switch (size)
                 {
-                    
+
                     case Size.Small:
                         this.Price = 0.99;
                         this.Calories = 220;
@@ -66,12 +66,16 @@ namespace DinoDiner.Menu
                         break;
 
                 }
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("price");
+                NotifyOfPropertyChanged("Description");
             }
             get
             {
-                NotifyOfPropertyChanged("price");
-                NotifyOfPropertyChanged("Description");
-                return size;}
+
+                return size;
+            }
         }
         /// <summary>
         /// able yo print Friceritops with size

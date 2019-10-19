@@ -125,7 +125,7 @@ namespace MenuTest.Entrees
         {
             DinoNuggets dn = new DinoNuggets();
 
-            Assert.PropertyChanged(pbj, "Special", () =>
+            Assert.PropertyChanged(dn, "Special", () =>
             {
                 dn.AddNugget();
             });
