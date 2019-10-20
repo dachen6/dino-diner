@@ -9,9 +9,9 @@ namespace DinoDiner.Menu
     /// </summary>
     public enum Size
     {
-        Small,
+        Large,
         Medium,
-        Large
+        Small
     }
     
 }

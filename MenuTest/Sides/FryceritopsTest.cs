@@ -33,7 +33,7 @@ namespace MenuTest.Sides
         public void ShouldHaveCorrectDefaultSize()
         {
             Fryceritops ft = new Fryceritops();
-            Assert.Equal<Size>(Size.Small, ft.Size);
+            Assert.Equal<Size>(Size.Large, ft.Size);
         }
 
         [Fact]
@@ -124,21 +124,21 @@ namespace MenuTest.Sides
         {
             Fryceritops ft = new Fryceritops();
             ft.Size = Size.Small;
-            Assert.Equal("Small Friceritops", ft.Description);
+            Assert.Equal("Small Fryceritops", ft.Description);
         }
         [Fact]
         public void ShouldhaveCurrectDescriptionInSmallSize()
         {
             Fryceritops ft = new Fryceritops();
             ft.Size = Size.Medium;
-            Assert.Equal("Medium Friceritops", ft.Description);
+            Assert.Equal("Medium Fryceritops", ft.Description);
         }
         [Fact]
         public void ShouldhaveCurrectDescriptionInLargeSize()
         {
             Fryceritops ft = new Fryceritops();
             ft.Size = Size.Large;
-            Assert.Equal("Large Friceritops", ft.Description);
+            Assert.Equal("Large Fryceritops", ft.Description);
         }
         [Fact]
         public void SpecialShouldBeCorrect()
@@ -146,5 +146,6 @@ namespace MenuTest.Sides
             Fryceritops ft = new Fryceritops();
             Assert.Empty(ft.Special);
         }
+
     }
 }

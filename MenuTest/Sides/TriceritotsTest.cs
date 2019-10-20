@@ -33,7 +33,7 @@ namespace MenuTest.Sides
         public void ShouldHaveCorrectDefaultSize()
         {
             Triceritots tt = new Triceritots();
-            Assert.Equal<Size>(Size.Small, tt.Size);
+            Assert.Equal<Size>(Size.Large, tt.Size);
         }
 
         [Fact]
@@ -82,6 +82,70 @@ namespace MenuTest.Sides
             Triceritots tt = new Triceritots();
             tt.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, tt.Size);
+        }
+        [Fact]
+        public void sizeChangeShouldNotify()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.PropertyChanged(tt, "Size", () =>
+            {
+                tt.Size = Size.Large;
+            });
+
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void sizeChangeShouldNotifyP(Size size)
+        {
+            Triceritots tt = new Triceritots();
+
+            Assert.PropertyChanged(tt, "Price", () =>
+            {
+                tt.Size = size;
+            });
+        }
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void sizeChangeShouldNotifyPO(Size size)
+        {
+            Triceritots tt = new Triceritots();
+            Assert.PropertyChanged(tt, "Calories", () =>
+            {
+                tt.Size = size;
+            });
+        }
+
+        [Fact]
+        public void ShouldhaveCurrectDescriptionInMediumSize()
+        {
+            Triceritots tt = new Triceritots();
+            tt.Size = Size.Small;
+            Assert.Equal("Small Triceritots", tt.Description);
+        }
+        [Fact]
+        public void ShouldhaveCurrectDescriptionInSmallSize()
+        {
+            Triceritots tt = new Triceritots();
+            tt.Size = Size.Medium;
+            Assert.Equal("Medium Triceritots", tt.Description);
+        }
+        [Fact]
+        public void ShouldhaveCurrectDescriptionInLargeSize()
+        {
+            Triceritots tt = new Triceritots();
+            tt.Size = Size.Large;
+            Assert.Equal("Large Triceritots", tt.Description);
+        }
+        [Fact]
+        public void SpecialShouldBeCorrect()
+        {
+            Triceritots tt = new Triceritots();
+            Assert.Empty(tt.Special);
         }
     }
 }

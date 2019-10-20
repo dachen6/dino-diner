@@ -117,6 +117,26 @@ namespace MenuTest.Entrees
                 pbj.HoldJelly();
             });
         }
+        [Fact]
+        public void HoldingJerryShouldNotifyIngredientsChange()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+
+            Assert.PropertyChanged(pbj, "Ingredients", () =>
+            {
+                pbj.HoldJelly();
+            });
+        }
+        [Fact]
+        public void HoldingPeanutButterShouldNotifyIngredientsChange()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+
+            Assert.PropertyChanged(pbj, "Ingredients", () =>
+            {
+                pbj.HoldPeanutButter();
+            });
+        }
     }
 
 }

@@ -51,10 +51,13 @@ namespace DinoDiner.Menu
                         break;
 
                     }
-                }
-                get {              
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Calories");
                 NotifyOfPropertyChanged("price");
                 NotifyOfPropertyChanged("Description");
+            }
+                get {
+
                 return this.size;
             }
             }

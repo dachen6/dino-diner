@@ -32,7 +32,7 @@ namespace MenuTest.Sides
         public void ShouldHaveCorrectDefaultSize()
         {
             MeteorMacAndCheese mmc = new MeteorMacAndCheese();
-            Assert.Equal<Size>(Size.Small, mmc.Size);
+            Assert.Equal<Size>(Size.Large, mmc.Size);
         }
 
         [Fact]
@@ -81,6 +81,71 @@ namespace MenuTest.Sides
             MeteorMacAndCheese mmc = new MeteorMacAndCheese();
             mmc.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, mmc.Size);
+        }
+
+        [Fact]
+        public void sizeChangeShouldNotify()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, "Size", () =>
+            {
+                mmc.Size = Size.Large;
+            });
+
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void sizeChangeShouldNotifyP(Size size)
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+
+            Assert.PropertyChanged(mmc, "Price", () =>
+            {
+                mmc.Size = size;
+            });
+        }
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void sizeChangeShouldNotifyPO(Size size)
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, "Calories", () =>
+            {
+                mmc.Size = size;
+            });
+        }
+
+        [Fact]
+        public void ShouldhaveCurrectDescriptionInMediumSize()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            mmc.Size = Size.Small;
+            Assert.Equal("Small Meteor Mac and Cheese", mmc.Description);
+        }
+        [Fact]
+        public void ShouldhaveCurrectDescriptionInSmallSize()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            mmc.Size = Size.Medium;
+            Assert.Equal("Medium Meteor Mac and Cheese", mmc.Description);
+        }
+        [Fact]
+        public void ShouldhaveCurrectDescriptionInLargeSize()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            mmc.Size = Size.Large;
+            Assert.Equal("Large Meteor Mac and Cheese", mmc.Description);
+        }
+        [Fact]
+        public void SpecialShouldBeCorrect()
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.Empty(mmc.Special);
         }
     }
 }

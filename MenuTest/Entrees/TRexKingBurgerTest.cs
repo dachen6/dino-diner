@@ -203,37 +203,17 @@ namespace MenuTest.Entrees
         {
             TRexKingBurger trex = new TRexKingBurger();
             trex.HoldBun();
-            trex .HoldKetchup();
-            trex.HoldLettuce();
-            trex.HoldMayo();
-            trex.HoldMustard();
-            trex.HoldOnion();
             trex.HoldPickle();
+            trex.HoldKetchup();
+            trex.HoldMustard();
+            trex.HoldLettuce();
             trex.HoldTomato();
+            trex.HoldOnion();
+            trex.HoldMayo();
             Assert.Collection<string>(trex .Special,
             item =>
             {
-                Assert.Equal("Hold  Whole Wheat Bun", item);
-            },
-            item =>
-            {
-                Assert.Equal("Hold Ketchup", item);
-            },
-            item =>
-            {
-                Assert.Equal("Hold Lettuce", item);
-            },
-            item =>
-            {
-                Assert.Equal("Hold Mayo", item);
-            },
-            item =>
-            {
-                Assert.Equal("Hold Mustard", item);
-            },
-            item =>
-            {
-                Assert.Equal("Hold Onion", item);
+                Assert.Equal("Hold Whole Wheat Bun", item);
             },
             item =>
             {
@@ -241,7 +221,27 @@ namespace MenuTest.Entrees
             },
             item =>
             {
+                Assert.Equal("Hold Ketchup", item);
+            },
+            item =>
+            {
+                Assert.Equal("Hold Mustard", item);
+            },
+            item =>
+            {
+                Assert.Equal("Hold Lettuce", item);
+            },
+            item =>
+            {
                 Assert.Equal("Hold Tomato", item);
+            },
+            item =>
+            {
+                Assert.Equal("Hold Onion", item);
+            },
+            item =>
+            {
+                Assert.Equal("Hold Mayo", item);
             });
         }
         [Fact]

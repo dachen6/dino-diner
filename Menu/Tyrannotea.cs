@@ -62,6 +62,11 @@ namespace DinoDiner.Menu
 
                     }
                 }
+
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("price");
+                NotifyOfPropertyChanged("Description");
             }
             get { return size; }
 
@@ -119,7 +124,8 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                if (Lemon) special.Add("Lemon");
+                if (Lemon) special.Add("Add Lemon");
+                if (!Ice) special.Add("Hold Ice");
                 return special.ToArray();
             }
         }

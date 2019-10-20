@@ -15,6 +15,38 @@ namespace DinoDiner.Menu
         /// </summary>
         public bool Lemon = false;
         /// <summary>
+        /// Change size can't change the price and calories
+        /// </summary>
+        public override Size Size
+        {
+            set
+            {
+                size = value;
+                switch (size)
+                {
+                    case Size.Small:
+                        this.Price = 0.10;
+                        this.Calories = 0;
+                        break;
+                    case Size.Medium:
+                        this.Price = 0.10;
+                        this.Calories = 0;
+                        break;
+                    case Size.Large:
+                        this.Price = 0.10;
+                        this.Calories = 0;
+                        break;
+
+                }
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Description");
+
+            }
+            get { return size; }
+
+        }
+
+        /// <summary>
         /// write the type of drink for costome
         /// </summary>
         public override List<string> Ingredients
@@ -63,7 +95,7 @@ namespace DinoDiner.Menu
             {
                 List<string> special = new List<string>();
                 if (Lemon) special.Add("Add Lemon");
-                
+                if (!Ice) special.Add("Hold Ice");
                 return special.ToArray();
             }
         }

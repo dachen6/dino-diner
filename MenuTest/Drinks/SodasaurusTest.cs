@@ -140,5 +140,110 @@ namespace MenuTest.Drinks
             soda.HoldIce();
             Assert.False(soda.Ice);
         }
+
+
+
+
+        [Fact]
+        public void sizeChangeShouldNotify()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Size", () =>
+            {
+                soda.Size = Size.Large;
+            });
+
+        }
+
+        [Theory]
+        [InlineData(Size.Small, SodasaurusFlavor.Cola)]
+        [InlineData(Size.Small, SodasaurusFlavor.Orange)]
+        [InlineData(Size.Small, SodasaurusFlavor.Vanilla)]
+        [InlineData(Size.Small, SodasaurusFlavor.Chocolate)]
+        [InlineData(Size.Small, SodasaurusFlavor.RootBeer)]
+        [InlineData(Size.Small, SodasaurusFlavor.Cherry)]
+        [InlineData(Size.Small, SodasaurusFlavor.Lime)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Cola)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Orange)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Vanilla)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Chocolate)]
+        [InlineData(Size.Medium, SodasaurusFlavor.RootBeer)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Cherry)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Lime)]
+        [InlineData(Size.Large, SodasaurusFlavor.Cola)]
+        [InlineData(Size.Large, SodasaurusFlavor.Orange)]
+        [InlineData(Size.Large, SodasaurusFlavor.Vanilla)]
+        [InlineData(Size.Large, SodasaurusFlavor.Chocolate)]
+        [InlineData(Size.Large, SodasaurusFlavor.RootBeer)]
+        [InlineData(Size.Large, SodasaurusFlavor.Cherry)]
+        [InlineData(Size.Large, SodasaurusFlavor.Lime)]
+        public void ShouldhaveCurrectDescriptionInLargeSize(Size size, SodasaurusFlavor flavor)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Size = size;
+            soda.Flavor = flavor;
+
+            Assert.Equal($"{size.ToString()} {flavor.ToString()} Sodasaurus", soda.Description);
+
+        }
+
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void sizeChangeShouldNotifyPrice(Size size)
+        {
+            Sodasaurus soda = new Sodasaurus();
+
+            Assert.PropertyChanged(soda, "Price", () =>
+            {
+                soda.Size = size;
+            });
+        }
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void sizeChangeShouldNotifyCalories(Size size)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Calories", () =>
+            {
+                soda.Size = size;
+            });
+        }
+        [Fact]
+        public void SpecialShouldBeCorrect()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Empty(soda.Special);
+        }
+
+        [Fact]
+        public void HoldIceShouldRemoveIce()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.HoldIce();
+            Assert.Collection<string>(soda.Special, item =>
+            {
+                Assert.Equal("Hold Ice", item);
+            });
+        }
+
+
+       
+        [Fact]
+        public void HoldingIceShouldNotifySpecialChange()
+        {
+            Sodasaurus soda = new Sodasaurus();
+
+            Assert.PropertyChanged(soda, "Special", () =>
+            {
+                soda.HoldIce();
+            });
+        }
+
+
     }
 }

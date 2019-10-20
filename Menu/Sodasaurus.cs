@@ -44,6 +44,10 @@ namespace DinoDiner.Menu
                         break;
 
                 }
+                NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("price");
+                NotifyOfPropertyChanged("Description");
             }
             get { return size; }
 
@@ -89,7 +93,9 @@ namespace DinoDiner.Menu
         {
             get
             {
-                return new string[0];
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
             }
         }
     }
