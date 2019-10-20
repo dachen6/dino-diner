@@ -72,12 +72,16 @@ namespace DinoDiner.Menu
         {
             return "Brontowurst";
         }
-
+        /// <summary>
+        /// Description what in Brontowurst
+        /// </summary>
         public override string Description
         {
             get { return this.ToString(); }
         }
-
+        /// <summary>
+        /// the speical order in Brontowurst
+        /// </summary>
         public override string[] Special
         {
             get

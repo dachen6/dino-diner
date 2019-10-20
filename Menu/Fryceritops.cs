@@ -85,11 +85,17 @@ namespace DinoDiner.Menu
         {
             return $"{size.ToString()} Fryceritops";
         }
+        /// <summary>
+        /// new Description for Fryceritops
+        /// </summary>
 		public override string Description
 		{
 			get { return this.ToString(); }
 		}
-		public override string[] Special
+        /// <summary>
+        /// new Description for Fryceritops
+        /// </summary>
+        public override string[] Special
 		{
 			get { return new string[0]; }
 		}

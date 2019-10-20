@@ -199,6 +199,18 @@ namespace MenuTest.Drinks
                 jj.Size = size;
             });
         }
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void sizeChangeShouldNotifyDescription(Size size)
+        {
+            JurassicJava jj = new JurassicJava();
+            Assert.PropertyChanged(jj, "Description", () =>
+            {
+                jj.Size = size;
+            });
+        }
         [Fact]
         public void SpecialShouldBeCorrect()
         {

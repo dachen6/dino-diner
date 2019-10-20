@@ -42,10 +42,16 @@ namespace DinoDiner.Menu
         {
             return "Pterodactyl Wings";
         }
+        /// <summary>
+        /// new Description for Pterodactyl Wings
+        /// </summary>
         public override string Description
         {
             get { return this.ToString(); }
         }
+        /// <summary>
+        /// new Description for Pterodactyl Wings
+        /// </summary>
 
         public override string[] Special
         {

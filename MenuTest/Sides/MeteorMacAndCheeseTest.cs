@@ -119,7 +119,18 @@ namespace MenuTest.Sides
                 mmc.Size = size;
             });
         }
-
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void sizeChangeShouldNotifyDescription(Size size)
+        {
+            MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+            Assert.PropertyChanged(mmc, "Description", () =>
+            {
+                mmc.Size = size;
+            });
+        }
         [Fact]
         public void ShouldhaveCurrectDescriptionInMediumSize()
         {

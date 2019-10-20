@@ -115,10 +115,16 @@ namespace DinoDiner.Menu
             if (Sweet) { return $"{size.ToString()} Sweet Tyrannotea"; }
             else { return $"{size.ToString()} Tyrannotea"; }
         }
+        /// <summary>
+        /// new Description for Tyrannotea
+        /// </summary>
         public override string Description
         {
             get { return this.ToString(); }
         }
+        /// <summary>
+        /// new Description for Tyrannotea
+        /// </summary>
         public override string[] Special
         {
             get

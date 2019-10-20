@@ -102,11 +102,17 @@ namespace DinoDiner.Menu
             if (Decaf) { return $"{size.ToString()} Decaf Jurassic Java"; }
             else { return $"{size.ToString()} Jurassic Java"; }
         }
-		public override string Description
+        /// <summary>
+        /// new Description for Jurassic Java
+        /// </summary>
+        public override string Description
 		{
 			get { return this.ToString(); }
 		}
-		public override string[] Special
+        /// <summary>
+        /// new Description for Jurassic Java
+        /// </summary>
+        public override string[] Special
 		{
 			get
 			{

@@ -78,10 +78,16 @@ namespace DinoDiner.Menu
         {
             return $"{size.ToString()} Triceritots";
         }
+        /// <summary>
+        /// new Description for Triceritots
+        /// </summary>
         public override string Description
         {
             get { return this.ToString(); }
         }
+        /// <summary>
+        /// new Description for Triceritots
+        /// </summary>
 
         public override string[] Special
         {

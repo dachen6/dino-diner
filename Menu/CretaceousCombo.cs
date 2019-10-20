@@ -116,7 +116,9 @@ namespace DinoDiner.Menu
                 return ingredients;
             }
         }
-
+        /// <summary>
+        /// all the special in combo
+        /// </summary>
         public string[] Special
         {
             get
@@ -130,7 +132,9 @@ namespace DinoDiner.Menu
                 return special.ToArray();
             }
         }
-
+        /// <summary>
+        /// description what in combo
+        /// </summary>
         public string Description
         {
             get

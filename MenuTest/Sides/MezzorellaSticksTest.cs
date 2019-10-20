@@ -119,7 +119,18 @@ namespace MenuTest.Sides
                 ms.Size = size;
             });
         }
-
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void sizeChangeShouldNotifyDescription(Size size)
+        {
+            MezzorellaSticks ms = new MezzorellaSticks();
+            Assert.PropertyChanged(ms, "Description", () =>
+            {
+                ms.Size = size;
+            });
+        }
         [Fact]
         public void ShouldhaveCurrectDescriptionInMediumSize()
         {

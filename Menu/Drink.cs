@@ -43,8 +43,13 @@ namespace DinoDiner.Menu
         /// </summary>
 
         public virtual Size Size { get { return size; } set { size = value; } }
-
+        /// <summary>
+        /// new Description for all kind of drink
+        /// </summary>
         public abstract string Description { get; }
+        /// <summary>
+        /// new Special for all kind of drink
+        /// </summary>
         public abstract string[] Special { get; }
 
         public bool Ice = true;

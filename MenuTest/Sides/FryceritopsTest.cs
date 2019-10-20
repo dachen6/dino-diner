@@ -118,7 +118,19 @@ namespace MenuTest.Sides
                 ft.Size = size;
             });
         }
-  
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void sizeChangeShouldNotifyDescription(Size size)
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.PropertyChanged(ft, "Description", () =>
+            {
+                ft.Size = size;
+            });
+        }
+
         [Fact]
         public void ShouldhaveCurrectDescriptionInMediumSize()
         {

@@ -80,10 +80,16 @@ namespace DinoDiner.Menu
         {
             return "Steakosaurus Burger";
         }
+        /// <summary>
+        /// new Description for Steakosaurus Burger
+        /// </summary>
         public override string Description
         {
             get { return this.ToString(); }
         }
+        /// <summary>
+        /// new Description for Steakosaurus Burger
+        /// </summary>
 
         public override string[] Special
         {

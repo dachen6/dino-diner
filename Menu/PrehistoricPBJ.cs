@@ -70,11 +70,16 @@ namespace DinoDiner.Menu
         {
             return "Prehistoric PB&J";
         }
-
+        /// <summary>
+        /// new Description for Prehistoric PB&J
+        /// </summary>
         public override string Description
         {
             get{return this.ToString();}           
         }
+        /// <summary>
+        /// new Description for Prehistoric PB&J
+        /// </summary>
 
         public override string[] Special
         {

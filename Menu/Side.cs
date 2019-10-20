@@ -40,8 +40,13 @@ namespace DinoDiner.Menu
         /// crate a value of size
         /// </summary>
         public virtual Size Size { get { return size; } set { size = value; } }
-
+        /// <summary>
+        /// Description for all the side
+        /// </summary>
         public abstract string Description { get; }
+        /// <summary>
+        /// speical for all the side
+        /// </summary>
         public abstract string[] Special { get; }
     }
 }

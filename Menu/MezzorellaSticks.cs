@@ -74,10 +74,16 @@ namespace DinoDiner.Menu
         {
             return $"{size.ToString()} Mezzorella Sticks";
         }
+        /// <summary>
+        /// new Description for Mezzorella Sticks
+        /// </summary>
         public override string Description
         {
             get { return this.ToString(); }
         }
+        /// <summary>
+        /// new Description for Mezzorella Sticks
+        /// </summary>
         public override string[] Special
         {
             get

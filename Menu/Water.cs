@@ -85,10 +85,16 @@ namespace DinoDiner.Menu
         {
             return $"{size.ToString()} Water";
         }
+        /// <summary>
+        /// new Description for Water
+        /// </summary>
         public override string Description
         {
             get { return this.ToString(); }
         }
+        /// <summary>
+        /// new Special for Water
+        /// </summary>
         public override string[] Special
         {
             get

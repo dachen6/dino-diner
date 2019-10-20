@@ -73,10 +73,16 @@ namespace DinoDiner.Menu
         {
             return "Veloci-Wrap";
         }
+        /// <summary>
+        /// new Description for Veloci-Wrap
+        /// </summary>
         public override string Description
         {
             get { return this.ToString(); }
         }
+        /// <summary>
+        /// new Description for Veloci-Wrap
+        /// </summary>
         public override string[] Special
         {
             get

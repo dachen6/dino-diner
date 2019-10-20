@@ -127,10 +127,16 @@ namespace DinoDiner.Menu
             return "T-Rex King Burger";
 
         }
+        /// <summary>
+        /// new Description for T-Rex King Burger
+        /// </summary>
         public override string Description
         {
             get { return this.ToString(); }
         }
+        /// <summary>
+        /// new Description for T-Rex King Burger
+        /// </summary>
 
         public override string[] Special
         {

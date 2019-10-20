@@ -62,10 +62,17 @@ namespace DinoDiner.Menu
         {
             return "Dino-Nuggets";
         }
+        /// <summary>
+        /// Description what in Dino-Nuggets
+        /// </summary>
 		public override string Description
 		{
 			get { return this.ToString(); }
 		}
+        /// <summary>
+        /// the Special for Dino-Nuggets
+        /// </summary>
+        /// 
 		public override string[] Special
 		{
             get {

@@ -94,7 +94,18 @@ namespace MenuTest.Drinks
             });
 
         }
-
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void sizeChangeShouldNotifyDescription(Size size)
+        {
+            Water w = new Water();
+            Assert.PropertyChanged(w, "Description", () =>
+            {
+                w.Size = size;
+            });
+        }
         [Fact]
         public void ShouldhaveCurrectDescriptionInMediumSize()
         {
