@@ -236,7 +236,7 @@ namespace MenuTest.Drinks
             jj.LeaveRoomForCream();
             Assert.Collection<string>(jj.Special, item =>
             {
-                Assert.Equal("Add Leave Room For Creame", item);
+                Assert.Equal("Add Room For Cream", item);
             });
         }
         [Fact]
@@ -251,7 +251,7 @@ namespace MenuTest.Drinks
             },
             item =>
             {
-                Assert.Equal("Add Leave Room For Creame", item);
+                Assert.Equal("Add Room For Cream", item);
             }) ;
         }
 
