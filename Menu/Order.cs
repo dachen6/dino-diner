@@ -7,14 +7,14 @@ namespace DinoDiner.Menu
 {
 	public class Order
 	{
-        public ObservableCollection<IOrderItem> item { get; set; } = new ObservableCollection<IOrderItem>();
+        public ObservableCollection<IMenuItem> Items { get; set; } = new ObservableCollection<IMenuItem>();
 
         private  double subtotalCost;
         public double SubtotalCost { get
 
             {
                
-                foreach (IOrderItem i in item)
+                foreach (IMenuItem i in Items)
                 {
                     subtotalCost += i.Price;
                 }
