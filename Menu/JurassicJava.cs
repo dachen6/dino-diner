@@ -118,7 +118,8 @@ namespace DinoDiner.Menu
 			{
 				List<string> special = new List<string>();
 				if (Ice) special.Add("Add Ice");
-				return special.ToArray();
+                if (RoomForCream) special.Add("Add Room For Cream");
+                return special.ToArray();
 			}
 		}
 	}

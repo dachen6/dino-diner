@@ -173,7 +173,7 @@ namespace MenuTest.Drinks
         }
 
         [Fact]
-        public void HoldingPeanutButterShouldNotifySpecialChange()
+        public void HoldLemonShouldNotifySpecialChange()
         {
             Water w = new Water();
 
@@ -183,7 +183,7 @@ namespace MenuTest.Drinks
             });
         }
         [Fact]
-        public void HoldingJerryShouldNotifySpecialChange()
+        public void HoldIceShouldNotifySpecialChange()
         {
             Water w = new Water();
 
@@ -193,7 +193,7 @@ namespace MenuTest.Drinks
             });
         }
         [Fact]
-        public void HoldingJerryShouldNotifyIngredientsChange()
+        public void AddLemonShouldNotifyIngredientsChange()
         {
             Water w = new Water();
 

@@ -229,15 +229,51 @@ namespace MenuTest.Drinks
             });
         }
 
+        [Fact]
+        public void LeaveRoomForCreamShouldAddRoomForCream()
+        {
+            JurassicJava jj = new JurassicJava();
+            jj.LeaveRoomForCream();
+            Assert.Collection<string>(jj.Special, item =>
+            {
+                Assert.Equal("Add Leave Room For Creame", item);
+            });
+        }
+        [Fact]
+        public void LeaveRoomForCreamAndHoldIceShouldAddRoomForCreamAndAddIce()
+        {
+            JurassicJava jj = new JurassicJava();
+            jj.AddIce();
+            jj.LeaveRoomForCream();
+            Assert.Collection<string>(jj.Special, item =>
+            {
+                Assert.Equal("Add Ice", item);
+            },
+            item =>
+            {
+                Assert.Equal("Add Leave Room For Creame", item);
+            }) ;
+        }
 
         [Fact]
-        public void HoldingPeanutButterShouldNotifySpecialChange()
+        public void AddIceShouldNotifySpecialChange()
         {
             JurassicJava jj = new JurassicJava();
 
             Assert.PropertyChanged(jj, "Special", () =>
             {
                 jj.AddIce();
+            });
+        }
+
+        [Fact]
+        public void LeaveRoomForCreamShouldNotifySpecialChange()
+        {
+            JurassicJava jj = new JurassicJava();
+
+            Assert.PropertyChanged(jj, "Special", () =>
+            {
+                jj.LeaveRoomForCream();
             });
         }
     }

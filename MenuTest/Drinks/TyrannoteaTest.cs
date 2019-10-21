@@ -68,6 +68,7 @@ namespace MenuTest.Drinks
         {
             Tyrannotea tn = new Tyrannotea();
             tn.Size = Size.Small;
+            tn.Sweet = false;
             Assert.Equal<uint>(8, tn.Calories);
         }
         [Fact]
@@ -75,6 +76,7 @@ namespace MenuTest.Drinks
         {
             Tyrannotea tn = new Tyrannotea();
             tn.Size = Size.Medium;
+            tn.Sweet = false;
             Assert.Equal<uint>(16, tn.Calories);
         }
         [Fact]
@@ -82,6 +84,7 @@ namespace MenuTest.Drinks
         {
             Tyrannotea tn = new Tyrannotea();
             tn.Size = Size.Large;
+            tn.Sweet = false;
             Assert.Equal<uint>(32, tn.Calories);
         }
         [Fact]
@@ -236,6 +239,31 @@ namespace MenuTest.Drinks
             Tyrannotea tn = new Tyrannotea();
 
             Assert.PropertyChanged(tn, "Price", () =>
+            {
+                tn.Size = size;
+            });
+        }
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void sizeChangeShouldNotifySize(Size size)
+        {
+            Tyrannotea tn = new Tyrannotea();
+            Assert.PropertyChanged(tn, "Size", () =>
+            {
+                tn.Size = size;
+            });
+        }
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Large)]
+        [InlineData(Size.Medium)]
+        public void sizeChangeShouldNotifyDescription(Size size)
+        {
+            Tyrannotea tn = new Tyrannotea();
+
+            Assert.PropertyChanged(tn, "Description", () =>
             {
                 tn.Size = size;
             });

@@ -130,6 +130,15 @@ namespace MenuTest.Entrees
                 dn.AddNugget();
             });
         }
-        
+        [Fact]
+        public void HoldingPeanutButterShouldNotifyIngredientsChange()
+        {
+            DinoNuggets dn = new DinoNuggets();
+
+            Assert.PropertyChanged(dn, "Ingredients", () =>
+            {
+                dn.AddNugget();
+            });
+        }
     }
 }
