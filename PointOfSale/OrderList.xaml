@@ -24,14 +24,15 @@
                    Margin="5,0,0,0"
                    />
         <ListBox Grid.Row="1" 
+                 Name="OrderItems"
                  Grid.ColumnSpan="2"
-                 ItemsSource="{Binding Path=Items}"
+                 ItemsSource="{Binding Path=Items, UpdateSourceTrigger=PropertyChanged}"
                  >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock Text="{Binding Path=Description}"/>
-                        <ListBox ItemsSource="{Binding Path=Ingredients}"
+                        <ListBox ItemsSource="{Binding Path=Special}"
                                  BorderBrush="White"/>
                     </StackPanel>
                 </DataTemplate>

@@ -39,7 +39,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// crate a value of size
         /// </summary>
-        public virtual Size Size { get { return size; } set { size = value; } }
+        public virtual Size Size { get { return size; }
+            set { size = value; NotifyOfPropertyChanged("Size");
+                NotifyOfPropertyChanged("Desceiption");
+            }
+        }
         /// <summary>
         /// Description for all the side
         /// </summary>
