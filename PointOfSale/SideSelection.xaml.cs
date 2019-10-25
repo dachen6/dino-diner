@@ -22,6 +22,9 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+
+
+       
         private Side side;
         /// <summary>
         /// begin side page
@@ -30,14 +33,21 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+        public SideSelection(Side side)
+        {
+            InitializeComponent();
+            this.side = side;
+        }
+
         private void OnSelectFeyceritops(object sender, RoutedEventArgs arg)
         {
             if(DataContext is Order order)
             {
                 side = new Fryceritops();
-                order.Items.Add(side);
+                order.Add(side);
             }
         }
+
         private void OnChanegSize(object sender, RoutedEventArgs arg)
         {
             if(sender is FrameworkElement element)

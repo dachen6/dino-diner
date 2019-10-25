@@ -12,6 +12,7 @@
     </Window.DataContext>
     <DockPanel>
         <local:OrderList
+            x:Name="OrderControl"
             DockPanel.Dock="Right" Width="200"  Background="LightSteelBlue" >
             
         </local:OrderList>
