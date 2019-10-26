@@ -42,10 +42,10 @@ namespace PointOfSale
                 }
             }
         }
-        
+
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs args)
         {
-            if(OrderItems.SelectedItem is Side side)
+            if (OrderItems.SelectedItem is Side side)
             {
                 NavigationService?.Navigate(new SideSelection(side));
             }
@@ -53,10 +53,14 @@ namespace PointOfSale
             {
                 NavigationService?.Navigate(new DrinkSelection(drink));
             }
+            if (OrderItems.SelectedItem is Entree entree)
+            {
+                NavigationService?.Navigate(new EntreeSelection(entree));
+            }
+
+
+
         }
-
-
-
     }
     
 }

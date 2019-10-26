@@ -28,6 +28,11 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+        public EntreeSelection(Entree entree)
+        {
+            InitializeComponent();
+            this.entree = entree;
+        }
 
         private void SteakosaurusBurger(object sender, RoutedEventArgs e)
         {

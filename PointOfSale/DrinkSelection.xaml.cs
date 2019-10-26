@@ -28,6 +28,9 @@ namespace PointOfSale
         {
             InitializeComponent();          
             t = 0;
+            flavor.IsEnabled = false;
+            Ice.IsEnabled = false;
+            lemon.IsEnabled = false;
         }
         private Drink drink;
         public DrinkSelection(Drink drink)
@@ -77,14 +80,18 @@ namespace PointOfSale
         /// <param name="args"></param>
         void Soda(object sender, RoutedEventArgs args)
         {
+            flavor.IsEnabled = true;
+            Ice.IsEnabled = true;
+            lemon.IsEnabled = false;
             if (DataContext is Order order)
             {
+                flavor.IsEnabled = true;
+                Ice.IsEnabled = true;
+                lemon.IsEnabled = false;
                 drink = new Sodasaurus();
                 order.Add(drink);
             }
-            flavor.IsEnabled = true;
-            Ice.IsEnabled = false;
-            lemon.IsEnabled = false;
+
 
         }
         /// <summary>
