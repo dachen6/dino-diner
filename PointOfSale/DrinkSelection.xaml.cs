@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using DinoDiner.Menu;
+using DDSize = DinoDiner.Menu.Size;
 namespace PointOfSale
 {
     /// <summary>
@@ -26,10 +27,17 @@ namespace PointOfSale
         public DrinkSelection()
         {
             InitializeComponent();          
+            t = 0;
+        }
+        private Drink drink;
+        public DrinkSelection(Drink drink)
+        {
+            InitializeComponent();
+            this.drink = drink;
             flavor.IsEnabled = false;
             Ice.IsEnabled = false;
             lemon.IsEnabled = false;
-            t = 0;
+            
         }
         /// <summary>
         /// check if user choose soda
@@ -42,10 +50,24 @@ namespace PointOfSale
         /// <param name="args"></param>
         void SelectFlavor(object sender, RoutedEventArgs args)
         {
-            if (t == 1)
+            if (drink is Sodasaurus sd)
             {
-                NavigationService.Navigate(new Flavor());
-               
+                NavigationService.Navigate(new Flavor(sd));
+
+            }
+            else if (drink is Tyrannotea ty)
+            {
+                
+                ty.AddSweet();
+             
+            }
+            else if (drink is JurassicJava jj)
+            {
+                
+                  
+                jj.AddDecaf();
+                    
+                
             }
         }
         /// <summary>
@@ -55,11 +77,15 @@ namespace PointOfSale
         /// <param name="args"></param>
         void Soda(object sender, RoutedEventArgs args)
         {
-            
+            if (DataContext is Order order)
+            {
+                drink = new Sodasaurus();
+                order.Add(drink);
+            }
             flavor.IsEnabled = true;
             Ice.IsEnabled = false;
             lemon.IsEnabled = false;
-            t = 1;
+
         }
         /// <summary>
         /// click Tyrannotea to continue choose lemon and sweet
@@ -68,10 +94,16 @@ namespace PointOfSale
         /// <param name="args"></param>
         void Tyra(object sender, RoutedEventArgs args)
         {
+
             flavor.IsEnabled = true;
             Ice.IsEnabled = false;
             lemon.IsEnabled = true;
-            t = 0;
+            t = 2;
+            if (DataContext is Order order)
+            {
+                drink = new Tyrannotea();
+                order.Add(drink);
+            }
         }
         /// <summary>
         /// click JurrasicJava to continue choose lemon and ice
@@ -80,10 +112,16 @@ namespace PointOfSale
         /// <param name="args"></param>
         void java(object sender, RoutedEventArgs args)
         {
+
             flavor.IsEnabled = true;
             Ice.IsEnabled = true;
             lemon.IsEnabled = false;
-            t = 0;
+            t = 3;
+            if (DataContext is Order order)
+            {
+                drink = new JurassicJava();
+                order.Add(drink);
+            }
         }
         /// <summary>
         /// click water to continue choose lemon
@@ -92,10 +130,43 @@ namespace PointOfSale
         /// <param name="args"></param>
         void water(object sender, RoutedEventArgs args)
         {
+
             flavor.IsEnabled = false;
             Ice.IsEnabled = false;
             lemon.IsEnabled = true;
+            if (DataContext is Order order)
+            {
+                drink = new Water();
+                order.Add(drink);
+            }
             t = 0;
         }
+        private void OnChanegSize(object sender, RoutedEventArgs arg)
+        {
+            if (sender is FrameworkElement element)
+            {
+                drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+            }
+        }
+
+        private void Ice_Click(object sender, RoutedEventArgs e)
+        {
+            drink.HoldIce();
+        }
+
+        private void Lemon_Click(object sender, RoutedEventArgs e)
+        {
+           if(drink is Water w)
+            {
+                w.AddLemon();
+            }
+            if (drink is Tyrannotea t)
+            {
+                t.AddLemon();
+            }
+        }
     }
+
+
+    
 }

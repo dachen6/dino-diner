@@ -98,6 +98,13 @@ namespace DinoDiner.Menu
             NotifyOfPropertyChanged("Ingredients");
             NotifyOfPropertyChanged("Special");
         }
+        public void AddSweet()
+        {
+            Lemon = true;
+            Sweet = true;
+            NotifyOfPropertyChanged("Description");
+            NotifyOfPropertyChanged("Ingredients");
+        }
         /// <summary>
         /// the base price and calories of Tyrannotea 
         /// </summary>

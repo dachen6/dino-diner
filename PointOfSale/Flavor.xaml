@@ -32,7 +32,7 @@
             </WrapPanel.Resources>
         </WrapPanel>
 
-        <Button Width="200" Height="80"   Grid.Column="0" Grid.Row="2" VerticalContentAlignment="Top" >
+        <Button Tag="Cherry" Width="200" Height="80"  Click="OnChanegFlavor"   Grid.Column="0" Grid.Row="2" VerticalContentAlignment="Top" >
 
             <Button.Background>
                 <ImageBrush ImageSource="Assets/Cherry.jpg">
@@ -42,7 +42,7 @@
 
         </Button>
 
-        <Button Width="200" Height="80" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Top" >
+        <Button Tag="Chocolate"  Click="OnChanegFlavor" Width="200" Height="80" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Top" >
 
             <Button.Background>
                 <ImageBrush ImageSource="Assets/Chocolate.jpg">
@@ -51,35 +51,35 @@
             Chocolate
         </Button>
 
-        <Button Width="200" Height="80" Grid.Column="2" Grid.Row="2" VerticalContentAlignment="Top" >
+        <Button Tag="Cola"  Click="OnChanegFlavor"  Width="200" Height="80" Grid.Column="2" Grid.Row="2" VerticalContentAlignment="Top" >
             <Button.Background>
                 <ImageBrush ImageSource="Assets/Cola.jpg">
                 </ImageBrush>
             </Button.Background>
             Cola
         </Button>
-        <Button Width="200" Height="80" Grid.Column="2" Grid.Row="1" VerticalContentAlignment="Top" >
+        <Button Tag="Lime"  Click="OnChanegFlavor"  Width="200" Height="80" Grid.Column="2" Grid.Row="1" VerticalContentAlignment="Top" >
             <Button.Background>
                 <ImageBrush ImageSource="Assets/Lime.jpg">
                 </ImageBrush>
             </Button.Background>
             Lime
         </Button>
-        <Button Width="200" Height="80" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Top" >
+        <Button Tag="Oragen"  Click="OnChanegFlavor"  Width="200" Height="80" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Top" >
             <Button.Background>
                 <ImageBrush ImageSource="Assets/Orange.jpg">
                 </ImageBrush>
             </Button.Background>
             Orange
         </Button>
-        <Button Width="200" Height="80" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Top" >
+        <Button Tag="RootBeer" Click="OnChanegFlavor"  Width="200" Height="80" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Top" >
             <Button.Background>
                 <ImageBrush ImageSource="Assets/RootBeer.jpg">
                 </ImageBrush>
             </Button.Background>
             Root Beer
         </Button>
-        <Button Width="200" Height="80"  Grid.Column="0" Grid.Row="3" VerticalContentAlignment="Top" >
+        <Button Tag="Vanilla"  Click="OnChanegFlavor"  Width="200" Height="80"  Grid.Column="0" Grid.Row="3" VerticalContentAlignment="Top" >
             <Button.Background>
                 <ImageBrush ImageSource="Assets/vanillla.jpg">
                 </ImageBrush>

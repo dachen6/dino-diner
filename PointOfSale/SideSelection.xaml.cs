@@ -47,6 +47,30 @@ namespace PointOfSale
                 order.Add(side);
             }
         }
+        private void OnSelectTriceritots(object sender, RoutedEventArgs arg)
+        {
+            if (DataContext is Order order)
+            {
+                side = new Triceritots();
+                order.Add(side);
+            }
+        }
+        private void OnSelectMeteorMacCheese(object sender, RoutedEventArgs arg)
+        {
+            if (DataContext is Order order)
+            {
+                side = new MeteorMacAndCheese();
+                order.Add(side);
+            }
+        }
+        private void OnSelectMozzerellaSticks(object sender, RoutedEventArgs arg)
+        {
+            if (DataContext is Order order)
+            {
+                side = new MezzorellaSticks();
+                order.Add(side);
+            }
+        }
 
         private void OnChanegSize(object sender, RoutedEventArgs arg)
         {

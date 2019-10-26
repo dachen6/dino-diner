@@ -56,11 +56,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// add ice in the drink
         /// </summary>
-            public void HoldIce()
-            {
-                Ice = false;
+        public void HoldIce()
+        {
+            Ice = false;
             NotifyOfPropertyChanged("Special");
-             }
+        }
           
         }
     }

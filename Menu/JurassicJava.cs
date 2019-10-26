@@ -76,6 +76,12 @@ namespace DinoDiner.Menu
             this.Ice = false;
 
         }
+
+        public void AddDecaf()
+        {
+            Decaf = true;
+            NotifyOfPropertyChanged("Description");
+        }
         /// <summary>
         /// add lemon
         /// </summary>

@@ -39,21 +39,21 @@
             </Button.Background>
             Fryceritops
         </Button>
-        <Button Width="200" Height="80"  Grid.Column="0" Grid.Row="3" VerticalContentAlignment="Top" >
+        <Button Click ="OnSelectTriceritots" Width="200" Height="80"  Grid.Column="0" Grid.Row="3" VerticalContentAlignment="Top" >
             <Button.Background>
                 <ImageBrush ImageSource="Assets/Triceritots.jpg">
                 </ImageBrush>
             </Button.Background>
             Triceritots
         </Button>
-        <Button  Width="200" Height="80" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Top" >
+        <Button Click ="OnSelectMeteorMacCheese" Width="200" Height="80" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Top" >
             <Button.Background>
                 <ImageBrush ImageSource="Assets/Meteor Mac - Cheese.jpg">
                 </ImageBrush>
             </Button.Background>
             Meteor Mac Cheese
         </Button>
-        <Button Width="200" Height="80" Grid.Column="0" Grid.Row="2" VerticalContentAlignment="Top" >
+        <Button Click ="OnSelectMozzerellaSticks" Width="200" Height="80" Grid.Column="0" Grid.Row="2" VerticalContentAlignment="Top" >
             <Button.Background>
                 <ImageBrush ImageSource="Assets/Mozzerella Sticks.jpg">
                 </ImageBrush>

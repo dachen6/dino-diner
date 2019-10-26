@@ -32,7 +32,7 @@
             </WrapPanel.Resources>
         </WrapPanel>
 
-        <Button Width="200" Height="80"   Grid.Column="0" Grid.Row="2" VerticalContentAlignment="Top" >
+        <Button Click="Brontowurst" Width="200" Height="80"   Grid.Column="0" Grid.Row="2" VerticalContentAlignment="Top" >
 
             <Button.Background>
                 <ImageBrush ImageSource="Assets/Brontowurst.jpg">
@@ -42,7 +42,7 @@
 
         </Button>
 
-        <Button Width="200" Height="80" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Top" >
+        <Button Click="DinoNuggets" Width="200" Height="80" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Top" >
 
             <Button.Background>
                 <ImageBrush ImageSource="Assets/Dino.jpg">
@@ -51,35 +51,35 @@
             Dino-Nuggets
         </Button>
 
-        <Button Width="200" Height="80"  Grid.Column="2" Grid.Row="2" VerticalContentAlignment="Top" >
+        <Button Click="SteakosaurusBurger" Width="200" Height="80"  Grid.Column="2" Grid.Row="2" VerticalContentAlignment="Top" >
             <Button.Background>
                 <ImageBrush ImageSource="Assets/Steakosaurus Burger.jpg">
                 </ImageBrush>
             </Button.Background>
             Steakosaurus Burger 
         </Button>
-        <Button Width="200" Height="80"  Grid.Column="2" Grid.Row="1" VerticalContentAlignment="Top" >
+        <Button Click="TRexKingBurger" Width="200" Height="80"  Grid.Column="2" Grid.Row="1" VerticalContentAlignment="Top" >
             <Button.Background>
                 <ImageBrush ImageSource="Assets/T-Rex King Burger.jpg">
                 </ImageBrush>
             </Button.Background>
             T-Rex King Burger
         </Button>
-        <Button Width="200" Height="80" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Top" >
+        <Button Click="PrehistoricPBJ" Width="200" Height="80" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Top" >
             <Button.Background>
                 <ImageBrush ImageSource="Assets/Prehistoric PB&amp;J.jpg">
                 </ImageBrush>
             </Button.Background>
             Prehistoric PB&amp;J
         </Button>
-        <Button Width="200" Height="80" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Top" >
+        <Button Click="Wings" Width="200" Height="80" Grid.Column="1" Grid.Row="1" VerticalContentAlignment="Top" >
             <Button.Background>
                 <ImageBrush ImageSource="Assets/Pterdactyl-Wings.jpg">
                 </ImageBrush>
             </Button.Background>
             Pterdactyl Wings 
         </Button>
-        <Button Width="200" Height="80"  Grid.Column="0" Grid.Row="3" VerticalContentAlignment="Top" >
+        <Button Click="VelociWrap"  Width="200" Height="80"  Grid.Column="0" Grid.Row="3" VerticalContentAlignment="Top" >
             <Button.Background>
                 <ImageBrush ImageSource="Assets/Veloci-Wrap.jpg">
                 </ImageBrush>

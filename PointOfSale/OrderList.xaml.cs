@@ -49,6 +49,10 @@ namespace PointOfSale
             {
                 NavigationService?.Navigate(new SideSelection(side));
             }
+            if (OrderItems.SelectedItem is Drink drink)
+            {
+                NavigationService?.Navigate(new DrinkSelection(drink));
+            }
         }
 
 

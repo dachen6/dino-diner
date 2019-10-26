@@ -16,10 +16,12 @@ namespace DinoDiner.Menu
         /// <summary>
         /// set a value of falvor
         /// </summary>
-        public SodasaurusFlavor Flavor{
+        public SodasaurusFlavor Flavor
+        {
             get { return flavor; }
-            set { flavor = value; }
-    }
+            set { flavor = value; NotifyOfPropertyChanged("Description"); }
+
+        }
         /// <summary>
         /// change price and calories of Sodasauruwith size
         /// </summary>
