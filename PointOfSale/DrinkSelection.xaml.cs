@@ -151,7 +151,14 @@ namespace PointOfSale
 
         private void Ice_Click(object sender, RoutedEventArgs e)
         {
-            drink.HoldIce();
+            if (drink is JurassicJava ja)
+            {
+                ja.AddIce();
+            }
+            else
+            {
+                drink.HoldIce();
+            }
         }
 
         private void Lemon_Click(object sender, RoutedEventArgs e)
@@ -164,6 +171,11 @@ namespace PointOfSale
             {
                 t.AddLemon();
             }
+        }
+
+        private void Done_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 
