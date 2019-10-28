@@ -28,17 +28,26 @@ namespace PointOfSale
         private Side side;
         /// <summary>
         /// begin side page
-        /// </summary>
+        /// </summary>    
         public SideSelection()
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// iniciation yje side when someone add side
+        /// </summary>
+        /// <param name="side"></param>
         public SideSelection(Side side)
         {
             InitializeComponent();
             this.side = side;
         }
-
+        /// <summary>
+        /// click Fryceritops to add it to order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="arg"></param>
         private void OnSelectFeyceritops(object sender, RoutedEventArgs arg)
         {
             if(DataContext is Order order)
@@ -47,6 +56,11 @@ namespace PointOfSale
                 order.Add(side);
             }
         }
+        /// <summary>
+        /// click Triceritots to add it to order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="arg"></param>
         private void OnSelectTriceritots(object sender, RoutedEventArgs arg)
         {
             if (DataContext is Order order)
@@ -55,6 +69,11 @@ namespace PointOfSale
                 order.Add(side);
             }
         }
+        /// <summary>
+        /// click MeteorMac And Cheese stick to add it to order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="arg"></param>
         private void OnSelectMeteorMacCheese(object sender, RoutedEventArgs arg)
         {
             if (DataContext is Order order)
@@ -63,6 +82,11 @@ namespace PointOfSale
                 order.Add(side);
             }
         }
+        /// <summary>
+        /// click Mozzerella stick to add it to order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="arg"></param>
         private void OnSelectMozzerellaSticks(object sender, RoutedEventArgs arg)
         {
             if (DataContext is Order order)
@@ -71,7 +95,11 @@ namespace PointOfSale
                 order.Add(side);
             }
         }
-
+        /// <summary>
+        /// able to change size for side
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="arg"></param>
         private void OnChanegSize(object sender, RoutedEventArgs arg)
         {
             if(sender is FrameworkElement element)

@@ -40,14 +40,39 @@ namespace PointOfSale
             flavor.IsEnabled = false;
             Ice.IsEnabled = false;
             lemon.IsEnabled = false;
-            
+            if(drink is Sodasaurus)
+            {
+                flavor.IsEnabled = true;
+                Ice.IsEnabled = true;
+                lemon.IsEnabled = false;
+            }
+            if (drink is Water)
+            {
+                flavor.IsEnabled = false;
+                Ice.IsEnabled = false;
+                lemon.IsEnabled = true;
+            }
+            if (drink is Tyrannotea)
+            {
+                flavor.IsEnabled = true;
+                Ice.IsEnabled = false;
+                lemon.IsEnabled = true;
+            }
+            if (drink is JurassicJava)
+            {
+
+                flavor.IsEnabled = true;
+                Ice.IsEnabled = true;
+                lemon.IsEnabled = false;
+            }
+
         }
         /// <summary>
         /// check if user choose soda
         /// </summary>
         public int t = 0;
         /// <summary>
-        /// go to falvor page if user choose soda
+        /// go to falvor page if user choose soda and add sweet if choose Tyrannotea or decaf if choose JurassicJava
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
@@ -66,11 +91,8 @@ namespace PointOfSale
             }
             else if (drink is JurassicJava jj)
             {
-                
-                  
                 jj.AddDecaf();
-                    
-                
+
             }
         }
         /// <summary>
@@ -148,6 +170,11 @@ namespace PointOfSale
             }
             t = 0;
         }
+        /// <summary>
+        /// able to change size
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="arg"></param>
         private void OnChanegSize(object sender, RoutedEventArgs arg)
         {
             if (sender is FrameworkElement element)
@@ -155,7 +182,11 @@ namespace PointOfSale
                 drink.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
             }
         }
-
+        /// <summary>
+        /// add ice to drink except for java we remove ice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Ice_Click(object sender, RoutedEventArgs e)
         {
             if (drink is JurassicJava ja)
@@ -167,7 +198,11 @@ namespace PointOfSale
                 drink.HoldIce();
             }
         }
-
+        /// <summary>
+        /// add lemon to the drink
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Lemon_Click(object sender, RoutedEventArgs e)
         {
            if(drink is Water w)
@@ -179,7 +214,11 @@ namespace PointOfSale
                 t.AddLemon();
             }
         }
-
+        /// <summary>
+        /// go back to main menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Done_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new MenuCategorySelection());

@@ -65,7 +65,7 @@
             </Button.Background>
             T-Rex King Burger
         </Button>
-        <Button Click="PrehistoricPBJ" Width="200" Height="80" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Top" >
+        <Button Click="OnAddPrehistoricPBJ" Width="200" Height="80" Grid.Column="1" Grid.Row="2" VerticalContentAlignment="Top" >
             <Button.Background>
                 <ImageBrush ImageSource="Assets/Prehistoric PB&amp;J.jpg">
                 </ImageBrush>

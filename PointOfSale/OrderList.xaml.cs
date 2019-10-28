@@ -26,7 +26,11 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-
+        /// <summary>
+        /// remove the item from order list when click on remove button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void RemoveItem(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
@@ -42,7 +46,11 @@ namespace PointOfSale
                 }
             }
         }
-
+        /// <summary>
+        /// click the item should go to right page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs args)
         {
             if (OrderItems.SelectedItem is Side side)

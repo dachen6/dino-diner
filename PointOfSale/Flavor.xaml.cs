@@ -31,12 +31,20 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// inicition falvor page
+        /// </summary>
+        /// <param name="sd"></param>
         public Flavor(Sodasaurus sd)
         {
             InitializeComponent();
             this.drink = sd;
         }
+        /// <summary>
+        /// able to change the falvor when click soda
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="arg"></param>
         private void OnChanegFlavor(object sender, RoutedEventArgs arg)
         {
             if (sender is FrameworkElement element)
