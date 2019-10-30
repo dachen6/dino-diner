@@ -99,6 +99,7 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Size");
                 NotifyOfPropertyChanged("Special");
                 NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Description");
                 NotifyOfPropertyChanged("Calories");
             }
         }

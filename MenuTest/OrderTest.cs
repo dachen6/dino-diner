@@ -14,9 +14,9 @@ namespace MenuTest
             MorkSide ms = new MorkSide(3);
             MorkEntree me = new MorkEntree(2);
             Order o = new Order();
-            o.item.Add(md);
-            o.item.Add(ms);
-            o.item.Add(me);
+            o.Add(md);
+            o.Add(ms);
+            o.Add(me);
             Assert.Equal<double>(10, o.SubtotalCost);
         }
         [Fact]
@@ -26,9 +26,9 @@ namespace MenuTest
             MorkSide ms = new MorkSide(3);
             MorkEntree me = new MorkEntree(2);
             Order o = new Order();
-            o.item.Add(md);
-            o.item.Add(ms);
-            o.item.Add(me);
+            o.Add(md);
+            o.Add(ms);
+            o.Add(me);
             Assert.Equal<double>(0, o.SubtotalCost);
         }
     }

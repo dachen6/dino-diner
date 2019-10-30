@@ -28,7 +28,7 @@ namespace DinoDiner.Menu
 
             {
                 double subtotalCost = 0;
-                foreach (IMenuItem i in Items)
+                foreach (IOrderItem i in Items)
                 {
                     subtotalCost += i.Price;
                 }

@@ -14,8 +14,15 @@ namespace DinoDiner.Menu
         /// <summary>
         /// in the beigneer, we don't add suger and lemon
         /// </summary>
-        public bool Sweet = false;
-        public bool Lemon = false;
+        private bool sweet = false;
+        public bool Sweet { get { return sweet; } set { sweet = value; NotifyOfPropertyChanged("Description"); } }
+        private bool lemon = false;
+        public bool Lemon{ get { return lemon; } set
+            {
+                lemon = value;
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Special");
+            } }
         /// <summary>
         /// we change the price and calories with size and sweet
         /// </summary>

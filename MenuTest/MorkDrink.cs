@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using DinoDiner.Menu;
+using System.ComponentModel;
 namespace MenuTest
 {
-    public class MorkDrink : IOrderItem
+    public class MorkDrink : IOrderItem, INotifyPropertyChanged
     {
         //public override List<string> Ingredients { get; }
-
+        public event PropertyChangedEventHandler PropertyChanged;
         public double price;
         public double Price { get; set; }
 

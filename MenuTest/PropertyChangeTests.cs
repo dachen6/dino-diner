@@ -4,7 +4,7 @@ using System.Text;
 using System.ComponentModel;
 using DinoDiner.Menu;
 using Xunit;
-
+using System.ComponentModel;
 namespace MenuTest
 {
     class MockOrderItem : IOrderItem, INotifyPropertyChanged
