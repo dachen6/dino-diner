@@ -47,10 +47,10 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new SteakosaurusBurger();
-                order.Add(entree);
+                SteakosaurusBurger pbj = new SteakosaurusBurger();
+                order.Add(pbj);
+                NavigationService.Navigate(new CustomizeSteakosaurusBurger(pbj));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
         }
         /// <summary>
         /// add DinoNuggets to order list
@@ -61,10 +61,10 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new DinoNuggets();
-                order.Add(entree);
+                DinoNuggets pbj = new DinoNuggets();
+                order.Add(pbj);
+                NavigationService.Navigate(new CustomizeDinoNuggets(pbj));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
         }
         /// <summary>
         /// add TRexKingBurger to order list
@@ -75,10 +75,10 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new TRexKingBurger();
-                order.Add(entree);
+                TRexKingBurger pbj = new TRexKingBurger();
+                order.Add(pbj);
+                NavigationService.Navigate(new CustomizeT_RexKingBurger(pbj));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
         }
         /// <summary>
         /// add Wings to order list
@@ -89,10 +89,10 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new PterodactylWings();
-                order.Add(entree);
+                PterodactylWings pbj = new PterodactylWings();
+                order.Add(pbj);
+                NavigationService.Navigate(new CustomizePterodactylWings(pbj));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
         }
 
         /*private void PrehistoricPBJ(object sender, RoutedEventArgs e)
@@ -113,10 +113,10 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new Brontowurst();
-                order.Add(entree);
+                Brontowurst pbj = new Brontowurst();
+                order.Add(pbj);
+                NavigationService.Navigate(new CustomizeBrontowurst(pbj));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
         }
         /// <summary>
         /// add VelociWrap to order list
@@ -127,10 +127,10 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                entree = new VelociWrap();
-                order.Add(entree);
+                VelociWrap vel = new VelociWrap();
+                order.Add(vel);
+                NavigationService.Navigate(new CustomizeVeloci_Wrapr(vel));
             }
-            NavigationService.Navigate(new MenuCategorySelection());
         }
         /// <summary>
         /// add SteakosaurusBurger to order list

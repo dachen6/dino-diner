@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -38,5 +39,44 @@ namespace PointOfSale
 
         }
 
+        private void SelectDinoNuggets(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SelectPterdactyl(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SelectTRexKingBurger(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SelectBrontowurst(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SelectPrehistoric(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SelectSteakosaurus(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                SteakosaurusBurger pbj = new SteakosaurusBurger();
+                order.Add(pbj);
+                NavigationService.Navigate(new CustomizeSteakosaurusBurger(pbj));
+            }
+        }
+
+        private void SelectVelociWrap(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
