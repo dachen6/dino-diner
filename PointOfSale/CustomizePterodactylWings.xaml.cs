@@ -29,7 +29,8 @@ namespace PointOfSale
 
         private void OnDone(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new CustomizeCombo());
         }
+
     }
 }

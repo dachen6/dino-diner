@@ -38,8 +38,8 @@ namespace PointOfSale
 
         private void OnDone(object sender, RoutedEventArgs e)
         {
-            if(Order is )
-            NavigationService.GoBack();
+
+            NavigationService.Navigate(new CustomizeCombo());
         }
     }
 }

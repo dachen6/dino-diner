@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using DinoDiner.Menu;
 namespace PointOfSale
 {
     /// <summary>
@@ -20,12 +20,18 @@ namespace PointOfSale
     /// </summary>
     public partial class CustomizeCombo : Page
     {
+        CretaceousCombo combo;
         /// <summary>
         /// begin Customize page
         /// </summary>
         public CustomizeCombo()
         {
             InitializeComponent();
+        }
+        public CustomizeCombo(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
         }
         /// <summary>
         /// click side buton to go to side page
@@ -34,7 +40,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         void Selectsize(object sender, RoutedEventArgs args)
         {
-        NavigationService.Navigate(new SideSelection());
+        NavigationService.Navigate(new SideSelection(this.combo));
         }
         /// <summary>
         /// click drink buton to go to drink page

@@ -22,6 +22,7 @@ namespace PointOfSale
     public partial class EntreeSelection : Page
     {
         private Entree entree;
+        private CretaceousCombo combo;
         /// <summary>
         /// begin entree page
         /// </summary>
@@ -38,6 +39,11 @@ namespace PointOfSale
             InitializeComponent();
             this.entree = entree;
         }
+        public EntreeSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+        }
         /// <summary>
         /// add SteakosaurusBurger to order list
         /// </summary>
@@ -47,9 +53,12 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                SteakosaurusBurger pbj = new SteakosaurusBurger();
-                order.Add(pbj);
-                NavigationService.Navigate(new CustomizeSteakosaurusBurger(pbj));
+
+                    SteakosaurusBurger pbj = new SteakosaurusBurger();
+                    order.Add(pbj);
+                    NavigationService.Navigate(new CustomizeSteakosaurusBurger(pbj));
+                
+
             }
         }
         /// <summary>

@@ -9,7 +9,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// the combo when people want to order combo
     /// </summary>
-    public class CretaceousCombo : IMenuItem, INotifyPropertyChanged
+    public class CretaceousCombo : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         private Entree entree;
 
@@ -42,7 +42,11 @@ namespace DinoDiner.Menu
             get { return side; }
             set {
                 side = value;
-                this.side.Size = this.size; } }
+                this.side.Size = this.size;
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Description");
+            } }
 
         private Drink drink = new Sodasaurus();
 
@@ -162,6 +166,14 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"{Entree.ToString()} Combo";
+        }
+
+        private void OnItemPropertyChanged(object sender,PropertyChangedEventArgs args)
+        {
+            NotifyOfPropertyChanged("Special");
+            NotifyOfPropertyChanged("Price");
+            NotifyOfPropertyChanged("Description");
+
         }
     }
 }

@@ -26,6 +26,7 @@ namespace PointOfSale
 
        
         private Side side;
+        private CretaceousCombo combo;
         /// <summary>
         /// begin side page
         /// </summary>    
@@ -35,13 +36,19 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// iniciation yje side when someone add side
+        /// iniciation the side when someone add side
         /// </summary>
         /// <param name="side"></param>
         public SideSelection(Side side)
         {
             InitializeComponent();
             this.side = side;
+        }
+        public SideSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            this.side = combo.Side;
         }
         /// <summary>
         /// click Fryceritops to add it to order
@@ -52,9 +59,19 @@ namespace PointOfSale
         {
             if(DataContext is Order order)
             {
-                side = new Fryceritops();
-                order.Add(side);
+                if (combo == null)
+                {
+                    side = new Fryceritops();
+                    order.Add(side);
+                }
+                else
+                {
+                    combo.Side = new Fryceritops();
+                    this.side = combo.Side;
+                }
+                
             }
+
         }
         /// <summary>
         /// click Triceritots to add it to order
