@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DinoDiner.Menu;
+using DDSize = DinoDiner.Menu.Size;
 namespace PointOfSale
 {
     /// <summary>
@@ -28,6 +29,10 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Initialize CustomizeCombo
+        /// </summary>
+        /// <param name="combo"></param>
         public CustomizeCombo(CretaceousCombo combo)
         {
             InitializeComponent();
@@ -49,7 +54,19 @@ namespace PointOfSale
         /// <param name="args"></param>
         void SelectDrink(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new DrinkSelection());
+            NavigationService.Navigate(new DrinkSelection(this.combo));
+        }
+        /// <summary>
+        /// change combe's size
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="arg"></param>
+        private void OnChanegSize(object sender, RoutedEventArgs arg)
+        {
+            if (sender is FrameworkElement element)
+            {
+                combo.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+            }
         }
     }
     

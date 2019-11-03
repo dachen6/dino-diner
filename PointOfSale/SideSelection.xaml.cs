@@ -49,6 +49,9 @@ namespace PointOfSale
             InitializeComponent();
             this.combo = combo;
             this.side = combo.Side;
+            MakeSmall.IsEnabled = false;
+           MakeMedium.IsEnabled = false;
+            MakeLarge.IsEnabled = false;
         }
         /// <summary>
         /// click Fryceritops to add it to order
@@ -81,9 +84,18 @@ namespace PointOfSale
         private void OnSelectTriceritots(object sender, RoutedEventArgs arg)
         {
             if (DataContext is Order order)
+
             {
-                side = new Triceritots();
-                order.Add(side);
+                if (combo == null)
+                {
+                    side = new Triceritots();
+                    order.Add(side);
+                }
+                else
+                {
+                    combo.Side = new Triceritots();
+                    this.side = combo.Side;
+                }
             }
         }
         /// <summary>
@@ -94,9 +106,18 @@ namespace PointOfSale
         private void OnSelectMeteorMacCheese(object sender, RoutedEventArgs arg)
         {
             if (DataContext is Order order)
+
             {
-                side = new MeteorMacAndCheese();
-                order.Add(side);
+                if (combo == null)
+                {
+                    side = new MeteorMacAndCheese();
+                    order.Add(side);
+                }
+                else
+                {
+                    combo.Side = new MeteorMacAndCheese();
+                    this.side = combo.Side;
+                }
             }
         }
         /// <summary>
@@ -107,24 +128,58 @@ namespace PointOfSale
         private void OnSelectMozzerellaSticks(object sender, RoutedEventArgs arg)
         {
             if (DataContext is Order order)
+
             {
-                side = new MezzorellaSticks();
-                order.Add(side);
+                if (combo == null)
+                {
+                    side = new MezzorellaSticks();
+                    order.Add(side);
+                }
+                else
+                {
+                    combo.Side = new MezzorellaSticks();
+                    this.side = combo.Side;
+                }
+
             }
         }
+            /// <summary>
+            /// able to change size for side
+            /// </summary>
+            /// <param name="sender"></param>
+            /// <param name="arg"></param>
+            private void OnChanegSize(object sender, RoutedEventArgs arg)
+            {
+                if(sender is FrameworkElement element)
+                {
+                    if (combo == null)
+                    {
+                        side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                    }
+                    else
+                    {
+                    this.side = combo.Side;
+                    this.side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                    }
+             
+                }
+            }
         /// <summary>
-        /// able to change size for side
+        /// go to main menu when finish choose side, go to CustomizeCombo when finish combo's side
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="arg"></param>
-        private void OnChanegSize(object sender, RoutedEventArgs arg)
+        /// <param name="e"></param>
+        private void Done_Click(object sender, RoutedEventArgs e)
         {
-            if(sender is FrameworkElement element)
+            if (this.combo != null)
             {
-                side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                NavigationService.Navigate(new CustomizeCombo(this.combo));
+            }
+            else
+            {
+                NavigationService.Navigate(new MenuCategorySelection());
             }
         }
-
 
     }
 }

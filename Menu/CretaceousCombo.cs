@@ -26,27 +26,36 @@ namespace DinoDiner.Menu
             protected set
             {
                 entree = value;
-
+                entree.PropertyChanged += OnItemPropertyChanged;
+                NotifyOfPropertyChanged("Special");
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Description");
             }
         }
         /// <summary>
         /// the side of the combo
         /// </summary>
-        private Side side;
+        private Side side = new Fryceritops();
 
 
         /// <summary>
         /// should get and set the side
         /// </summary>
-        public Side Side {
+        public Side Side
+        {
             get { return side; }
             set {
                 side = value;
                 this.side.Size = this.size;
+                side.PropertyChanged += OnItemPropertyChanged;
                 NotifyOfPropertyChanged("Special");
                 NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Ingredients");
                 NotifyOfPropertyChanged("Description");
-            } }
+                NotifyOfPropertyChanged("Calories");
+            }
+        }
 
         private Drink drink = new Sodasaurus();
 
@@ -59,6 +68,8 @@ namespace DinoDiner.Menu
             set
             {
                 drink = value;
+                this.Drink.Size = this.size;
+                drink.PropertyChanged += OnItemPropertyChanged;
                 NotifyOfPropertyChanged("Ingredients");
                 NotifyOfPropertyChanged("Special");
                 NotifyOfPropertyChanged("Price");
@@ -100,6 +111,7 @@ namespace DinoDiner.Menu
                 size = value;
                 Drink.Size = value;
                 Side.Size = value;
+                
                 NotifyOfPropertyChanged("Size");
                 NotifyOfPropertyChanged("Special");
                 NotifyOfPropertyChanged("Price");
@@ -155,6 +167,7 @@ namespace DinoDiner.Menu
         public CretaceousCombo(Entree entree)
         {
             Entree = entree;
+            entree.PropertyChanged += OnItemPropertyChanged;
             Side = new Fryceritops();
             Drink = new Sodasaurus();
 
@@ -167,12 +180,18 @@ namespace DinoDiner.Menu
         {
             return $"{Entree.ToString()} Combo";
         }
-
+        /// <summary>
+        /// able to identify the change property
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnItemPropertyChanged(object sender,PropertyChangedEventArgs args)
         {
+            NotifyOfPropertyChanged("Size");
             NotifyOfPropertyChanged("Special");
             NotifyOfPropertyChanged("Price");
             NotifyOfPropertyChanged("Description");
+            NotifyOfPropertyChanged("Calories");
 
         }
     }

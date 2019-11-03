@@ -21,30 +21,68 @@ namespace PointOfSale
     public partial class CustomizeBrontowurst : Page
     {
         private Brontowurst brontowurst;
+        /// <summary>
+        /// Initialize brontowurst when choose entree
+        /// </summary>
+        /// <param name="brontowurst"></param>
         public CustomizeBrontowurst(Brontowurst brontowurst)
         {
             InitializeComponent();
             this.brontowurst = brontowurst;
         }
-
+        private CretaceousCombo combo;
+        /// <summary>
+        ///  Initialize brontowurst when choose combo
+        /// </summary>
+        /// <param name="combo"></param>
+        public CustomizeBrontowurst(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            this.brontowurst = combo.Entree as Brontowurst;
+        }
+        /// <summary>
+        /// click HoldBUn to Hold Bun brontowurst
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnHoldBun(object sender, RoutedEventArgs e)
         {
             this.brontowurst.HoldBun();
         }
-
+        /// <summary>
+        /// click HoldOnion to Hold Onion forbrontowurst
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnHoldOnion(object sender, RoutedEventArgs e)
         {
             this.brontowurst.HoldOnion();
         }
-
+        /// <summary>
+        /// click HoldPeppers to Hold Peppers for brontowurst
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnHoldPeppers(object sender, RoutedEventArgs e)
         {
             this.brontowurst.HoldPeppers();
         }
-
+        /// <summary>
+        /// go to CustomizeCombo when finish choosing combo or go to main menu when choose entree
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnDone(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            if (this.combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(this.combo));
+            }
+            else
+            {
+                NavigationService.Navigate(new MenuCategorySelection());
+            }
         }
     }
 }

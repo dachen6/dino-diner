@@ -21,15 +21,41 @@ namespace PointOfSale
     public partial class CustomizePterodactylWings : Page
     {
         private PterodactylWings pterodactylWings;
+        /// <summary>
+        /// Initialize PterodactylWings when choose entree
+        /// </summary>
+        /// <param name="pterodactylWings"></param>
         public CustomizePterodactylWings(PterodactylWings pterodactylWings)
         {
             InitializeComponent();
             this.pterodactylWings = pterodactylWings;
         }
-
+        private CretaceousCombo combo;
+        /// <summary>
+        ///  Initialize PterodactylWings when choose combo
+        /// </summary>
+        /// <param name="combo"></param>
+        public CustomizePterodactylWings(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            this.pterodactylWings = combo.Entree as PterodactylWings;
+        }
+        /// <summary>
+        /// go to CustomizeCombo when finish choosing combo or go to main menu when choose entree
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnDone(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CustomizeCombo());
+            if (this.combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(this.combo));
+            }
+            else
+            {
+                NavigationService.Navigate(new MenuCategorySelection());
+            }
         }
 
     }

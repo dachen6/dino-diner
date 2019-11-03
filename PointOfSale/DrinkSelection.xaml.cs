@@ -33,6 +33,11 @@ namespace PointOfSale
             lemon.IsEnabled = false;
         }
         private Drink drink;
+        private CretaceousCombo combo;
+        /// <summary>
+        /// Initialize when choose drink
+        /// </summary>
+        /// <param name="drink"></param>
         public DrinkSelection(Drink drink)
         {
             InitializeComponent();
@@ -40,7 +45,10 @@ namespace PointOfSale
             flavor.IsEnabled = false;
             Ice.IsEnabled = false;
             lemon.IsEnabled = false;
-            if(drink is Sodasaurus)
+            small.IsEnabled = true;
+            Medium.IsEnabled = true;
+            Large.IsEnabled = true;
+            if (drink is Sodasaurus)
             {
                 flavor.IsEnabled = true;
                 Ice.IsEnabled = true;
@@ -66,6 +74,48 @@ namespace PointOfSale
                 lemon.IsEnabled = false;
             }
 
+
+        }
+        /// <summary>
+        /// Initialize when choose combo drink
+        /// </summary>
+        /// <param name="combo"></param>
+        public DrinkSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            this.drink = combo.Drink;
+            flavor.IsEnabled = false;
+            Ice.IsEnabled = false;
+            lemon.IsEnabled = false;
+            small.IsEnabled = false;
+            Medium.IsEnabled = false;
+            Large.IsEnabled = false;
+            if (drink is Sodasaurus)
+            {
+                flavor.IsEnabled = true;
+                Ice.IsEnabled = true;
+                lemon.IsEnabled = false;
+            }
+            if (drink is Water)
+            {
+                flavor.IsEnabled = false;
+                Ice.IsEnabled = false;
+                lemon.IsEnabled = true;
+            }
+            if (drink is Tyrannotea)
+            {
+                flavor.IsEnabled = true;
+                Ice.IsEnabled = false;
+                lemon.IsEnabled = true;
+            }
+            if (drink is JurassicJava)
+            {
+
+                flavor.IsEnabled = true;
+                Ice.IsEnabled = true;
+                lemon.IsEnabled = false;
+            }
         }
         /// <summary>
         /// check if user choose soda
@@ -80,7 +130,15 @@ namespace PointOfSale
         {
             if (drink is Sodasaurus sd)
             {
-                NavigationService.Navigate(new Flavor(sd));
+                if (combo == null)
+                {
+                    NavigationService.Navigate(new Flavor(sd));
+                }
+                else
+                {
+                    NavigationService.Navigate(new Flavor(sd,combo));
+                }
+                //NavigationService.Navigate(new Flavor(sd));
 
             }
             else if (drink is Tyrannotea ty)
@@ -107,12 +165,18 @@ namespace PointOfSale
             lemon.IsEnabled = false;
             if (DataContext is Order order)
             {
-                flavor.IsEnabled = true;
-                Ice.IsEnabled = true;
-                lemon.IsEnabled = false;
-                drink = new Sodasaurus();
-                order.Add(drink);
+                if (combo == null)
+                {
+                    drink = new Sodasaurus();
+                    order.Add(drink);
+                }
+                else
+                {
+                    combo.Drink = new Sodasaurus();
+                    this.drink = combo.Drink;
+                }
             }
+
 
 
         }
@@ -130,8 +194,16 @@ namespace PointOfSale
             t = 2;
             if (DataContext is Order order)
             {
-                drink = new Tyrannotea();
-                order.Add(drink);
+                if (combo == null)
+                {
+                    drink = new Tyrannotea();
+                    order.Add(drink);
+                }
+                else
+                {
+                    combo.Drink = new Tyrannotea();
+                    this.drink = combo.Drink;
+                }
             }
         }
         /// <summary>
@@ -148,8 +220,16 @@ namespace PointOfSale
             t = 3;
             if (DataContext is Order order)
             {
-                drink = new JurassicJava();
-                order.Add(drink);
+                if (combo == null)
+                {
+                    drink = new JurassicJava();
+                    order.Add(drink);
+                }
+                else
+                {
+                    combo.Drink = new JurassicJava();
+                    this.drink = combo.Drink;
+                }
             }
         }
         /// <summary>
@@ -165,8 +245,16 @@ namespace PointOfSale
             lemon.IsEnabled = true;
             if (DataContext is Order order)
             {
-                drink = new Water();
-                order.Add(drink);
+                if (combo == null)
+                {
+                    drink = new Water();
+                    order.Add(drink);
+                }
+                else
+                {
+                    combo.Drink = new Water();
+                    this.drink = combo.Drink;
+                }
             }
             t = 0;
         }
@@ -221,7 +309,14 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Done_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MenuCategorySelection());
+            if (this.combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(this.combo));
+            }
+            else
+            {
+                NavigationService.Navigate(new MenuCategorySelection());
+            }
         }
     }
 

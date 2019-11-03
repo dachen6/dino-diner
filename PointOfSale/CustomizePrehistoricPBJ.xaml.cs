@@ -22,26 +22,60 @@ namespace PointOfSale
     public partial class CustomizePrehistoricPBJ : Page
     {
         private PrehistoricPBJ pbj;
+        /// <summary>
+        ///  Initialize PrehistoricPBJ when choose entree
+        /// </summary>
+        /// <param name="pbj"></param>
         public CustomizePrehistoricPBJ(PrehistoricPBJ pbj)
         {
             InitializeComponent();
             this.pbj = pbj;
         }
-
+        private CretaceousCombo combo;
+        /// <summary>
+        ///  Initialize PrehistoricPBJ when choose combo
+        /// </summary>
+        /// <param name="combo"></param>
+        public CustomizePrehistoricPBJ(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            this.pbj = combo.Entree as PrehistoricPBJ;
+        }
+        /// <summary>
+        /// clickHoldPeanutButter to Hold Peanut Butter for PrehistoricPBJ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void Onholdpeanutbutter(object sender, RoutedEventArgs args)
         {
             this.pbj.HoldPeanutButter();
         }
 
-
+        /// <summary>
+        /// click HoldJelly to Hold Jelly for PrehistoricPBJ
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnholdHoldJelly(object sender, RoutedEventArgs args)
         {
             pbj.HoldJelly();
         }
-
+        /// <summary>
+        /// go to CustomizeCombo when finish choosing combo or go to main menu when choose entree
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new CustomizeCombo());
+            if (this.combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(this.combo));
+            }
+            else
+            {
+                NavigationService.Navigate(new MenuCategorySelection());
+            }
         }
     }
 }

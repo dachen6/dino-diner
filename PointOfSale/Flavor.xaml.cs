@@ -24,6 +24,7 @@ namespace PointOfSale
     public partial class Flavor : Page
     {
         private Sodasaurus drink;
+        private CretaceousCombo combo;
         /// <summary>
         /// begin flavor page
         /// </summary>
@@ -40,6 +41,12 @@ namespace PointOfSale
             InitializeComponent();
             this.drink = sd;
         }
+        public Flavor(Sodasaurus sd, CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            this.drink = sd;
+        }
         /// <summary>
         /// able to change the falvor when click soda
         /// </summary>
@@ -51,7 +58,15 @@ namespace PointOfSale
             {
                 drink.Flavor = (DDfalvor)Enum.Parse(typeof(DDfalvor), element.Tag.ToString());
             }
-            NavigationService.Navigate(new DrinkSelection());
+            if (this.combo != null)
+            {
+                NavigationService.Navigate(new CustomizeCombo(this.combo));
+            }
+            else
+            {
+                NavigationService.Navigate(new DrinkSelection());
+            }
+            
         }
     }
 }
