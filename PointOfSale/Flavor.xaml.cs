@@ -41,6 +41,11 @@ namespace PointOfSale
             InitializeComponent();
             this.drink = sd;
         }
+        /// <summary>
+        ///  inicition falvor page when coose combo
+        /// </summary>
+        /// <param name="sd"></param>
+        /// <param name="combo"></param>
         public Flavor(Sodasaurus sd, CretaceousCombo combo)
         {
             InitializeComponent();
@@ -60,11 +65,11 @@ namespace PointOfSale
             }
             if (this.combo != null)
             {
-                NavigationService.Navigate(new CustomizeCombo(this.combo));
+                NavigationService.Navigate(new DrinkSelection(this.combo));
             }
             else
             {
-                NavigationService.Navigate(new DrinkSelection());
+                NavigationService.Navigate(new DrinkSelection(drink));
             }
             
         }
