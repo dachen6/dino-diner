@@ -37,7 +37,7 @@
                           <ColumnDefinition/>
                             <ColumnDefinition Width="15"/>
                             </Grid.ColumnDefinitions>
-                      </Grid>
+                      
                         <TextBlock Text="{Binding Path=Description}"/>
                         <Button Click="RemoveItem"
                               Grid.Column="1"
@@ -45,6 +45,7 @@
                               Foreground="White"
                               
                               >X</Button>
+                        </Grid>
                         <ListBox ItemsSource="{Binding Path=Special}"
                                  BorderBrush="White"/>
                     </StackPanel>

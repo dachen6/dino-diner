@@ -19,6 +19,9 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/background.jpg"/>
+        </Grid.Background>
         <Button Click="OnHoldBun">HoldBun</Button>
         <Button Click="OnHoldPeppers" Grid.Row="2">Hold Peppers</Button>
         <Button Click="OnHoldOnion" Grid.Row="1">Hold Onion</Button>

@@ -18,6 +18,9 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/background.jpg"/>
+        </Grid.Background>
         <Button Click="Onholddressing">hold dressing</Button>
         <Button Click="OnholdHoldlettuce" Grid.Row="1">hold lettuce</Button>
         <Button Click="OnholdHoldcheese" Grid.Row="2">hold cheese</Button>

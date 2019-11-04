@@ -19,6 +19,9 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/background.jpg"/>
+        </Grid.Background>
         <Button Click="OnHoldBun" Grid.Column="1">Hold Bun</Button>
         <Button Click="OnHoldPickle" Grid.Column="2">Hold Pickle</Button>
         <Button Click="OnHoldKetchupr">Hold Ketchup</Button>
