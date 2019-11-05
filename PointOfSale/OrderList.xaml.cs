@@ -51,27 +51,29 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnSelectionChanged(object sender, SelectionChangedEventArgs args)
+        private void OnSelectionChanged(object sender, EventArgs args)
         {
             if (OrderItems.SelectedItem is Side side)
             {
                 NavigationService?.Navigate(new SideSelection(side));
             }
-            if (OrderItems.SelectedItem is Drink drink)
+            else if (OrderItems.SelectedItem is Drink drink)
             {
                 NavigationService?.Navigate(new DrinkSelection(drink));
             }
-            if (OrderItems.SelectedItem is Entree entree)
+            else if (OrderItems.SelectedItem is Entree entree)
             {
                 NavigationService?.Navigate(new EntreeSelection(entree));
             }
-            if (OrderItems.SelectedItem is CretaceousCombo combo)
+            else if (OrderItems.SelectedItem is CretaceousCombo combo)
             {
                 NavigationService?.Navigate(new CustomizeCombo(combo));
             }
 
 
         }
+
+
     }
     
 }

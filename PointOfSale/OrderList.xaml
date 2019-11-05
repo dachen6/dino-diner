@@ -27,7 +27,7 @@
                  Name="OrderItems"
                  Grid.ColumnSpan="2"
                  ItemsSource="{Binding Path=Items, UpdateSourceTrigger=PropertyChanged}"
-                 IsSynchronizedWithCurrentItem="True" SelectionChanged="OnSelectionChanged"
+                 IsSynchronizedWithCurrentItem="True" MouseDoubleClick="OnSelectionChanged" SelectionChanged="OnSelectionChanged"
                  >
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -61,7 +61,7 @@
                    FontWeight="Bold"
                    Grid.Row="2" Grid.Column="1"
                    />
-        <Button Grid.Row="3">Cancel</Button>
+        <Button Grid.Row="3" >Cancel</Button>
         <Button Grid.Row="3" Grid.Column="1">Pay</Button>
     </Grid>
 </UserControl>
