@@ -12,3 +12,7 @@ body {
     padding-right: 15px;
 }
 
+.row {
+    display: flex;
+    flex-direction: row;
+}

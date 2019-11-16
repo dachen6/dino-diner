@@ -6,3 +6,88 @@
 
 <h1>Menu</h1>
 
+<h2>Combos</h2>
+<div class="menu-item">
+    @for (int i = 0; i < Model.Menu.AvailableCombos.Count; i++)
+    {
+    <div class="row">
+
+
+        <p>@Model.Menu.AvailableCombos[i].ToString():</p>
+        <ul>
+            <li>
+                @Model.Menu.AvailableCombos[i].Calories;
+            </li>
+
+            <li>
+                @Model.Menu.AvailableCombos[i].Price;
+            </li>
+
+            <ul>
+                @for (int j = 0; j < Model.Menu.AvailableCombos[i].Ingredients.Count; j++)
+                {
+
+                    <li>@Model.Menu.AvailableCombos[i].Ingredients[j].ToString()  </li>
+
+                }
+                </ul>
+            </ul>
+</div>
+        }
+    </div>
+<h2>Entrees</h2>
+<div class="menu-item">
+    <div class="row">
+        @for (int i = 0; i < Model.Menu.AvailableEntrees.Count; i++)
+        {
+
+            <div>
+                @Model.Menu.AvailableEntrees[i].ToString();
+
+            </div>
+            <div>
+                @Model.Menu.AvailableEntrees[i].Calories;
+            </div>
+            <div>
+                @Model.Menu.AvailableEntrees[i].Price;
+            </div>
+
+        }
+    </div>
+</div>
+<h2>Sides</h2>
+<div class="menu-item">
+    @for (int i = 0; i < Model.Menu.AvailableDrinks.Count; i++)
+    {
+        <div class="row">
+            <div>
+                @Model.Menu.AvailableDrinks[i].ToString();
+
+            </div>
+            <div>
+                @Model.Menu.AvailableDrinks[i].Calories;
+            </div>
+            <div>
+                @Model.Menu.AvailableDrinks[i].Price;
+            </div>
+        </div>
+    }
+</div>
+<h2>Drinks</h2>
+<div class="menu-item">
+    @for (int i = 0; i < Model.Menu.AvailableSides.Count; i++)
+    {
+        <div class="row">
+            <div>
+                @Model.Menu.AvailableSides[i].ToString();
+
+            </div>
+            <div>
+                @Model.Menu.AvailableSides[i].Calories;
+            </div>
+            <div>
+                @Model.Menu.AvailableSides[i].Price;
+            </div>
+        </div>
+    }
+</div>
