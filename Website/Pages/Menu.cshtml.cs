@@ -15,5 +15,11 @@ namespace Website.Pages
         {
 
         }
+
+
+        public void Onpost()
+        {
+         
+        }
     }
 }
