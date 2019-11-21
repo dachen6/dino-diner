@@ -180,29 +180,28 @@
         <div>
             <form method="post">
                 <h4>Search</h4>
-                <input type="text" name="search" />
+                <input type="text" name="search" id="search" />
                 <input type="submit" value="Search" />
-                <input type="reset" value="Clear" />
-
+                <input type="submit" name="filter" id="filter" value="Apply Filter(s)" />
                 <h4>menu Category</h4>
-                <div class="checkbox-list">
+                <div class="menu-category">
                     <label>
-                        <input type="checkbox" name="rating" value="G" />
+                        <input type="checkbox" name="menuCategory" value="Combo" id="filters" />
                         Combo
                     </label>
 
                     <label>
-                        <input type="checkbox" name="rating" value="PG" />
+                        <input type="checkbox" name="menuCategory" value="Entree" id="filters" />
                         Entree
                     </label>
 
                     <label>
-                        <input type="checkbox" name="rating" value="PG-13" />
+                        <input type="checkbox" name="menuCategory" value="Side" id="filters" />
                         Side
                     </label>
 
                     <label>
-                        <input type="checkbox" name="rating" value="R" />
+                        <input type="checkbox" name="menuCategory" value="Drink" id="filters" />
                         Drink
                     </label>
 
