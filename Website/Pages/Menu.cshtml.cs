@@ -15,49 +15,119 @@ namespace Website.Pages
         public string search { get; set; }
 
         [BindProperty]
-        public List<string> type { get; set; } = new List<string>();
+        public List<string> menuCategory { get; set; } = new List<string>();
+        [BindProperty]
+        public float? minIMDB { get; set; }
+
+        [BindProperty]
+        public float? maxIMDB { get; set; }
+
 
         public Menu Menu { get; } = new Menu();
 
         public List<IMenuItem> AvailableMenuItems;
+        public List<IMenuItem> AvailableCombo;
+
         public void OnGet()
         {
             AvailableMenuItems = Menu.AvailableMenuItems;
+            AvailableCombo = Menu.AvailableCombos;
         }
 
 
         public void Onpost()
         {
             AvailableMenuItems = Menu.AvailableMenuItems;
+            AvailableCombo = Menu.AvailableCombos;
 
-            if (search != null && mapp.Count != 0)
+            if (search != null)
             {
-                Movies = MovieDatabase.SearchAndFilter(search, mapp);
-            }
-            else if (mapp.Count != 0)
-            {
-                Movies = MovieDatabase.Filter(mapp);
+                AvailableMenuItems = Search(AvailableMenuItems, search);
             }
 
-            else if (search != null)
+            if (menuCategory.Count != 0)
             {
-                Movies = MovieDatabase.Search(Movies, search);
-            }
-
-
-            if (mapp.Count != 0)
-            {
-                Movies = MovieDatabase.FilterByMPAA(Movies, mapp);
+                AvailableMenuItems = FilterByMPAA(AvailableMenuItems, menuCategory);
             }
 
             if (minIMDB != null)
             {
-                Movies = MovieDatabase.FilterByBinIMDB(Movies, (float)minIMDB);
+                AvailableMenuItems = FilterByBinIMDB(AvailableMenuItems, (float)minIMDB);
             }
+
             if (maxIMDB != null)
             {
-                Movies = MovieDatabase.FilterByMaxIMDB(Movies, (float)maxIMDB);
+                AvailableMenuItems = FilterByMaxIMDB(AvailableMenuItems, (float)maxIMDB);
             }
+            
+        }
+        public List<IMenuItem> FilterByMPAA(List<IMenuItem> item, List<string> mpaa)
+        {
+            List<IMenuItem> results = new List<IMenuItem>();
+
+           if (mpaa.Contains("Combo"))
+            {
+                results.AddRange(Menu.AvailableCombos);
+            }
+            if (mpaa.Contains("Entree"))
+            {
+                results.AddRange(Menu.AvailableEntrees);
+            }
+            if (mpaa.Contains("Side"))
+            {
+                results.AddRange(Menu.AvailableSides);
+            }
+            if (mpaa.Contains("Drink"))
+            {
+                results.AddRange(Menu.AvailableDrinks);
+            }
+
+            return results;
+        }
+
+
+        public static List<IMenuItem> Search(List<IMenuItem> item, string searchstring)
+        {
+            List<IMenuItem> result = new List<IMenuItem>();
+
+            foreach (IMenuItem Item in item)
+            {
+                if (Item.ToString().Contains(searchstring, StringComparison.OrdinalIgnoreCase))
+                {
+                    result.Add(Item);
+                }
+            }
+            return result;
+        }
+
+        public static List<IMenuItem> FilterByBinIMDB(List<IMenuItem> item, float minIMDB)
+        {
+            List<IMenuItem> results = new List<IMenuItem>();
+
+            foreach (IMenuItem Item in item)
+            {
+                if (Item.Price >= minIMDB)
+                {
+                    results.Add(Item);
+                }
+            }
+
+            return results;
+        }
+
+        public static List<IMenuItem> FilterByMaxIMDB(List<IMenuItem> item , float maxIMDB)
+        {
+            List<IMenuItem> results = new List<IMenuItem>();
+
+            foreach (IMenuItem Item in item)
+            {
+                if (Item.Price <= maxIMDB)
+                {
+                    results.Add(Item);
+                }
+            }
+
+            return results;
         }
     }
 }
