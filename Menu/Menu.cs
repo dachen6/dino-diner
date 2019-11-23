@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace DinoDiner.Menu
 {
@@ -12,6 +13,10 @@ namespace DinoDiner.Menu
         /// <summary>
         /// list all the entree
         /// </summary>
+        /// 
+
+        public HashSet<string> PossibleIngredients = new HashSet<string>();
+        public List<string> PossibleIngredient;
         public List<IMenuItem> AvailableEntrees { get; } = new List<IMenuItem>()
         {
             new Brontowurst(),
@@ -70,6 +75,22 @@ namespace DinoDiner.Menu
                 return item;
             }
         }
+
+        public List<string> AllPossibleIngredients(List<IMenuItem> AvailableMenuItems)
+        {
+            foreach(IMenuItem menu in AvailableMenuItems)
+            {
+                foreach(string s in menu.Ingredients)
+                {
+                    PossibleIngredients.Add(s);
+                }
+            }
+            return PossibleIngredient = PossibleIngredients.ToList();
+
+        }
+     
+
+
         /// <summary>
         /// print the menu item
         /// </summary>

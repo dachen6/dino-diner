@@ -14,8 +14,13 @@ namespace Website.Pages
         [BindProperty]
         public string search { get; set; }
 
+        public List<string> PossibleIngredient;
+
         [BindProperty]
         public List<string> menuCategory { get; set; } = new List<string>();
+        [BindProperty]
+        public List<string> IngredientFilter { get; set; } = new List<string>();
+
         [BindProperty]
         public float? minIMDB { get; set; }
 
@@ -30,7 +35,11 @@ namespace Website.Pages
 
         public void OnGet()
         {
+
+
+
             AvailableMenuItems = Menu.AvailableMenuItems;
+            PossibleIngredient = Menu.AllPossibleIngredients(AvailableMenuItems);
             AvailableCombo = Menu.AvailableCombos;
         }
 
@@ -38,6 +47,7 @@ namespace Website.Pages
         public void Onpost()
         {
             AvailableMenuItems = Menu.AvailableMenuItems;
+            PossibleIngredient = Menu.AllPossibleIngredients(AvailableMenuItems);
             AvailableCombo = Menu.AvailableCombos;
 
             if (search != null)
@@ -130,5 +140,6 @@ namespace Website.Pages
 
             return results;
         }
+        //public static List<IMenuItem> removeing (List<IMenuItem> item)
     }
 }
