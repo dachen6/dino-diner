@@ -27,6 +27,8 @@ namespace Website.Pages
         [BindProperty]
         public float? maxIMDB { get; set; }
 
+        public IMenuItem Item2;
+        public List<string> im { get; set; } = new List<string>();
 
         public Menu Menu { get; } = new Menu();
 
@@ -41,6 +43,7 @@ namespace Website.Pages
             AvailableMenuItems = Menu.AvailableMenuItems;
             PossibleIngredient = Menu.AllPossibleIngredients(AvailableMenuItems);
             AvailableCombo = Menu.AvailableCombos;
+            im = IngredientFilter;
         }
 
 
@@ -68,6 +71,10 @@ namespace Website.Pages
             if (maxIMDB != null)
             {
                 AvailableMenuItems = FilterByMaxIMDB(AvailableMenuItems, (float)maxIMDB);
+            }
+            if(IngredientFilter.Count!= 0)
+            {
+                im = IngredientFilter;
             }
             
             
@@ -140,6 +147,32 @@ namespace Website.Pages
 
             return results;
         }
-        //public static List<IMenuItem> removeing (List<IMenuItem> item)
+       /* public  List<IMenuItem> removeing (List<IMenuItem> item,List<string> remove)
+        {
+            List<IMenuItem> results = new List<IMenuItem>(item);
+
+            foreach (IMenuItem Item in item)
+            {
+
+                results.Add(Item);
+                
+            }
+
+            for (int i =0; i < item.Count; i ++)
+            {
+              
+                for(int j = 0; j < item[i].Ingredients.Count; j ++)
+                {   
+                    
+                    //if (remove.Contains(item[i].Ingredients[j]))
+                    //{
+                        results[i].Ingredients;
+                    //}
+                    
+                }
+                
+            }
+            return results;
+        }*/
     }
 }

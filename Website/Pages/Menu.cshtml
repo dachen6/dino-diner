@@ -38,9 +38,10 @@
                     <ul>
                         @for (int j = 0; j < Model.Menu.AvailableCombos[i].Ingredients.Count; j++)
                         {
-
+                            if (!(Model.im.Contains(Model.Menu.AvailableCombos[i].Ingredients[j].ToString())))
+                            {
                             <li>@Model.Menu.AvailableCombos[i].Ingredients[j].ToString()  </li>
-
+                            }
                         }
                     </ul>
                 </ul>
@@ -71,8 +72,10 @@
                     <ul>
                         @for (int j = 0; j < Model.Menu.AvailableEntrees[i].Ingredients.Count; j++)
                         {
-
+                            if (!(Model.im.Contains(Model.Menu.AvailableEntrees[i].Ingredients[j].ToString())))
+                            {
                             <li>@Model.Menu.AvailableEntrees[i].Ingredients[j].ToString()  </li>
+                            }
 
                         }
                     </ul>
@@ -103,11 +106,12 @@
                 </li>
                 <ul>
                     @for (int j = 0; j < Model.Menu.AvailableSides[i].Ingredients.Count; j++)
+                    {
+                        if (!(Model.im.Contains(Model.Menu.AvailableSides[i].Ingredients[j].ToString())))
                         {
-
                         <li>@Model.Menu.AvailableSides[i].Ingredients[j].ToString()  </li>
-
                         }
+                    }
                 </ul>
             </ul>
         }
@@ -136,9 +140,10 @@
                 <ul>
                     @for (int j = 0; j < Model.Menu.AvailableDrinks[i].Ingredients.Count; j++)
                     {
-
+                        if (!(Model.im.Contains(Model.Menu.AvailableDrinks[i].Ingredients[j].ToString())))
+                        {
                         <li>@Model.Menu.AvailableDrinks[i].Ingredients[j].ToString()  </li>
-
+                        }
                     }
                 </ul>
             </ul>
@@ -152,7 +157,7 @@
     <form method="post">
         <h4>Search</h4>
         <input type="text" name="search" id="search" />
-        <input type="submit" value="Search" />
+        <input type="submit" value="Search"/>
         <input type="submit" name="filter" id="filter" value="Apply Filter(s)" />
         <h4>menu Category</h4>
         <div class="checkbox-list">
@@ -192,7 +197,7 @@
             @for (int i = 0; i < Model.PossibleIngredient.Count; i++)
             {
                 <label>
-                    <input type="checkbox" name="menuCategory" value=Model.PossibleIngredient[i] id="filters" />
+                    <input type="checkbox" name="IngredientFilter" value=@Model.PossibleIngredient[i].ToString() id="filters" />
                     @Model.PossibleIngredient[i]
                 </label>
             }
