@@ -10,31 +10,50 @@ namespace Website.Pages
 {
     public class MenuModel : PageModel
     {
-
+        /// <summary>
+        /// input search
+        /// </summary>
         [BindProperty]
         public string search { get; set; }
-
+        /// <summary>
+        /// ass possible Ingredient
+        /// </summary>
         public List<string> PossibleIngredient;
-
+        /// <summary>
+        /// input menuCategory
+        /// </summary>
         [BindProperty]
         public List<string> menuCategory { get; set; } = new List<string>();
+        /// <summary>
+        /// input Ingredient Filter
+        /// </summary>
         [BindProperty]
         public List<string> IngredientFilter { get; set; } = new List<string>();
-
+        /// <summary>
+        /// input minIMDB
+        /// </summary>
         [BindProperty]
         public float? minIMDB { get; set; }
 
+        /// <summary>
+        /// input maxIMDB
+        /// </summary>
         [BindProperty]
         public float? maxIMDB { get; set; }
 
-        public IMenuItem Item2;
-        public List<string> im { get; set; } = new List<string>();
-
         public Menu Menu { get; } = new Menu();
-
+        /// <summary>
+        /// all possible Item
+        /// </summary>
         public List<IMenuItem> AvailableMenuItems;
+        /// <summary>
+        /// all possible combo
+        /// </summary>
         public List<IMenuItem> AvailableCombo;
 
+        /// <summary>
+        /// the be initial page
+        /// </summary>
         public void OnGet()
         {
 
@@ -42,16 +61,18 @@ namespace Website.Pages
 
             AvailableMenuItems = Menu.AvailableMenuItems;
             PossibleIngredient = Menu.AllPossibleIngredients(AvailableMenuItems);
-            AvailableCombo = Menu.AvailableCombos;
-            im = IngredientFilter;
+
+           
         }
 
-
+        /// <summary>
+        /// page after click
+        /// </summary>
         public void Onpost()
         {
             AvailableMenuItems = Menu.AvailableMenuItems;
             PossibleIngredient = Menu.AllPossibleIngredients(AvailableMenuItems);
-            AvailableCombo = Menu.AvailableCombos;
+       
 
             if (search != null)
             {
@@ -72,13 +93,20 @@ namespace Website.Pages
             {
                 AvailableMenuItems = FilterByMaxIMDB(AvailableMenuItems, (float)maxIMDB);
             }
+
             if(IngredientFilter.Count!= 0)
             {
-                im = IngredientFilter;
+                AvailableMenuItems = removeing(AvailableMenuItems, IngredientFilter);
             }
             
             
         }
+        /// <summary>
+        /// check if contain the type
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="mpaa"></param>
+        /// <returns></returns>
         public List<IMenuItem> FilterByMPAA(List<IMenuItem> item, List<string> mpaa)
         {
             List<IMenuItem> results = new List<IMenuItem>();
@@ -103,7 +131,12 @@ namespace Website.Pages
             return results;
         }
 
-
+        /// <summary>
+        /// check if the menu contain base on input title
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="searchstring"></param>
+        /// <returns></returns>
         public static List<IMenuItem> Search(List<IMenuItem> item, string searchstring)
         {
             List<IMenuItem> result = new List<IMenuItem>();
@@ -117,7 +150,12 @@ namespace Website.Pages
             }
             return result;
         }
-
+        /// <summary>
+        /// menu with prive greater than minIMDB
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="minIMDB"></param>
+        /// <returns></returns>
         public static List<IMenuItem> FilterByBinIMDB(List<IMenuItem> item, float minIMDB)
         {
             List<IMenuItem> results = new List<IMenuItem>();
@@ -132,7 +170,12 @@ namespace Website.Pages
 
             return results;
         }
-
+        /// <summary>
+        /// menu with prive less than maxIMDB
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="maxIMDB"></param>
+        /// <returns></returns>
         public static List<IMenuItem> FilterByMaxIMDB(List<IMenuItem> item , float maxIMDB)
         {
             List<IMenuItem> results = new List<IMenuItem>();
@@ -147,32 +190,33 @@ namespace Website.Pages
 
             return results;
         }
-       /* public  List<IMenuItem> removeing (List<IMenuItem> item,List<string> remove)
+        /// <summary>
+        /// remove item with Ingredients
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="remove"></param>
+        /// <returns></returns>
+        public static List<IMenuItem> removeing (List<IMenuItem> item,List<string> remove)
         {
-            List<IMenuItem> results = new List<IMenuItem>(item);
-
+            List<IMenuItem> results = new List<IMenuItem>();
+            int x = 1;
             foreach (IMenuItem Item in item)
             {
-
-                results.Add(Item);
-                
-            }
-
-            for (int i =0; i < item.Count; i ++)
-            {
-              
-                for(int j = 0; j < item[i].Ingredients.Count; j ++)
-                {   
-                    
-                    //if (remove.Contains(item[i].Ingredients[j]))
-                    //{
-                        results[i].Ingredients;
-                    //}
+                foreach (string s in remove)
+                {
+                    if (Item.Ingredients.Contains(s))
+                    {
+                        x = 2;
+                    }
+                }
+                if(x == 1)
+                {
+                    results.Add(Item);
                     
                 }
-                
+                x = 1;
             }
-            return results;
-        }*/
+                return results;
+        }
     }
 }

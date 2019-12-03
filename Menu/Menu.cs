@@ -10,13 +10,16 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Menu
     {
+
+
+        /// <summary>
+        /// contain all kind of Ingredients
+        /// </summary>
+        public HashSet<string> PossibleIngredients = new HashSet<string>();
+        public List<string> PossibleIngredient;
         /// <summary>
         /// list all the entree
         /// </summary>
-        /// 
-
-        public HashSet<string> PossibleIngredients = new HashSet<string>();
-        public List<string> PossibleIngredient;
         public List<IMenuItem> AvailableEntrees { get; } = new List<IMenuItem>()
         {
             new Brontowurst(),
@@ -75,7 +78,11 @@ namespace DinoDiner.Menu
                 return item;
             }
         }
-
+        /// <summary>
+        /// stone all the PossibleIngredients into list
+        /// </summary>
+        /// <param name="AvailableMenuItems"></param>
+        /// <returns></returns>
         public List<string> AllPossibleIngredients(List<IMenuItem> AvailableMenuItems)
         {
             foreach(IMenuItem menu in AvailableMenuItems)
