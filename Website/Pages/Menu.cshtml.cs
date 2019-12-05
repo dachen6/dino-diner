@@ -51,8 +51,13 @@ namespace Website.Pages
         /// <summary>
         /// all possible combo
         /// </summary>
-        public List<IMenuItem> AvailableCombo;
+        public IEnumerable<CretaceousCombo> AvailableCombos;
 
+        public IEnumerable<Entree> AvailableEntree;
+
+        public IEnumerable<Side> AvailableSide;
+
+        public IEnumerable<Drink> AvailableDrink;
         /// <summary>
         /// the be initial page
         /// </summary>
@@ -63,8 +68,11 @@ namespace Website.Pages
 
             AvailableMenuItems = Menu.AvailableMenuItems;
             PossibleIngredient = Menu.AllPossibleIngredients(AvailableMenuItems);
+            AvailableCombos = AvailableMenuItems.OfType<CretaceousCombo>();
+            AvailableEntree = AvailableMenuItems.OfType<Entree>();
+            AvailableSide = AvailableMenuItems.OfType<Side>();
+            AvailableDrink = AvailableMenuItems.OfType<Drink>();
 
-           
         }
 
         /// <summary>
@@ -74,17 +82,23 @@ namespace Website.Pages
         {
             AvailableMenuItems = Menu.AvailableMenuItems;
             PossibleIngredient = Menu.AllPossibleIngredients(AvailableMenuItems);
-       
+            AvailableCombos = AvailableMenuItems.OfType<CretaceousCombo>();
+            AvailableEntree = AvailableMenuItems.OfType<Entree>();
+            AvailableSide = AvailableMenuItems.OfType<Side>();
+            AvailableDrink = AvailableMenuItems.OfType<Drink>();
+
+
+            if (menuCategory.Count != 0)
+            {
+                AvailableMenuItems = FilterByMPAA(AvailableMenuItems, menuCategory);
+            }
 
             if (search != null)
             {
                 AvailableMenuItems = Search(AvailableMenuItems, search);
             }
 
-            if (menuCategory.Count != 0)
-            {
-                AvailableMenuItems = FilterByMPAA(AvailableMenuItems, menuCategory);
-            }
+
 
             if (minIMDB != null)
             {
