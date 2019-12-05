@@ -22,8 +22,8 @@
         {
             <div class="row">
 
-                @if (Model.AvailableMenuItems.Contains(Model.Menu.AvailableCombos[i]))
-                {
+                @IEnumerable<AvailableCombos> combos = Model.Menu.OfType<AvailableCombos>();
+                @foreach(AvailableCombos combo in combos)
                 <p>@Model.Menu.AvailableMenuItems[i].ToString():</p>
                 <ul>
                     

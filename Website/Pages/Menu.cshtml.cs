@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using DinoDiner.Menu;
+using System.Linq;
+
 
 namespace Website.Pages
 {
@@ -141,13 +143,20 @@ namespace Website.Pages
         {
             List<IMenuItem> result = new List<IMenuItem>();
 
-            foreach (IMenuItem Item in item)
+         //   foreach (IMenuItem Item in item)
+          //  {
+           //     if (Item.ToString().Contains(searchstring, StringComparison.OrdinalIgnoreCase))
+         //       {
+          //          result.Add(Item);
+         //       }
+         //   }
+
+            IEnumerable<IMenuItem> filteredItem = item.Where(items => items.ToString().Contains(searchstring));
+            foreach (IMenuItem I in filteredItem)
             {
-                if (Item.ToString().Contains(searchstring, StringComparison.OrdinalIgnoreCase))
-                {
-                    result.Add(Item);
-                }
+                result.Add(I);
             }
+
             return result;
         }
         /// <summary>
@@ -160,13 +169,19 @@ namespace Website.Pages
         {
             List<IMenuItem> results = new List<IMenuItem>();
 
-            foreach (IMenuItem Item in item)
+            // foreach (IMenuItem Item in item)
+            // {
+            //    if (Item.Price >= minIMDB)
+            //    {
+            //        results.Add(Item);
+            //    }
+            //}
+            IEnumerable<IMenuItem> filteredItem = item.Where(items => items.Price > minIMDB);
+            foreach (IMenuItem I in filteredItem)
             {
-                if (Item.Price >= minIMDB)
-                {
-                    results.Add(Item);
-                }
+                results.Add(I);
             }
+
 
             return results;
         }
@@ -180,12 +195,17 @@ namespace Website.Pages
         {
             List<IMenuItem> results = new List<IMenuItem>();
 
-            foreach (IMenuItem Item in item)
+            //foreach (IMenuItem Item in item)
+            //{
+            //  if (Item.Price <= maxIMDB)
+            // {
+            //     results.Add(Item);
+            //}
+            //}
+            IEnumerable<IMenuItem> filteredItem = item.Where(items => items.Price < maxIMDB);
+            foreach (IMenuItem I in filteredItem)
             {
-                if (Item.Price <= maxIMDB)
-                {
-                    results.Add(Item);
-                }
+                results.Add(I);
             }
 
             return results;
@@ -198,25 +218,37 @@ namespace Website.Pages
         /// <returns></returns>
         public static List<IMenuItem> removeing (List<IMenuItem> item,List<string> remove)
         {
-            List<IMenuItem> results = new List<IMenuItem>();
+            List<IMenuItem> result = new List<IMenuItem>();
             int x = 1;
-            foreach (IMenuItem Item in item)
+            /* foreach (IMenuItem Item in item)
+             {
+                 foreach (string s in remove)
+                 {
+                     if (Item.Ingredients.Contains(s))
+                     {
+                         x = 2;
+                     }
+                 }
+                 if(x == 1)
+                 {
+                     results.Add(Item);
+
+                 }
+                 x = 1;
+             }*/
+            foreach (string s in remove)
             {
-                foreach (string s in remove)
+
+                IEnumerable<IMenuItem> filteredItem = item.Where(items => !remove.Any(a=>items.Ingredients.Contains(a)));
+                foreach (IMenuItem I in filteredItem)
                 {
-                    if (Item.Ingredients.Contains(s))
-                    {
-                        x = 2;
-                    }
+                    result.Add(I);
                 }
-                if(x == 1)
-                {
-                    results.Add(Item);
-                    
-                }
-                x = 1;
             }
-                return results;
+
+            return result;
+
+           
         }
     }
 }
