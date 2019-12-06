@@ -6,6 +6,8 @@
 
 <h1>Menu</h1>
 
+<a href="https://google.com">Google it!</a>
+
 <h2>Combos</h2>
 <h3>
     Drink is Water
@@ -21,33 +23,33 @@
         @for (int i = 0; i < Model.Menu.AvailableCombos.Count; i++)
         {
         <div class="row">
-
-
             @if (Model.AvailableMenuItems.Contains(Model.Menu.AvailableCombos[i]))
             {
+                <table>
+                    <tr>
+                        <th>Size</th>
+                        <th>Calories</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr>
+                        <td>Small</td>
+                        <td>@Model.Menu.AvailableCombos[i].Price</td>
+                        <td>@Model.Menu.AvailableCombos[i].Calories</td>
+
+                    </tr>
+                    @{Model.Menu.AvailableCombos[i].Size = Size.Medium;}
+                </table>
+
+
                 <ul>
-                    <table>
-                        <tr>
-                            <th>Calories</th>
-                            <th>Calories</th>
-                        </tr>
+                    @for (int j = 0; j < Model.Menu.AvailableCombos[i].Ingredients.Count; j++)
+                    {
+                        <li>@Model.Menu.AvailableCombos[i].Ingredients[j].ToString()  </li>
 
-                        <tr>
-                            <th>Calories</th>
-
-                        </tr>
-                    </table>
-
-                    <ul>
-                        @for (int j = 0; j < Model.Menu.AvailableCombos[i].Ingredients.Count; j++)
-                        {
-                            <li>@Model.Menu.AvailableCombos[i].Ingredients[j].ToString()  </li>
-
-                        }
-                    </ul>
+                    }
                 </ul>
             }
-        </div>
+            </div>
         }
 
         <h2>Entrees</h2>

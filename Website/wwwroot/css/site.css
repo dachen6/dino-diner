@@ -32,3 +32,9 @@ form {
     flex-grow: 0;
     padding: 50px;
 }
+td, th{
+    border: 1px solid black;
+}
+table {
+    border-collapse: collapse;
+}
