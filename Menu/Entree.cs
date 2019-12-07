@@ -37,5 +37,16 @@ namespace DinoDiner.Menu
         /// new special for all the entree
         /// </summary>
         public abstract string[] Special { get; }
+
+        /// <summary>
+        /// creat a size for class to use
+        /// </summary>
+        protected Size size;
+
+        /// <summary>
+        /// Gets or sets the size
+        /// </summary>
+
+        public virtual Size Size { get { return size; } set { size = value; } }
     }
 }

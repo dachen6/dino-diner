@@ -37,9 +37,26 @@
                         <td>@Model.Menu.AvailableCombos[i].Calories</td>
 
                     </tr>
-                    @{Model.Menu.AvailableCombos[i].Size = Size.Medium;}
-                </table>
 
+                </table>
+             
+                <table>
+                    @{Model.Menu.AvailableCombos[i].Size = DinoDiner.Menu.Size.Medium;
+                    }
+                    <tr>
+                        <th>Size</th>
+                        <th>Calories</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr>
+                        <td>Medium</td>
+                        <td>@Model.Menu.AvailableCombos[i].Price</td>
+                        <td>@Model.Menu.AvailableCombos[i].Calories</td>
+
+                    </tr>
+                    @{Model.Menu.AvailableCombos[i].Size = DinoDiner.Menu.Size.Medium;
+                    }
+                </table>
 
                 <ul>
                     @for (int j = 0; j < Model.Menu.AvailableCombos[i].Ingredients.Count; j++)
@@ -49,7 +66,7 @@
                     }
                 </ul>
             }
-            </div>
+        </div>
         }
 
         <h2>Entrees</h2>
