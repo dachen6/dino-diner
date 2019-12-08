@@ -25,38 +25,38 @@
         <div class="row">
             @if (Model.AvailableMenuItems.Contains(Model.Menu.AvailableCombos[i]))
             {
-                <table>
-                    <tr>
-                        <th>Size</th>
-                        <th>Calories</th>
-                        <th>Price</th>
-                    </tr>
-                    <tr>
-                        <td>Small</td>
-                        <td>@Model.Menu.AvailableCombos[i].Price</td>
-                        <td>@Model.Menu.AvailableCombos[i].Calories</td>
+            <table>
+                <tr>
+                    <th>Size</th>
+                    <th>Calories</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <th>Small</th>
+                    <th>@Model.Menu.AvailableCombos[i].Price</th>
+                    <th>@Model.Menu.AvailableCombos[i].Calories</th>
 
-                    </tr>
+                </tr>
 
-                </table>
-             
-                <table>
-                    @{Model.Menu.AvailableCombos[i].Size = DinoDiner.Menu.Size.Medium;
-                    }
-                    <tr>
-                        <th>Size</th>
-                        <th>Calories</th>
-                        <th>Price</th>
-                    </tr>
-                    <tr>
-                        <td>Medium</td>
-                        <td>@Model.Menu.AvailableCombos[i].Price</td>
-                        <td>@Model.Menu.AvailableCombos[i].Calories</td>
+                @{Model.Menu.AvailableCombos[i].Size = DinoDiner.Menu.Size.Medium;
+                }
+                <tr>
+                    <th>Medium</th>
+                    <th>@Model.Menu.AvailableCombos[i].Price</th>
+                    <th>@Model.Menu.AvailableCombos[i].Calories</th>
 
-                    </tr>
-                    @{Model.Menu.AvailableCombos[i].Size = DinoDiner.Menu.Size.Medium;
-                    }
-                </table>
+                </tr>
+                @{Model.Menu.AvailableCombos[i].Size = DinoDiner.Menu.Size.Large;
+                }
+
+                <tr>
+                    <th>Medium</th>
+                    <th>@Model.Menu.AvailableCombos[i].Price</th>
+                    <th>@Model.Menu.AvailableCombos[i].Calories</th>
+
+                </tr>
+
+            </table>
 
                 <ul>
                     @for (int j = 0; j < Model.Menu.AvailableCombos[i].Ingredients.Count; j++)
@@ -74,33 +74,61 @@
 
         @for (int i = 0; i < Model.Menu.AvailableEntrees.Count; i++)
         {
-        <div class="row">
-            @if (Model.AvailableMenuItems.Contains(Model.Menu.AvailableEntrees[i]))
-            {
+    <div class="row">
+        @if (Model.AvailableMenuItems.Contains(Model.Menu.AvailableEntrees[i]))
+        {
+            <table>
+                <tr>
+                    <th>Size</th>
+                    <th>Calories</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <th>Small</th>
+                    <th>@Model.Menu.AvailableEntrees[i].Price</th>
+                    <th>@Model.Menu.AvailableEntrees[i].Calories</th>
+
+                </tr>
+
+                @{Model.Menu.AvailableEntrees[i].Size = DinoDiner.Menu.Size.Medium;
+                }
+                <tr>
+                    <th>Medium</th>
+                    <th>@Model.Menu.AvailableEntrees[i].Price</th>
+                    <th>@Model.Menu.AvailableEntrees[i].Calories</th>
+
+                </tr>
+                @{Model.Menu.AvailableEntrees[i].Size = DinoDiner.Menu.Size.Large;
+                }
+
+                <tr>
+                    <th>Large</th>
+                    <th>@Model.Menu.AvailableEntrees[i].Price</th>
+                    <th>@Model.Menu.AvailableEntrees[i].Calories</th>
+
+                </tr>
+
+            </table>
+
+            <ul>
+                <li>
+                    @Model.Menu.AvailableEntrees[i].ToString();
+
+                </li>
+
+
                 <ul>
-                    <li>
-                        @Model.Menu.AvailableEntrees[i].ToString();
+                    @for (int j = 0; j < Model.Menu.AvailableEntrees[i].Ingredients.Count; j++)
+                    {
+                        <li>@Model.Menu.AvailableEntrees[i].Ingredients[j].ToString()  </li>
 
-                    </li>
-                    <li>
-                        Calories:   @Model.Menu.AvailableEntrees[i].Calories;
-                    </li>
-                    <li>
-                        Price:    @Model.Menu.AvailableEntrees[i].Price;
-                    </li>
 
-                    <ul>
-                        @for (int j = 0; j < Model.Menu.AvailableEntrees[i].Ingredients.Count; j++)
-                        {
-                            <li>@Model.Menu.AvailableEntrees[i].Ingredients[j].ToString()  </li>
-                            
-
-                        }
-                    </ul>
-
+                    }
                 </ul>
-            }
-            </div>
+
+            </ul>
+        }
+    </div>
         }
 
 
@@ -111,6 +139,38 @@
     <div class="row">
         @if (Model.AvailableMenuItems.Contains(Model.Menu.AvailableSides[i]))
         {
+            <table>
+                <tr>
+                    <th>Size</th>
+                    <th>Calories</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <th>Small</th>
+                    <th>@Model.Menu.AvailableSides[i].Price</th>
+                    <th>@Model.Menu.AvailableSides[i].Calories</th>
+
+                </tr>
+
+                @{Model.Menu.AvailableSides[i].Size = DinoDiner.Menu.Size.Medium;
+                }
+                <tr>
+                    <th>Medium</th>
+                    <th>@Model.Menu.AvailableSides[i].Price</th>
+                    <th>@Model.Menu.AvailableSides[i].Calories</th>
+
+                </tr>
+                @{Model.Menu.AvailableSides[i].Size = DinoDiner.Menu.Size.Large;
+                }
+
+                <tr>
+                    <th>Large</th>
+                    <th>@Model.Menu.AvailableSides[i].Price</th>
+                    <th>@Model.Menu.AvailableSides[i].Calories</th>
+
+                </tr>
+
+            </table>
             <ul>
                 <li>
                     @Model.Menu.AvailableSides[i].ToString();
@@ -126,12 +186,12 @@
                     @for (int j = 0; j < Model.Menu.AvailableSides[i].Ingredients.Count; j++)
                     {
                         <li>@Model.Menu.AvailableSides[i].Ingredients[j].ToString()  </li>
-                        
+
                     }
                 </ul>
             </ul>
         }
-        </div>
+    </div>
 
         }
 
@@ -142,6 +202,38 @@
     <div class="row">
         @if (Model.AvailableMenuItems.Contains(Model.Menu.AvailableDrinks[i]))
         {
+            <table>
+                <tr>
+                    <th>Size</th>
+                    <th>Calories</th>
+                    <th>Price</th>
+                </tr>
+                <tr>
+                    <th>Small</th>
+                    <th>@Model.Menu.AvailableDrinks[i].Price</th>
+                    <th>@Model.Menu.AvailableDrinks[i].Calories</th>
+
+                </tr>
+
+                @{Model.Menu.AvailableDrinks[i].Size = DinoDiner.Menu.Size.Medium;
+                }
+                <tr>
+                    <th>Medium</th>
+                    <th>@Model.Menu.AvailableDrinks[i].Price</th>
+                    <th>@Model.Menu.AvailableDrinks[i].Calories</th>
+
+                </tr>
+                @{Model.Menu.AvailableDrinks[i].Size = DinoDiner.Menu.Size.Large;
+                }
+
+                <tr>
+                    <th>Large</th>
+                    <th>@Model.Menu.AvailableDrinks[i].Price</th>
+                    <th>@Model.Menu.AvailableDrinks[i].Calories</th>
+
+                </tr>
+
+            </table>
             <ul>
                 <li>
                     @Model.Menu.AvailableDrinks[i].ToString();
@@ -158,12 +250,12 @@
                     {
 
                         <li>@Model.Menu.AvailableDrinks[i].Ingredients[j].ToString()  </li>
-                        
+
                     }
                 </ul>
             </ul>
         }
-        </div>
+    </div>
         }
 
     </div>
